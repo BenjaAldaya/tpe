@@ -9,14 +9,20 @@ class SkinView{
         $smarty->assign('skins', $skins);
     
         $smarty->display('templates/SkinsList.tpl');
+
+        foreach($skins as $skin){
+            echo"<li>$skin->id_arma</li>";
+        }
+
+        include 'templates/footer.tpl';
     }
 
     function showError($msg) {
-        include 'templates/header.php';
+        include 'templates/header.tpl';
 
         echo "<h1> ERROR!</h1>";
         echo "<h2> $msg </h2>";
 
-        include 'templates/footer.php';
+        include 'templates/footer.tpl';
     }
 }

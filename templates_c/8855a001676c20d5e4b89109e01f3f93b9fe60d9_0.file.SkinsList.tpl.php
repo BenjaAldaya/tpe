@@ -1,4 +1,29 @@
-{include file="header.tpl"}
+<?php
+/* Smarty version 3.1.34-dev-7, created on 2020-09-26 00:59:22
+  from 'C:\xampp\htdocs\proyectos\segundocuatri\TPE\tpe\templates\SkinsList.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.34-dev-7',
+  'unifunc' => 'content_5f6e764a1ec0a1_49100266',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '8855a001676c20d5e4b89109e01f3f93b9fe60d9' => 
+    array (
+      0 => 'C:\\xampp\\htdocs\\proyectos\\segundocuatri\\TPE\\tpe\\templates\\SkinsList.tpl',
+      1 => 1601074761,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+    'file:header.tpl' => 1,
+  ),
+),false)) {
+function content_5f6e764a1ec0a1_49100266 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
 
     <main class='container-fluid'>
         <form class='container'>
@@ -71,3 +96,5 @@
         </form>
     </main>
 
+<?php }
+}

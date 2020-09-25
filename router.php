@@ -23,6 +23,8 @@ switch ($params[0]) {
         break;
     default:
         header("HTTP/1.0 404 Not Found");
-        echo('404 Page not found');
+        $msg = '404 not found'
+        $controller = new SkinController();
+        $controller->showError();
         break;
 }
