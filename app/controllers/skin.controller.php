@@ -28,4 +28,10 @@ class SkinController {
     function showError($msg){
         $this->view->showError($msg);
     }
+
+    function showarma($idarma){
+        $armas= $this->model->getAllArmas();
+        $skinsarma = $this->model->getskinsarma($idarma);
+        $this->view->showskinarma($armas,$skinsarma);
+    }
 }

@@ -37,10 +37,13 @@ class SkinModel {
     return $armas;
     }
 
-    function questName($id){
-    $query = $this->db->prepare('SELECT nombre From arma WHERE id_arma = $id');
-    $query->execute();
-    
-    return $query;
+
+    function getskinsarma($idarma){
+        $query = $this->db->prepare("SELECT * FROM skin WHERE id_arma = '$idarma'");
+        $query->execute();
+
+        $skinarmas = $query->fetchAll(PDO::FETCH_OBJ);
+
+        return $skinarmas;
     }
 }

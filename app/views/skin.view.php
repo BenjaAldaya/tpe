@@ -17,7 +17,13 @@ class SkinView{
         $smarty->assign('armas', $armas);
         $smarty->assign('skins', $skins);
         $smarty->display('templates/skinsList.tpl');
-    
+    }
+    function showskinarma($armas,$skinarmas){
+        $smarty = new Smarty();
+
+        $smarty->assign('armas', $armas);
+        $smarty->assign('skins', $skinarmas);
+        $smarty->display('templates/skinsList.tpl');
     }
 
     function showError($msg) {
