@@ -16,11 +16,11 @@
                 </div>
                 <div class='dropdown'>
                     <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Rifles
+                        Subfusiles
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                         {foreach from=$armas item=arma}
-                            {if $arma->id_tipo == 4}
+                            {if $arma->id_tipo == 5}
                                 <a class="dropdown-item" href="#">{$arma->nombre}</a>
                             {/if}   
                         {/foreach} 
@@ -28,11 +28,11 @@
                 </div>
                 <div class='dropdown'>
                     <a class="btn btn-info dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Subfusiles
+                        Rifles
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                         {foreach from=$armas item=arma}
-                            {if $arma->id_tipo == 5}
+                            {if $arma->id_tipo == 4}
                                 <a class="dropdown-item" href="#">{$arma->nombre}</a>
                             {/if}   
                         {/foreach} 

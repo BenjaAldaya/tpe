@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-09-27 00:21:04
+/* Smarty version 3.1.34-dev-7, created on 2020-09-27 00:49:31
   from 'C:\xampp\htdocs\proyectos\segundocuatri\TPE\tpe\templates\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f6fbed00563a3_44038538',
+  'unifunc' => 'content_5f6fc57b13b656_71212796',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a29c16d1abe1ff3a3102167015e7dc7460fd9865' => 
     array (
       0 => 'C:\\xampp\\htdocs\\proyectos\\segundocuatri\\TPE\\tpe\\templates\\header.tpl',
-      1 => 1601158862,
+      1 => 1601160569,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f6fbed00563a3_44038538 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f6fc57b13b656_71212796 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -50,8 +50,8 @@ function content_5f6fbed00563a3_44038538 (Smarty_Internal_Template $_smarty_tpl)
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
-            <input name="user" type="text" placeholder="Usuario">
-            <input name="passwrod" type="password" placeholder="Contraseña">
+            <input name="user" type="text" placeholder="Usuario" class="form-control">
+            <input name="passwrod" type="password" placeholder="Contraseña" class="form-control">
             <button class="btn btn-primary w-10">Ingresar</button>
         </form>
     </div>

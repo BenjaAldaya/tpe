@@ -37,10 +37,4 @@ class SkinModel {
     return $armas;
     }
 
-    function questName($id){
-    $query = $this->db->prepare('SELECT nombre From arma WHERE id_arma = $id');
-    $query->execute();
-    
-    return $query;
-    }
 }

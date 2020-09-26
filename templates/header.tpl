@@ -27,8 +27,8 @@
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
-            <input name="user" type="text" placeholder="Usuario">
-            <input name="passwrod" type="password" placeholder="Contraseña">
+            <input name="user" type="text" placeholder="Usuario" class="form-control">
+            <input name="passwrod" type="password" placeholder="Contraseña" class="form-control">
             <button class="btn btn-primary w-10">Ingresar</button>
         </form>
     </div>
