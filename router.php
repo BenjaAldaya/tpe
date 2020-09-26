@@ -22,6 +22,34 @@ switch ($params[0]) {
         //$controller->showSkins();
         $controller->showTArma();
     break;
+    case 'armas':
+        switch ($params[1]){
+            case 'Pistola':
+                $controller = new SkinController();           
+                $controller->showarma($params[2]);
+            break;
+            case'Rifle':
+                $controller = new SkinController();           
+                $controller->showarma($params[2]);
+            break;
+            case'Cuchillo':
+                $controller = new SkinController();           
+                $controller->showarma($params[2]);
+            break;
+            case'Subfusil':
+                $controller = new SkinController();           
+                $controller->showarma($params[2]);
+            break;
+            case'Pesada':
+                $controller = new SkinController();           
+                $controller->showarma($params[2]);
+            break;
+            case'Guantes':
+                $controller = new SkinController();           
+                $controller->showarma($params[2]);
+            break;         
+         }
+    break;
     case 'about':
         $controller = new SkinController();
         $controller->showAbout();

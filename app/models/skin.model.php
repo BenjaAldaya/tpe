@@ -37,4 +37,13 @@ class SkinModel {
     return $armas;
     }
 
+
+    function getskinsarma($idarma){
+        $query = $this->db->prepare("SELECT * FROM skin WHERE id_arma = '$idarma'");
+        $query->execute();
+
+        $skinarmas = $query->fetchAll(PDO::FETCH_OBJ);
+
+        return $skinarmas;
+    }
 }

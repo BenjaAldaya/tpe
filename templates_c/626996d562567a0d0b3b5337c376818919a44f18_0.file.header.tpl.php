@@ -1,8 +1,32 @@
-<!DOCTYPE html>
+<?php
+/* Smarty version 3.1.34-dev-7, created on 2020-09-27 01:39:40
+  from 'C:\xampp\htdocs\Proyectos\web2\tpe\templates\header.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.34-dev-7',
+  'unifunc' => 'content_5f6fd13cdb00f9_35731586',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '626996d562567a0d0b3b5337c376818919a44f18' => 
+    array (
+      0 => 'C:\\xampp\\htdocs\\Proyectos\\web2\\tpe\\templates\\header.tpl',
+      1 => 1601163495,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_5f6fd13cdb00f9_35731586 (Smarty_Internal_Template $_smarty_tpl) {
+?><!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <base href="{BASE_URL}">
+    <base href="<?php echo BASE_URL;?>
+">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -28,10 +52,8 @@
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
-            <input name="user" type="text" placeholder="Usuario" class="form-control">
-            <input name="passwrod" type="password" placeholder="Contraseña" class="form-control">
-            <button class="btn btn-primary w-10">Ingresar</button>
         </form>
     </div>
     </nav>
-</header>
+</header><?php }
+}

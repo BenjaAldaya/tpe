@@ -1,7 +1,7 @@
 {include file="header.tpl"}
-
-    <section class='container-fluid'>
-            <div class='row '>
+<main class='container-fluid'>
+    <section>
+            <div class='row'>
                 <div class='dropdown '>
                     <a class="btn btn-info dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Pistolas
@@ -9,7 +9,7 @@
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                         {foreach from=$armas item=arma}
                             {if $arma->id_tipo == 3}
-                                <a class="dropdown-item" href="#">{$arma->nombre}</a>
+                                <a class="dropdown-item" href="armas/{$arma->tipo}/{$arma->id_arma}">{$arma->nombre}</a>
                             {/if}   
                         {/foreach} 
                     </div>
@@ -21,7 +21,7 @@
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                         {foreach from=$armas item=arma}
                             {if $arma->id_tipo == 5}
-                                <a class="dropdown-item" href="#">{$arma->nombre}</a>
+                                <a class="dropdown-item" href="armas/{$arma->tipo}/{$arma->id_arma}">{$arma->nombre}</a>
                             {/if}   
                         {/foreach} 
                     </div>
@@ -33,7 +33,7 @@
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                         {foreach from=$armas item=arma}
                             {if $arma->id_tipo == 4}
-                                <a class="dropdown-item" href="#">{$arma->nombre}</a>
+                                <a class="dropdown-item" href="armas/{$arma->tipo}/{$arma->id_arma}">{$arma->nombre}</a>
                             {/if}   
                         {/foreach} 
                     </div>
@@ -45,7 +45,7 @@
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                         {foreach from=$armas item=arma}
                             {if $arma->id_tipo == 2}
-                                <a class="dropdown-item" href="#">{$arma->nombre}</a>
+                                <a class="dropdown-item" href="armas/{$arma->tipo}/{$arma->id_arma}">{$arma->nombre}</a>
                             {/if}   
                         {/foreach} 
                     </div>
@@ -57,14 +57,14 @@
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                         {foreach from=$armas item=arma}
                             {if $arma->id_tipo == 1}
-                                <a class="dropdown-item" href="#">{$arma->nombre}</a>
+                                <a class="dropdown-item" href="armas/{$arma->tipo}/{$arma->id_arma}">{$arma->nombre}</a>
                             {/if}   
                         {/foreach} 
                     </div>
                 </div>  
             </div>
-
     </section>
     {include file="cardSkins.tpl"}
-    {include file="footer.tpl"}
+</main>
+{include file="footer.tpl"}
 

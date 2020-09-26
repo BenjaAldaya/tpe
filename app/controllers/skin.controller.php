@@ -32,4 +32,10 @@ class SkinController {
     function showAbout(){
         $this->view->showAbout();
     }
+    
+    function showarma($idarma){
+        $armas= $this->model->getAllArmas();
+        $skinsarma = $this->model->getskinsarma($idarma);
+        $this->view->showskinarma($armas,$skinsarma);
+    }
 }
