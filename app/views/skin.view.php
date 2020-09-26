@@ -3,13 +3,13 @@ require_once('libs/smarty/libs/Smarty.class.php');
 
 class SkinView{
     
-    function showSkins($skins){
-        $smarty = new Smarty();
+    // function showSkins($skins){
+    //     $smarty = new Smarty();
 
-        $smarty->assign('skins', $skins);
-        
-        $smarty->display('templates/cardSkins.tpl');
-    }
+    //     $smarty->assign('skins', $skins);
+    //     $smarty->assign('armas', $armas);
+    //     $smarty->display('templates/cardSkins.tpl');
+    // }
 
     function showTArma($armas, $skins){
         $smarty = new Smarty();
