@@ -16,7 +16,7 @@ class SkinModel {
         return $db;
     }
 
-    function getAll() {
+    function getAllSkins() {
 
         // 2. Enviar la consulta (2 sub-pasos: prepare y execute)
         $query = $this->db->prepare('SELECT * FROM skin');
@@ -26,5 +26,14 @@ class SkinModel {
         $skins = $query->fetchAll(PDO::FETCH_OBJ); // arreglo de tareas
 
         return $skins;
+    }
+
+    function getAllArmas(){
+    $query = $this->db->prepare ('SELECT * FROM arma');
+    $query->execute();
+
+    $armas = $query ->fetchAll(PDO::FETCH_OBJ);
+    
+    return $armas;
     }
 }

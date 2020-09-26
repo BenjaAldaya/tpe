@@ -14,8 +14,17 @@ class SkinController {
 
     function showSkins(){
         //pido todas las skins
-        $skins=$this->model->getAll();
+        $skins=$this->model->getAllSkins();
         //muestro las skins
         $this->view->showSkins($skins);
+    }
+
+    function showTArma(){
+        $armas= $this->model->getAllArmas();
+        $this->view->showTArma($armas);
+    }
+
+    function showError($msg){
+        $this->view->showError($msg);
     }
 }

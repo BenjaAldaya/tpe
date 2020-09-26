@@ -11,7 +11,7 @@
 
 <body>
 <header>
-    <nav class="container navbar navbar-expand-lg navbar-light bg-secondary mb-3">
+    <nav class="container-fluid navbar navbar-expand-lg navbar-light bg-secondary mb-3">
     <a class="navbar-brand" href="home">Phantom</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>

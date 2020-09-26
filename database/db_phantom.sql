@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-09-2020 a las 23:56:06
--- Versión del servidor: 10.4.11-MariaDB
--- Versión de PHP: 7.2.31
+-- Tiempo de generación: 26-09-2020 a las 04:05:17
+-- Versión del servidor: 10.4.6-MariaDB
+-- Versión de PHP: 7.3.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -30,62 +31,63 @@ SET time_zone = "+00:00";
 CREATE TABLE `arma` (
   `id_arma` int(11) NOT NULL,
   `nombre` varchar(50) DEFAULT NULL,
-  `tipo` varchar(50) DEFAULT NULL
+  `tipo` varchar(50) DEFAULT NULL,
+  `id_tipo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `arma`
 --
 
-INSERT INTO `arma` (`id_arma`, `nombre`, `tipo`) VALUES
-(1, 'Glock-18', 'Pistola'),
-(2, 'USP-S', 'Pistola'),
-(3, 'Desert Eagle', 'Pistola'),
-(4, 'p250', 'Pistola'),
-(5, 'Five-SeveN', 'Pistola'),
-(6, 'Berettas Dobles', 'Pistola'),
-(7, 'Tec-9', 'Pistola'),
-(8, 'P2000', 'Pistola'),
-(9, 'MP5-SD', 'Subfusil'),
-(10, 'MP7', 'Subfusil'),
-(11, 'UMP-45', 'Subfusil'),
-(12, 'P90', 'Subfusil'),
-(13, 'PP-Bizon', 'Subfusil'),
-(14, 'MP9', 'Subfusil'),
-(15, 'MAC-10', 'Subfusil'),
-(16, 'Nova', 'Pesada'),
-(17, 'XM1014', 'Pesada'),
-(18, 'Recortada', 'Pesada'),
-(19, 'MAG-7', 'Pesada'),
-(20, 'M249', 'Pesada'),
-(21, 'Negev', 'Pesada'),
-(22, 'AK-47', 'Rifle'),
-(23, 'M4-A4', 'Rifle'),
-(24, 'SSG 08', 'Rifle'),
-(25, 'SSG 553', 'Rifle'),
-(26, 'AUG', 'Rifle'),
-(27, 'AWP', 'Rifle'),
-(28, 'G3SG1', 'Rifle'),
-(29, 'SCAR 20', 'Rifle'),
-(30, 'FAMAS', 'Rifle'),
-(31, 'GALIL AR', 'Rifle'),
-(32, 'Bayoneta', 'Cuchillo'),
-(33, 'Bayoneta M9', 'Cuchillo'),
-(34, 'Alfanje', 'Cuchillo'),
-(35, 'Bowie', 'Cuchillo'),
-(36, 'Clasico', 'Cuchillo'),
-(37, 'Supervivencia', 'Cuchillo'),
-(38, 'Cazador', 'Cuchillo'),
-(39, 'Destripador', 'Cuchillo'),
-(40, 'Encordado', 'Cuchillo'),
-(41, 'Esqueletizado', 'Cuchillo'),
-(42, 'Mariposa', 'Cuchillo'),
-(43, 'Nomada', 'Cuchillo'),
-(44, 'Plegable', 'Cuchillo'),
-(45, 'Talon', 'Cuchillo'),
-(46, 'Ursus', 'Cuchillo'),
-(47, 'Dagas Sombrias', 'Cuchillo'),
-(48, 'Karambit', 'Cuchillo');
+INSERT INTO `arma` (`id_arma`, `nombre`, `tipo`, `id_tipo`) VALUES
+(1, 'Glock-18', 'Pistola', 3),
+(2, 'USP-S', 'Pistola', 3),
+(3, 'Desert Eagle', 'Pistola', 3),
+(4, 'p250', 'Pistola', 3),
+(5, 'Five-SeveN', 'Pistola', 3),
+(6, 'Berettas Dobles', 'Pistola', 3),
+(7, 'Tec-9', 'Pistola', 3),
+(8, 'P2000', 'Pistola', 3),
+(9, 'MP5-SD', 'Subfusil', 5),
+(10, 'MP7', 'Subfusil', 5),
+(11, 'UMP-45', 'Subfusil', 5),
+(12, 'P90', 'Subfusil', 5),
+(13, 'PP-Bizon', 'Subfusil', 5),
+(14, 'MP9', 'Subfusil', 5),
+(15, 'MAC-10', 'Subfusil', 5),
+(16, 'Nova', 'Pesada', 2),
+(17, 'XM1014', 'Pesada', 2),
+(18, 'Recortada', 'Pesada', 2),
+(19, 'MAG-7', 'Pesada', 2),
+(20, 'M249', 'Pesada', 2),
+(21, 'Negev', 'Pesada', 2),
+(22, 'AK-47', 'Rifle', 4),
+(23, 'M4-A4', 'Rifle', 4),
+(24, 'SSG 08', 'Rifle', 4),
+(25, 'SSG 553', 'Rifle', 4),
+(26, 'AUG', 'Rifle', 4),
+(27, 'AWP', 'Rifle', 4),
+(28, 'G3SG1', '', 0),
+(29, 'SCAR 20', 'Rifle', 4),
+(30, 'FAMAS', 'Rifle', 4),
+(31, 'GALIL AR', 'Rifle', 4),
+(32, 'Bayoneta', 'Cuchillo', 1),
+(33, 'Bayoneta M9', 'Cuchillo', 1),
+(34, 'Alfanje', 'Cuchillo', 1),
+(35, 'Bowie', 'Cuchillo', 1),
+(36, 'Clasico', 'Cuchillo', 1),
+(37, 'Supervivencia', 'Cuchillo', 1),
+(38, 'Cazador', 'Cuchillo', 1),
+(39, 'Destripador', 'Cuchillo', 1),
+(40, 'Encordado', 'Cuchillo', 1),
+(41, 'Esqueletizado', 'Cuchillo', 1),
+(42, 'Mariposa', 'Cuchillo', 1),
+(43, 'Nomada', 'Cuchillo', 1),
+(44, 'Plegable', 'Cuchillo', 1),
+(45, 'Talon', 'Cuchillo', 1),
+(46, 'Ursus', 'Cuchillo', 1),
+(47, 'Dagas Sombrias', 'Cuchillo', 1),
+(48, 'Karambit', 'Cuchillo', 1);
 
 -- --------------------------------------------------------
 

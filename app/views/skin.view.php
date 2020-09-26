@@ -2,27 +2,25 @@
 require_once('libs/smarty/libs/Smarty.class.php');
 
 class SkinView{
-
+    
     function showSkins($skins){
         $smarty = new Smarty();
 
         $smarty->assign('skins', $skins);
+        
+    }
+
+    function showTArma($armas){
+        $smarty = new Smarty();
+
+        $smarty->assign('armas', $armas);
+
+        $smarty->display('templates/skinsList.tpl');
     
-        $smarty->display('templates/SkinsList.tpl');
-
-        foreach($skins as $skin){
-            echo"<li>$skin->id_arma</li>";
-        }
-
-        include 'templates/footer.tpl';
     }
 
     function showError($msg) {
-        include 'templates/header.tpl';
-
         echo "<h1> ERROR!</h1>";
         echo "<h2> $msg </h2>";
-
-        include 'templates/footer.tpl';
     }
 }

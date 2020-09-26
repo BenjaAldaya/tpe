@@ -20,11 +20,12 @@ switch ($params[0]) {
     case 'home':
         $controller = new SkinController();
         $controller->showSkins();
+        $controller->showTArma();
         break;
     default:
         header("HTTP/1.0 404 Not Found");
-        $msg = '404 not found'
+        $msg = '404 not found';
         $controller = new SkinController();
-        $controller->showError();
+        $controller->showError($msg);
         break;
 }
