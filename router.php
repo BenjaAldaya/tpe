@@ -19,7 +19,7 @@ $params = explode('/', $action);
 switch ($params[0]) {
     case 'home':
         $controller = new SkinController();
-        $controller->showSkins();
+        //$controller->showSkins();
         $controller->showTArma();
         break;
     default:
