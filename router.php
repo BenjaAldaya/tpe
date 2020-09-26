@@ -21,11 +21,15 @@ switch ($params[0]) {
         $controller = new SkinController();
         //$controller->showSkins();
         $controller->showTArma();
-        break;
+    break;
+    case 'about':
+        $controller = new SkinController();
+        $controller->showAbout();
+    break;
     default:
         header("HTTP/1.0 404 Not Found");
         $msg = '404 not found';
         $controller = new SkinController();
         $controller->showError($msg);
-        break;
+    break;
 }

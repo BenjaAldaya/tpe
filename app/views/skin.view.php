@@ -26,4 +26,10 @@ class SkinView{
         echo "<h2> $msg </h2>";
         include('templates/footer.tpl');
     }
+    
+    function showAbout(){
+        include('templates/header.tpl');
+        echo '<h1>Pagina en construccion</h1>';
+        include('templates/footer.tpl');
+    }
 }

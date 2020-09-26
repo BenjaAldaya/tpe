@@ -64,8 +64,7 @@
                 </div>  
             </div>
 
-       {include file="cardSkins.tpl"}
     </section>
-
+    {include file="cardSkins.tpl"}
     {include file="footer.tpl"}
 

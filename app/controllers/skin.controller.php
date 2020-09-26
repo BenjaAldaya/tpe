@@ -28,4 +28,8 @@ class SkinController {
     function showError($msg){
         $this->view->showError($msg);
     }
+
+    function showAbout(){
+        $this->view->showAbout();
+    }
 }
