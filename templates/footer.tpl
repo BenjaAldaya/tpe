@@ -1,13 +1,8 @@
 
 
-<footer class="container-fluid bg-info mt-5">
-  <div class="row">
-    <div class="col-8">
-      <p class="text-center">Seguinos en nuestas redes sociales!</p>
-    </div>
-    <div class="col-4">
-      <p class="text-center">&#169; Todos los derechos reservados</p>
-    </div>
+<footer class="container-fluid bg-dark mt-5">
+  <div class="row mx-auto d-flex justify-content-center">
+      <p class="text-center text-primary">&#169; 2020 - 2021</p>
   </div>
 
 </footer>

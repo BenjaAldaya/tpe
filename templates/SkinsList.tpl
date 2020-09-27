@@ -1,7 +1,7 @@
 {include file="header.tpl"}
 <main class='container-fluid'>
     <section>
-            <div class='row'>
+            <div class='row d-flex justify-content-center'>
                 <div class='dropdown '>
                     <a class="btn btn-info dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Pistolas

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-09-27 21:42:13
+/* Smarty version 3.1.34-dev-7, created on 2020-09-27 22:16:22
   from 'C:\xampp\htdocs\proyectos\segundocuatri\TPE\tpe\templates\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f70eb15e0b3b2_60028958',
+  'unifunc' => 'content_5f70f316d09c29_24611369',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a29c16d1abe1ff3a3102167015e7dc7460fd9865' => 
     array (
       0 => 'C:\\xampp\\htdocs\\proyectos\\segundocuatri\\TPE\\tpe\\templates\\header.tpl',
-      1 => 1601235731,
+      1 => 1601237781,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f70eb15e0b3b2_60028958 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f70f316d09c29_24611369 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -36,7 +36,7 @@ function content_5f70eb15e0b3b2_60028958 (Smarty_Internal_Template $_smarty_tpl)
 
 <body class="bg-dark">
 <header>
-    <nav class="container-fluid navbar navbar-expand-lg navbar-light bg-info mb-3">
+    <nav class="container-fluid navbar navbar-expand-lg navbar-dark bg-info mb-3">
     <a class="navbar-brand" href="home">Phantom</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -45,13 +45,13 @@ function content_5f70eb15e0b3b2_60028958 (Smarty_Internal_Template $_smarty_tpl)
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link text-primary" href="home">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link text-light" href="home">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-primary" href="about">About</a>
+                <a class="nav-link text-light" href="about">About</a>
             </li>
             <li>
-            <a class="nav-link text-primary" href="registro">Crear cuenta</a>
+            <a class="nav-link text-light" href="registro">Crear cuenta</a>
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">

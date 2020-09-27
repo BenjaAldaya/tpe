@@ -49,7 +49,7 @@
                     </div>
 
                     <div class="form-group row ">
-                        <div class="col-sm-12">
+                        <div class="col-sm-12 d-flex justify-content-center">
                             <button type="submit" class="btn btn-primary btn-lg btn-dark btn-outline-light mt-4">Registrarse</button>
                         </div>
                     </div>

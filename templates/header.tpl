@@ -12,7 +12,7 @@
 
 <body class="bg-dark">
 <header>
-    <nav class="container-fluid navbar navbar-expand-lg navbar-light bg-info mb-3">
+    <nav class="container-fluid navbar navbar-expand-lg navbar-dark bg-info mb-3">
     <a class="navbar-brand" href="home">Phantom</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -21,13 +21,13 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link text-primary" href="home">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link text-light" href="home">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-primary" href="about">About</a>
+                <a class="nav-link text-light" href="about">About</a>
             </li>
             <li>
-            <a class="nav-link text-primary" href="registro">Crear cuenta</a>
+            <a class="nav-link text-light" href="registro">Crear cuenta</a>
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
