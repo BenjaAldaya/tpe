@@ -26,6 +26,9 @@
             <li class="nav-item">
                 <a class="nav-link text-primary" href="about">About</a>
             </li>
+            <li>
+            <a class="nav-link text-primary" href="registro">Crear cuenta</a>
+            </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
             <input name="user" type="text" placeholder="Usuario" class="form-control">

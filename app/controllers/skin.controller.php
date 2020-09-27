@@ -38,4 +38,8 @@ class SkinController {
         $skinsarma = $this->model->getskinsarma($idarma);
         $this->view->showskinarma($armas,$skinsarma);
     }
+
+    function showRegistro(){
+        $this->view->showRegistro();
+    }
 }

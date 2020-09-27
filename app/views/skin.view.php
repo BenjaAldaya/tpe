@@ -38,4 +38,10 @@ class SkinView{
         echo '<h1>Pagina en construccion</h1>';
         include('templates/footer.tpl');
     }
+
+    function showRegistro(){
+        include('templates/header.tpl');
+        include('templates/formRegistro.tpl');
+        include('templates/footer.tpl');
+    }
 }

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-09-27 01:49:25
+/* Smarty version 3.1.34-dev-7, created on 2020-09-27 21:42:13
   from 'C:\xampp\htdocs\proyectos\segundocuatri\TPE\tpe\templates\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f6fd385f2adc1_85119513',
+  'unifunc' => 'content_5f70eb15e0b3b2_60028958',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a29c16d1abe1ff3a3102167015e7dc7460fd9865' => 
     array (
       0 => 'C:\\xampp\\htdocs\\proyectos\\segundocuatri\\TPE\\tpe\\templates\\header.tpl',
-      1 => 1601163951,
+      1 => 1601235731,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f6fd385f2adc1_85119513 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f70eb15e0b3b2_60028958 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -49,6 +49,9 @@ function content_5f6fd385f2adc1_85119513 (Smarty_Internal_Template $_smarty_tpl)
             </li>
             <li class="nav-item">
                 <a class="nav-link text-primary" href="about">About</a>
+            </li>
+            <li>
+            <a class="nav-link text-primary" href="registro">Crear cuenta</a>
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">

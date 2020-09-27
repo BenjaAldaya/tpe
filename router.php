@@ -54,6 +54,10 @@ switch ($params[0]) {
         $controller = new SkinController();
         $controller->showAbout();
     break;
+    case 'registro':
+        $controller = new SkinController();
+        $controller->showRegistro();
+    break;
     default:
         header("HTTP/1.0 404 Not Found");
         $msg = '404 not found';
