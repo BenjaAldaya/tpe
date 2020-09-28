@@ -37,6 +37,14 @@ class SkinModel {
     return $armas;
     }
 
+    function getTipo(){
+        $query = $this->db->prepare('SELECT DISTINCT tipo FROM arma');
+        $query->execute();
+
+        $tipo = $query->fetchAll(PDO::FETCH_OBJ);
+        return $tipo; 
+    }
+
 
     function getskinsarma($idarma){
         $query = $this->db->prepare("SELECT * FROM skin WHERE id_arma = '$idarma'");

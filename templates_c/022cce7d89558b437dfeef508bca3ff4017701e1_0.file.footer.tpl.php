@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-09-27 00:11:04
+/* Smarty version 3.1.34-dev-7, created on 2020-09-28 02:15:59
   from 'C:\xampp\htdocs\Proyectos\web2\tpe\templates\footer.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f6fbc785cc606_27629468',
+  'unifunc' => 'content_5f712b3ff1b5e8_27868761',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '022cce7d89558b437dfeef508bca3ff4017701e1' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Proyectos\\web2\\tpe\\templates\\footer.tpl',
-      1 => 1601157056,
+      1 => 1601252144,
       2 => 'file',
     ),
   ),
@@ -20,17 +20,12 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f6fbc785cc606_27629468 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f712b3ff1b5e8_27868761 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
-<footer class="container-fluid bg-info mt-5">
-  <div class="row">
-    <div class="col-8">
-      <p class="text-center">Seguinos en nuestas redes sociales!</p>
-    </div>
-    <div class="col-4">
-      <p class="text-center">&#169; Todos los derechos reservados</p>
-    </div>
+<footer class="container-fluid bg-dark mt-5">
+  <div class="row mx-auto d-flex justify-content-center">
+      <p class="text-center text-primary">&#169; 2020 - 2021</p>
   </div>
 
 </footer>

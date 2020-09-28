@@ -22,7 +22,8 @@ class SkinController {
     function showTArma(){
         $armas= $this->model->getAllArmas();
         $skins= $this->model->getAllSkins();
-        $this->view->showTArma($armas, $skins);
+        $tipo= $this->model->getTipo();
+        $this->view->showTArma($tipo,$armas, $skins);
     }
 
     function showError($msg){
@@ -36,7 +37,8 @@ class SkinController {
     function showarma($idarma){
         $armas= $this->model->getAllArmas();
         $skinsarma = $this->model->getskinsarma($idarma);
-        $this->view->showskinarma($armas,$skinsarma);
+        $tipo= $this->model->getTipo();
+        $this->view->showskinarma($tipo,$armas,$skinsarma);
     }
 
     function showRegistro(){

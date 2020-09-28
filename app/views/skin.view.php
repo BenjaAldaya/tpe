@@ -11,19 +11,20 @@ class SkinView{
     //     $smarty->display('templates/cardSkins.tpl');
     // }
 
-    function showTArma($armas, $skins){
+    function showTArma($tipo,$armas,$skins){
         $smarty = new Smarty();
 
         $smarty->assign('armas', $armas);
         $smarty->assign('skins', $skins);
-        $smarty->display('templates/skinsList.tpl');
+        $smarty->assign('tipo', $tipo);
+        $smarty->display('templates/skinslistnav.tpl');
     }
-    function showskinarma($armas,$skinarmas){
+    function showskinarma($tipo,$armas,$skinarmas){
         $smarty = new Smarty();
-
         $smarty->assign('armas', $armas);
         $smarty->assign('skins', $skinarmas);
-        $smarty->display('templates/skinsList.tpl');
+        $smarty->assign('tipo', $tipo);
+        $smarty->display('templates/skinslistnav.tpl');
     }
 
     function showError($msg) {
@@ -40,8 +41,7 @@ class SkinView{
     }
 
     function showRegistro(){
-        include('templates/header.tpl');
-        include('templates/formRegistro.tpl');
-        include('templates/footer.tpl');
+        $smarty = new Smarty();
+        $smarty->display('templates/formRegistro.tpl');       
     }
 }
