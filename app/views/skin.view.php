@@ -8,6 +8,8 @@ class SkinView{
         $smarty->assign('armas', $armas);
         $smarty->assign('skins', $skins);
         $smarty->assign('tipo', $tipo);
+        // var_dump($skins);
+        // die();
         $smarty->display('templates/cardskins.tpl');
     } 
     //Pagina de error
