@@ -1,4 +1,5 @@
-
+{include file="header.tpl"}
+{include file="skinslistnav.tpl"}
 <main class="container-fluid mt-5 d-flex">
 {foreach from=$skins item=skin} <!-- Recorremos el arreglo de las skins en la base de datos -->
     {foreach from=$armas item=arma} <!-- Recorremos el arreglo de las armas para encontrar la similitud con la ID -->
@@ -18,3 +19,4 @@
     {/foreach}                        
 {/foreach} 
 </main>
+{include file="footer.tpl"}

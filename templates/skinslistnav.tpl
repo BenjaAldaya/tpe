@@ -1,4 +1,3 @@
-{include file="header.tpl"}
 <ul class="nav nav-tabs justify-content-center">
 {foreach from=$tipo item=tipos}
   <li class="nav-item dropdown">
@@ -13,5 +12,3 @@
     </li>
 {/foreach}
 </ul>
-{include file="cardSkins.tpl"}
-{include file="footer.tpl"}

@@ -24,27 +24,9 @@ class SkinModel {
 
         // 3. Obtengo la respuesta con un fetchAll (porque son muchos)
         $skins = $query->fetchAll(PDO::FETCH_OBJ); // arreglo de tareas
-
+        // devuelvo el arreglo obtenido de la respuesta
         return $skins;
     }
-
-    function getAllArmas(){
-    $query = $this->db->prepare ('SELECT * FROM arma');
-    $query->execute();
-
-    $armas = $query ->fetchAll(PDO::FETCH_OBJ);
-    
-    return $armas;
-    }
-
-    function getTipo(){
-        $query = $this->db->prepare('SELECT DISTINCT tipo FROM arma');
-        $query->execute();
-
-        $tipo = $query->fetchAll(PDO::FETCH_OBJ);
-        return $tipo; 
-    }
-
 
     function getskinsarma($idarma){
         $query = $this->db->prepare("SELECT * FROM skin WHERE id_arma = '$idarma'");

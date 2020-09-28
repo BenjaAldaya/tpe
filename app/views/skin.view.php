@@ -17,15 +17,15 @@ class SkinView{
         $smarty->assign('armas', $armas);
         $smarty->assign('skins', $skins);
         $smarty->assign('tipo', $tipo);
-        $smarty->display('templates/skinslistnav.tpl');
+        $smarty->display('templates/cardskins.tpl');
     }
-    function showskinarma($tipo,$armas,$skinarmas){
-        $smarty = new Smarty();
-        $smarty->assign('armas', $armas);
-        $smarty->assign('skins', $skinarmas);
-        $smarty->assign('tipo', $tipo);
-        $smarty->display('templates/skinslistnav.tpl');
-    }
+    // function showskinarma($tipo,$armas,$skinarmas){
+    //     $smarty = new Smarty();
+    //     $smarty->assign('armas', $armas);
+    //     $smarty->assign('skins', $skinarmas);
+    //     $smarty->assign('tipo', $tipo);
+    //     $smarty->display('templates/cardSkins.tpl');
+    // }
 
     function showError($msg) {
         include('templates/header.tpl');

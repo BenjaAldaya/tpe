@@ -1,14 +1,17 @@
 <?php
 include_once 'app/models/skin.model.php';
+include_once 'app/models/armas.model.php';
 include_once 'app/views/skin.view.php';
 
 class SkinController {
 
-    private $model;
+    private $modelskins;
+    private $modelarmas;
     private $view;
 
     function __construct() {
-        $this->model = new SkinModel();
+        $this->modelskins = new SkinModel();
+        $this->modelarmas = new ArmasModel();
         $this->view = new SkinView();
     }
 
@@ -20,9 +23,9 @@ class SkinController {
     }*/
 
     function showTArma(){
-        $armas= $this->model->getAllArmas();
-        $skins= $this->model->getAllSkins();
-        $tipo= $this->model->getTipo();
+        $armas= $this->modelarmas->getAllArmas();
+        $skins= $this->modelskins->getAllSkins();
+        $tipo= $this->modelarmas->getTipo();
         $this->view->showTArma($tipo,$armas, $skins);
     }
 
@@ -35,10 +38,10 @@ class SkinController {
     }
     
     function showarma($idarma){
-        $armas= $this->model->getAllArmas();
-        $skinsarma = $this->model->getskinsarma($idarma);
-        $tipo= $this->model->getTipo();
-        $this->view->showskinarma($tipo,$armas,$skinsarma);
+        $armas= $this->modelarmas->getAllArmas();
+        $skinsarma = $this->modelskins->getskinsarma($idarma);
+        $tipo= $this->modelarmas->getTipo();
+        $this->view->showTArma($tipo,$armas,$skinsarma);
     }
 
     function showRegistro(){
