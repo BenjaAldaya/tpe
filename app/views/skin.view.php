@@ -2,44 +2,26 @@
 require_once('libs/smarty/libs/Smarty.class.php');
 
 class SkinView{
-    
-    // function showSkins($skins){
-    //     $smarty = new Smarty();
-
-    //     $smarty->assign('skins', $skins);
-    //     $smarty->assign('armas', $armas);
-    //     $smarty->display('templates/cardSkins.tpl');
-    // }
-
-    function showTArma($tipo,$armas,$skins){
+    // Pagina principal muestra las skins filtradas o no
+    function showSkin($tipo,$armas,$skins){
         $smarty = new Smarty();
-
         $smarty->assign('armas', $armas);
         $smarty->assign('skins', $skins);
         $smarty->assign('tipo', $tipo);
         $smarty->display('templates/cardskins.tpl');
-    }
-    // function showskinarma($tipo,$armas,$skinarmas){
-    //     $smarty = new Smarty();
-    //     $smarty->assign('armas', $armas);
-    //     $smarty->assign('skins', $skinarmas);
-    //     $smarty->assign('tipo', $tipo);
-    //     $smarty->display('templates/cardSkins.tpl');
-    // }
-
+    } 
+    //Pagina de error
     function showError($msg) {
-        include('templates/header.tpl');
-        echo "<h1> ERROR!</h1>";
-        echo "<h2> $msg </h2>";
-        include('templates/footer.tpl');
+        $smarty = new Smarty();
+        $smarty->assign('msg', $msg);
+        $smarty->display('templates/error.tpl');
     }
-    
+    //Pagina de about
     function showAbout(){
-        include('templates/header.tpl');
-        echo '<h1>Pagina en construccion</h1>';
-        include('templates/footer.tpl');
+        $smarty = new Smarty();
+        $smarty->display('templates/about.tpl');
     }
-
+    //Paguna de registro
     function showRegistro(){
         $smarty = new Smarty();
         $smarty->display('templates/formRegistro.tpl');       
