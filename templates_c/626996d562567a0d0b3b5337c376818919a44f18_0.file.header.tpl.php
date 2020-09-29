@@ -1,26 +1,27 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-09-29 02:31:09
+/* Smarty version 3.1.34-dev-7, created on 2020-09-29 03:05:38
   from 'C:\xampp\htdocs\Proyectos\web2\tpe\templates\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f72804de61778_87562588',
+  'unifunc' => 'content_5f728862997e25_22749311',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '626996d562567a0d0b3b5337c376818919a44f18' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Proyectos\\web2\\tpe\\templates\\header.tpl',
-      1 => 1601339468,
+      1 => 1601341536,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
+    'file:skinslistnav.tpl' => 1,
   ),
 ),false)) {
-function content_5f72804de61778_87562588 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f728862997e25_22749311 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -35,8 +36,8 @@ function content_5f72804de61778_87562588 (Smarty_Internal_Template $_smarty_tpl)
 </head>
 
 <body class="bg-dark">
-<header>
-    <nav class="container-fluid navbar navbar-expand-lg navbar-dark bg-info mb-3">
+<header class="sticky-top mb-3">
+    <nav class="container-fluid navbar navbar-expand-lg navbar-dark bg-info">
     <a class="navbar-brand" href="home">Phantom</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -61,5 +62,7 @@ function content_5f72804de61778_87562588 (Smarty_Internal_Template $_smarty_tpl)
         </form>
     </div>
     </nav>
+    <?php $_smarty_tpl->_subTemplateRender("file:skinslistnav.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
 </header><?php }
 }
