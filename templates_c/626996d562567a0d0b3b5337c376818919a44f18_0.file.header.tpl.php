@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-09-28 02:15:59
+/* Smarty version 3.1.34-dev-7, created on 2020-09-29 02:31:09
   from 'C:\xampp\htdocs\Proyectos\web2\tpe\templates\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f712b3fcb7d02_66238135',
+  'unifunc' => 'content_5f72804de61778_87562588',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '626996d562567a0d0b3b5337c376818919a44f18' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Proyectos\\web2\\tpe\\templates\\header.tpl',
-      1 => 1601252144,
+      1 => 1601339468,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f712b3fcb7d02_66238135 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f72804de61778_87562588 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 
@@ -30,7 +30,7 @@ function content_5f712b3fcb7d02_66238135 (Smarty_Internal_Template $_smarty_tpl)
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
+    <link rel="stylesheet" href="css/css.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
 

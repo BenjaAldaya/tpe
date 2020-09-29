@@ -1,0 +1,24 @@
+.img-holder {
+    position: relative;
+    width: 100%;
+    padding-top: 80%;
+}
+
+.container-img {
+    overflow: hidden;
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.container-img img {
+    height: 100%;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
+}
