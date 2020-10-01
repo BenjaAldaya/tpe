@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-10-01 23:37:20
+/* Smarty version 3.1.34-dev-7, created on 2020-10-01 23:43:39
   from 'C:\xampp\htdocs\proyectos\segundocuatri\TPE\tpe\templates\admin.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f764c10506638_82038076',
+  'unifunc' => 'content_5f764d8bd9ad73_04074429',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '3e48f9d64afb4d0645ac601c264f50ac2e03ffad' => 
     array (
       0 => 'C:\\xampp\\htdocs\\proyectos\\segundocuatri\\TPE\\tpe\\templates\\admin.tpl',
-      1 => 1601588239,
+      1 => 1601588518,
       2 => 'file',
     ),
   ),
@@ -24,7 +24,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5f764c10506638_82038076 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f764d8bd9ad73_04074429 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -41,6 +41,7 @@ $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_sm
         </div>
         <div class="col-10">
             <div class="tab-content w-100" id="v-pills-tabContent">
+                <!-- Agregar skin -->
                 <div class="tab-pane fade show active" id="v-pills-addskin" role="tabpanel" aria-labelledby="v-pills-addskin-tab">
                     <form class="form-inline" action='addskin' method="POST">
                         <div class= "form-group w-100">
@@ -94,6 +95,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                         </div>
                     </form>
                 </div>
+                <!-- Agregar Arma -->
                 <div class="tab-pane fade" id="v-pills-addarma" role="tabpanel" aria-labelledby="v-pills-addarma-tab">
                     <form class="form-inline"  action='addarma' method="POST">
                         <div class= "form-group">
@@ -118,6 +120,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                         </div>
                     </form>
                 </div>
+                <!-- Editar arma -->
                 <div class="tab-pane fade" id="v-pills-editarma" role="tabpanel" aria-labelledby="v-pills-editarma-tab">
                     <form  class="form-inline" action='editarma' method="POST">
                         <div class= "form-group">
@@ -157,6 +160,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                         </div>
                     </form>
                 </div>
+                <!-- Eliminar Arma -->
                 <div class="tab-pane fade" id="v-pills-deletearma" role="tabpanel" aria-labelledby="v-pills-deletearma-tab">
                     <form  class="form-inline" action='deletearma' method="POST">
                         <div class= "form-group">
@@ -198,6 +202,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                         </div>
                     </form>
                 </div>
+                <!-- Eliminar SKIN -->
             </div>
         </div> 
 </div>
