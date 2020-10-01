@@ -12,6 +12,7 @@
         </div>
         <div class="col-10">
             <div class="tab-content w-100" id="v-pills-tabContent">
+                <!-- Agregar skin -->
                 <div class="tab-pane fade show active" id="v-pills-addskin" role="tabpanel" aria-labelledby="v-pills-addskin-tab">
                     <form class="form-inline" action='addskin' method="POST">
                         <div class= "form-group w-100">
@@ -56,6 +57,7 @@
                         </div>
                     </form>
                 </div>
+                <!-- Agregar Arma -->
                 <div class="tab-pane fade" id="v-pills-addarma" role="tabpanel" aria-labelledby="v-pills-addarma-tab">
                     <form class="form-inline"  action='addarma' method="POST">
                         <div class= "form-group">
@@ -71,6 +73,7 @@
                         </div>
                     </form>
                 </div>
+                <!-- Editar arma -->
                 <div class="tab-pane fade" id="v-pills-editarma" role="tabpanel" aria-labelledby="v-pills-editarma-tab">
                     <form  class="form-inline" action='editarma' method="POST">
                         <div class= "form-group">
@@ -92,6 +95,7 @@
                         </div>
                     </form>
                 </div>
+                <!-- Eliminar Arma -->
                 <div class="tab-pane fade" id="v-pills-deletearma" role="tabpanel" aria-labelledby="v-pills-deletearma-tab">
                     <form  class="form-inline" action='deletearma' method="POST">
                         <div class= "form-group">
@@ -124,6 +128,7 @@
                         </div>
                     </form>
                 </div>
+                <!-- Eliminar SKIN -->
             </div>
         </div> 
 </div>
