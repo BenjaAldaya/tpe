@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-10-01 15:14:25
+/* Smarty version 3.1.34-dev-7, created on 2020-10-01 16:22:46
   from 'C:\xampp\htdocs\Proyectos\web2\tpe\templates\admin.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f75d631db47a3_45771172',
+  'unifunc' => 'content_5f75e6366034b3_43583159',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '01dafa88186b4e2d97a0173bb453dbfebe8d4721' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Proyectos\\web2\\tpe\\templates\\admin.tpl',
-      1 => 1601557963,
+      1 => 1601562062,
       2 => 'file',
     ),
   ),
@@ -24,7 +24,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5f75d631db47a3_45771172 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f75e6366034b3_43583159 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 $_smarty_tpl->_subTemplateRender("file:skinslistnav.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
@@ -88,6 +88,66 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                 </form>
             </div>
             <div class="tab-pane fade" id="v-pills-addarma" role="tabpanel" aria-labelledby="v-pills-addarma-tab">
+                <form action='addarma' method="POST">
+                    <div class= "form-group">
+                        <label>Nombre</label>
+                        <input name="nombre" type="text"> 
+                        <label>Tipo</label>
+                        <select name="tipo">
+                            <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['tipo']->value, 'tipos');
+$_smarty_tpl->tpl_vars['tipos']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['tipos']->value) {
+$_smarty_tpl->tpl_vars['tipos']->do_else = false;
+?>
+                                <option value="<?php echo $_smarty_tpl->tpl_vars['tipos']->value->tipo;?>
+"><?php echo $_smarty_tpl->tpl_vars['tipos']->value->tipo;?>
+</option>
+                            <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+                        </select>
+                        <button type='submit'>Agregar Arma</button>
+                    </div>
+                </form>
+            </div>
+            <div class="tab-pane fade" id="v-pills-editarma" role="tabpanel" aria-labelledby="v-pills-editarma-tab">
+                <form action='editarma' method="POST">
+                    <label>Arma</label>
+                    <select name="idarma">
+                        <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['armas']->value, 'arma');
+$_smarty_tpl->tpl_vars['arma']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['arma']->value) {
+$_smarty_tpl->tpl_vars['arma']->do_else = false;
+?>
+                            <option value="<?php echo $_smarty_tpl->tpl_vars['arma']->value->id_arma;?>
+"><?php echo $_smarty_tpl->tpl_vars['arma']->value->nombre;?>
+</option>
+                        <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+                    </select>
+                    <label>Nuevo Nombre</label>
+                    <input name="nombre" type="text" value="<?php echo $_smarty_tpl->tpl_vars['arma']->value->nombre;?>
+">
+                    <label>Tipo</label>
+                    <select name="tipo">
+                        <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['tipo']->value, 'tipos');
+$_smarty_tpl->tpl_vars['tipos']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['tipos']->value) {
+$_smarty_tpl->tpl_vars['tipos']->do_else = false;
+?>
+                            <option value="<?php echo $_smarty_tpl->tpl_vars['tipos']->value->tipo;?>
+"><?php echo $_smarty_tpl->tpl_vars['tipos']->value->tipo;?>
+</option>
+                        <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+                    </select>
+                    <button type='submit'>Editar Arma</button> 
+                </form>
             </div>
         </div>
     </div>

@@ -23,22 +23,22 @@ class AdminController {
     }
 
 
-    // function addArma(){
-    //     $nombre = $_POST['nombre'];
-    //     $tipo = $_POST['tipo'];
+    function addArma(){
+        $nombre = $_POST['nombre'];
+        $tipo = $_POST['tipo'];
 
-    //     // verifico campos obligatorios
-    //     if (empty($nombre) || empty($tipo)) {
-    //         $this->view->showError('Faltan datos obligatorios');
-    //         die();
-    //     }
+        // verifico campos obligatorios
+        if (empty($nombre) || empty($tipo)) {
+            $this->view->showError('Faltan datos obligatorios');
+            die();
+        }
 
-    //     // inserto la tarea en la DB
-    //     $id = $this->modelarmas->insert($nombre, $tipo);
+        // inserto la tarea en la DB
+        $this->modelarmas->insert($nombre, $tipo);
 
-    //     // redirigimos al listado
-    //     header("Location: " . BASE_URL/admin);
-    // }
+        // redirigimos al listado
+        header("Location: " . BASE_URL ."admin");
+    }
 
     function addSkin(){
         $nombre = $_POST['nombre'];
@@ -55,11 +55,11 @@ class AdminController {
         }
 
         // inserto la tarea en la DB
-        $id = $this->modelskins->insert($nombre, $idarma, $tipo,$estado,$statrak,$precio);
+        $this->modelskins->insert($nombre, $idarma, $tipo,$estado,$statrak,$precio);
 
 
         // redirigimos al listado
-        header("Location: " . BASE_URL ."admin") ;
+        header("Location: " . BASE_URL ."/admin") ;
     }
 
     // function deleteArma(){
@@ -70,9 +70,20 @@ class AdminController {
 
     // }
 
-    // function editArma(){
+    function editArma(){
+        $nombre = $_POST['nombre'];
+        $tipo = $_POST['tipo'];
+        $id = $_POST['idarma'];
 
-    // }
+        if (empty($nombre) || empty($tipo)) {
+            $this->view->showError('Faltan datos obligatorios');
+            die();
+        }
+
+        $this->modelarmas->edit($id,$nombre,$tipo);
+
+        header("Location: " . BASE_URL ."admin");
+    }
 
     // function editSkin(){
 

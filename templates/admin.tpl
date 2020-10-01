@@ -52,6 +52,38 @@
                 </form>
             </div>
             <div class="tab-pane fade" id="v-pills-addarma" role="tabpanel" aria-labelledby="v-pills-addarma-tab">
+                <form action='addarma' method="POST">
+                    <div class= "form-group">
+                        <label>Nombre</label>
+                        <input name="nombre" type="text"> 
+                        <label>Tipo</label>
+                        <select name="tipo">
+                            {foreach from=$tipo item=tipos}
+                                <option value="{$tipos->tipo}">{$tipos->tipo}</option>
+                            {/foreach}
+                        </select>
+                        <button type='submit'>Agregar Arma</button>
+                    </div>
+                </form>
+            </div>
+            <div class="tab-pane fade" id="v-pills-editarma" role="tabpanel" aria-labelledby="v-pills-editarma-tab">
+                <form action='editarma' method="POST">
+                    <label>Arma</label>
+                    <select name="idarma">
+                        {foreach from=$armas item=arma }
+                            <option value="{$arma->id_arma}">{$arma->nombre}</option>
+                        {/foreach}
+                    </select>
+                    <label>Nuevo Nombre</label>
+                    <input name="nombre" type="text" value="{$arma->nombre}">
+                    <label>Tipo</label>
+                    <select name="tipo">
+                        {foreach from=$tipo item=tipos}
+                            <option value="{$tipos->tipo}">{$tipos->tipo}</option>
+                        {/foreach}
+                    </select>
+                    <button type='submit'>Editar Arma</button> 
+                </form>
             </div>
         </div>
     </div>

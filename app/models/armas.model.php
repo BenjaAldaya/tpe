@@ -37,9 +37,11 @@ class ArmasModel {
     function insert($nombre,$tipo){
         $query = $this->db->prepare('INSERT INTO arma (nombre, tipo) VALUES (?,?)');
         $query->execute([$nombre,$tipo]);
+    }
 
-        // 3. Obtengo y devuelo el ID de la tarea nueva
-        return $this->db->lastInsertId();
+    function edit($id,$nombre,$tipo){
+        $query = $this->db->prepare("UPDATE arma SET nombre= ?, tipo= ? WHERE id_arma=?");
+        $query->execute([$nombre,$tipo,$id]);
     }
 
 }

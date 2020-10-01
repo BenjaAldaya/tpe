@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-09-29 03:29:21
+/* Smarty version 3.1.34-dev-7, created on 2020-10-01 16:06:41
   from 'C:\xampp\htdocs\Proyectos\web2\tpe\templates\skinslistnav.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f728df1399fd5_66662779',
+  'unifunc' => 'content_5f75e271365867_68185834',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '49c6ea269ca496b45e51177e2f6c5203f858d3ed' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Proyectos\\web2\\tpe\\templates\\skinslistnav.tpl',
-      1 => 1601342935,
+      1 => 1601561076,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f728df1399fd5_66662779 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f75e271365867_68185834 (Smarty_Internal_Template $_smarty_tpl) {
 ?>    <ul class="nav nav-tabs justify-content-around bg-dark pb-2 pt-2">
         <li class="nav-item">
             <a class="nav-link btn btn-outline-info" href="home">All</a>

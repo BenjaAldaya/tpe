@@ -66,6 +66,14 @@ switch ($params[0]) {
         $controlleradmin = new AdminController();
         $controlleradmin->addSkin();
     break;
+    case 'addarma':
+        $controlleradmin = new AdminController();
+        $controlleradmin->addArma();
+    break;
+    case 'editarma':
+        $controlleradmin = new AdminController();
+        $controlleradmin->editArma();
+    break;
 
     default:
         header("HTTP/1.0 404 Not Found");
