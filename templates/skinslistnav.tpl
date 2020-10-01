@@ -4,7 +4,7 @@
         </li>
         {foreach from=$tipo item=tipos}
             <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle btn btn-outline-info" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{$tipos->tipo}</a>
+            <a class="nav-link dropdown-toggle btn btn-outline-info" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{$tipos->tipo}</a>
             <div class="dropdown-menu">
                 {foreach from=$armas item=arma}
                     {if $arma->tipo == $tipos ->tipo }
@@ -16,8 +16,8 @@
         {/foreach}
         <li>
          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <a class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</a>
+            <input class="form-control mr-sm-2" type="search" placeholder="Buscador" aria-label="Search">
+            <a class="btn btn-outline-info my-2 my-sm-0" type="submit">Buscar</a>
         </form>
         </li>
     </ul>

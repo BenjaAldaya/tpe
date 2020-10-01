@@ -4,7 +4,7 @@
     <section>
     <div class="row row-cols-4 d-flex justify-content-around mt-5">
     {if !$skins}
-        <h1 class="text-center">No hay skins disponibles de esta arma</h1>
+        <h1 class="text-center text-primary">No hay skins disponibles de esta arma</h1>
     {else}
     <!-- Recorremos el arreglo de las skins en la base de datos -->
     {foreach from=$skins item=skin} 

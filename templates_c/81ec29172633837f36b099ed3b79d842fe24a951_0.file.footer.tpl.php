@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-09-27 22:10:35
+/* Smarty version 3.1.34-dev-7, created on 2020-09-29 20:57:48
   from 'C:\xampp\htdocs\proyectos\segundocuatri\TPE\tpe\templates\footer.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f70f1bb1395a9_07757223',
+  'unifunc' => 'content_5f7383ac06a676_48181760',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '81ec29172633837f36b099ed3b79d842fe24a951' => 
     array (
       0 => 'C:\\xampp\\htdocs\\proyectos\\segundocuatri\\TPE\\tpe\\templates\\footer.tpl',
-      1 => 1601237433,
+      1 => 1601405750,
       2 => 'file',
     ),
   ),
@@ -20,14 +20,13 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f70f1bb1395a9_07757223 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f7383ac06a676_48181760 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
-<footer class="container-fluid bg-dark mt-5">
+<footer class="container-fluid bg-dark mt-5 border-top border-white">
   <div class="row mx-auto d-flex justify-content-center">
-      <p class="text-center text-primary">&#169; 2020 - 2021</p>
+      <p class="text-center text-primary m-4">&#169; 2020 - 2021</p>
   </div>
-
 </footer>
 <?php echo '<script'; ?>
  src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"><?php echo '</script'; ?>
@@ -38,7 +37,9 @@ function content_5f70f1bb1395a9_07757223 (Smarty_Internal_Template $_smarty_tpl)
 <?php echo '<script'; ?>
  src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"><?php echo '</script'; ?>
 >
-
+<?php echo '<script'; ?>
+ type="text/javascript " src="js/registro.js"><?php echo '</script'; ?>
+>
 </body>
 </html><?php }
 }
