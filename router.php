@@ -1,5 +1,6 @@
 <?php
 include_once 'app/controllers/skin.controller.php';
+include_once 'app/controllers/admin.controller.php';
 
 
 // defino la base url para la construccion de links con urls semánticas
@@ -19,7 +20,6 @@ $params = explode('/', $action);
 switch ($params[0]) {
     case 'home':
         $controller = new SkinController();
-        //$controller->showSkins();
         $controller->showTArma();
     break;
     case 'armas':
@@ -58,6 +58,15 @@ switch ($params[0]) {
         $controller = new SkinController();
         $controller->showRegistro();
     break;
+    case 'admin':
+        $controlleradmin = new AdminController();
+        $controlleradmin->showAdmin();
+    break;
+    case 'addskin':
+        $controlleradmin = new AdminController();
+        $controlleradmin->addSkin();
+    break;
+
     default:
         header("HTTP/1.0 404 Not Found");
         $msg = '404 not found';

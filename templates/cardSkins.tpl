@@ -1,5 +1,3 @@
-{include file="header.tpl"}
-{* {include file="skinslistnav.tpl"} *}
 <main class="container-fluid mt-2">
     <section>
     <div class="row row-cols-4 d-flex justify-content-around mt-5">
@@ -45,4 +43,3 @@
     </div>
     </section>
 </main>
-{include file="footer.tpl"}

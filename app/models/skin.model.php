@@ -36,4 +36,12 @@ class SkinModel {
 
         return $skinarmas;
     }
+
+    function insert($nombre,$idarma,$tipo,$estado,$statrak,$precio){
+        $query = $this->db->prepare('INSERT INTO skin (nombre,id_arma,tipo,estado,stattrak,precio) VALUES (?,?,?,?,?,?)');
+        $query->execute([$nombre,$idarma,$tipo,$estado,$statrak,$precio]);
+
+        // 3. Obtengo y devuelo el ID de la tarea nueva
+        return $this->db->lastInsertId();
+    }
 }

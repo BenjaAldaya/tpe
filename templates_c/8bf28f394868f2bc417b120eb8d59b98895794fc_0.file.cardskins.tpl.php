@@ -1,29 +1,31 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-09-29 03:04:50
+/* Smarty version 3.1.34-dev-7, created on 2020-09-29 03:32:22
   from 'C:\xampp\htdocs\Proyectos\web2\tpe\templates\cardskins.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f728832a12381_85890704',
+  'unifunc' => 'content_5f728ea6c93252_68619683',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '8bf28f394868f2bc417b120eb8d59b98895794fc' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Proyectos\\web2\\tpe\\templates\\cardskins.tpl',
-      1 => 1601341488,
+      1 => 1601343101,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
     'file:header.tpl' => 1,
+    'file:skinslistnav.tpl' => 1,
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5f728832a12381_85890704 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f728ea6c93252_68619683 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+$_smarty_tpl->_subTemplateRender("file:skinslistnav.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <main class="container-fluid mt-2">
     <section>
