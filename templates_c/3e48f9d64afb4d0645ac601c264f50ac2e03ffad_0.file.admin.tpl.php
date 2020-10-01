@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-10-01 22:29:04
+/* Smarty version 3.1.34-dev-7, created on 2020-10-01 22:55:02
   from 'C:\xampp\htdocs\proyectos\segundocuatri\TPE\tpe\templates\admin.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f763c104b9cb3_76983650',
+  'unifunc' => 'content_5f7642262ac7d2_86377722',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '3e48f9d64afb4d0645ac601c264f50ac2e03ffad' => 
     array (
       0 => 'C:\\xampp\\htdocs\\proyectos\\segundocuatri\\TPE\\tpe\\templates\\admin.tpl',
-      1 => 1601583791,
+      1 => 1601585522,
       2 => 'file',
     ),
   ),
@@ -24,7 +24,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5f763c104b9cb3_76983650 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f7642262ac7d2_86377722 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 $_smarty_tpl->_subTemplateRender("file:skinslistnav.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
@@ -63,19 +63,21 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
                         <input class="form-control" name="nombre" type="text"> 
                         <label>Tipo</label>
                         <select class="form-control" name="tipo">
-                            <option>Clasificado</option>
-                            <option>asd1</option>
-                            <option>asd2</option>
-                            <option>asdd3</option>
-                            <option>asd5</option>
+                            <option value="Consumidor">Consumidor</option>
+                            <option value="Industrial">Industrial</option>
+                            <option value="Militar">Militar</option>
+                            <option value="Restringido">Restringido</option>
+                            <option value="Clasificado">Clasificado</option>
+                            <option value="Encubierto">Encubierto</option>
+                            <option value="Contrabando">Contrabando</option>
                         </select>
                         <label>Estado</label>
                         <select class="form-control" name="estado">
-                            <option>Clasificado</option>
-                            <option>asd1</option>
-                            <option>asd2</option>
-                            <option>asdd3</option>
-                            <option>asd5</option>
+                            <option value="Deplorable">Deplorable</option>
+                            <option value="Bastante desgastado">Bastante desgastado</option>
+                            <option value="Algo desgastado">Algo desgastado</option>
+                            <option value="Casi nuevo">Casi nuevo</option>
+                            <option value="Recien fabricado">Recien fabricado</option>
                         </select>
                         <label>Statrak</label>
                         <select class="form-control" name="statrak">

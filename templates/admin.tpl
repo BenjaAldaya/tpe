@@ -27,24 +27,26 @@
                         <input class="form-control" name="nombre" type="text"> 
                         <label>Tipo</label>
                         <select class="form-control" name="tipo">
-                            <option>Clasificado</option>
-                            <option>asd1</option>
-                            <option>asd2</option>
-                            <option>asdd3</option>
-                            <option>asd5</option>
+                            <option value="Consumidor">Consumidor</option>
+                            <option value="Industrial">Industrial</option>
+                            <option value="Militar">Militar</option>
+                            <option value="Restringido">Restringido</option>
+                            <option value="Clasificado">Clasificado</option>
+                            <option value="Encubierto">Encubierto</option>
+                            <option value="Contrabando">Contrabando</option>
                         </select>
                         <label>Estado</label>
                         <select class="form-control" name="estado">
-                            <option>Clasificado</option>
-                            <option>asd1</option>
-                            <option>asd2</option>
-                            <option>asdd3</option>
-                            <option>asd5</option>
+                            <option value="Deplorable">Deplorable</option>
+                            <option value="Bastante desgastado">Bastante desgastado</option>
+                            <option value="Algo desgastado">Algo desgastado</option>
+                            <option value="Casi nuevo">Casi nuevo</option>
+                            <option value="Recien fabricado">Recien fabricado</option>
                         </select>
                         <label>Statrak</label>
                         <select class="form-control" name="statrak">
-                            <option value="1">Si</option>
                             <option value="0">No</option>
+                            <option value="1">Si</option>
                         </select>
                         <label>Precio</label>
                         <input class="form-control" name="precio">

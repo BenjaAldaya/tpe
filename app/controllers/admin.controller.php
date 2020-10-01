@@ -45,21 +45,21 @@ class AdminController {
         $idarma = $_POST['idarma'];
         $tipo = $_POST['tipo'];
         $estado = $_POST['estado'];
-        $statrak = $_POST['statrak'];
+        $stattrak = $_POST['statrak'];
         $precio = $_POST['precio'];
 
         // verifico campos obligatorios
-        if (empty($nombre) || empty($idarma) || empty($tipo) || empty($estado) || empty($statrak) || empty($precio)) {
+        if (empty($nombre) || empty($idarma) || empty($tipo) || empty($estado) || empty($stattrak) || empty($precio)) {
             $this->view->showError('Faltan datos obligatorios');
             die();
         }
 
         // inserto la tarea en la DB
-        $this->modelskins->insert($nombre, $idarma, $tipo,$estado,$statrak,$precio);
+        $this->modelskins->insert($nombre, $idarma, $tipo, $estado, $stattrak, $precio);
 
 
         // redirigimos al listado
-        header("Location: " . BASE_URL ."/admin") ;
+        header("Location: " . BASE_URL ."admin") ;
     }
 
     function deleteArma(){
