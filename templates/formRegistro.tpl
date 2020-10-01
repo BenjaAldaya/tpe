@@ -57,4 +57,5 @@
                 </form>
             </div>
 </section>
+<script type="text/javascript " src="js/registro.js"></script>
 {include file="footer.tpl"}
