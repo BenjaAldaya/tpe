@@ -44,4 +44,9 @@ class ArmasModel {
         $query->execute([$nombre,$tipo,$id]);
     }
 
+    function delete($id){
+        $query = $this->db->prepare('DELETE FROM arma WHERE id_arma = ?');
+        $query->execute([$id]);
+    }
+
 }

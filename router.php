@@ -74,7 +74,10 @@ switch ($params[0]) {
         $controlleradmin = new AdminController();
         $controlleradmin->editArma();
     break;
-
+    case 'deletearma':
+        $controlleradmin = new AdminController();
+        $controlleradmin->deleteArma();
+    break;
     default:
         header("HTTP/1.0 404 Not Found");
         $msg = '404 not found';

@@ -41,4 +41,9 @@ class SkinModel {
         $query = $this->db->prepare('INSERT INTO skin (nombre,id_arma,tipo,estado,stattrak,precio) VALUES (?,?,?,?,?,?)');
         $query->execute([$nombre,$idarma,$tipo,$estado,$statrak,$precio]);
     }
+
+    function deleteId($id){
+        $query = $this->db->prepare('DELETE FROM skin WHERE id_arma = ?');
+        $query->execute([$id]);
+    }
 }

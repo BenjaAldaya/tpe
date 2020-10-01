@@ -8,6 +8,7 @@
             <a class="nav-link active" id="v-pills-addskin-tab" data-toggle="pill" href="#v-pills-addskin" role="tab" aria-controls="v-pills-addskin" aria-selected="false">Agregar Skin</a>
             <a class="nav-link" id="v-pills-addarma-tab" data-toggle="pill" href="#v-pills-addarma" role="tab" aria-controls="v-pills-addarma" aria-selected="false">Agregar Arma</a>
             <a class="nav-link" id="v-pills-editarma-tab" data-toggle="pill" href="#v-pills-editarma" role="tab" aria-controls="v-pills-editarma" aria-selected="false">Editar Arma</a>
+            <a class="nav-link" id="v-pills-deletearma-tab" data-toggle="pill" href="#v-pills-deletearma" role="tab" aria-controls="v-pills-deletearma" aria-selected="false">Eliminar Arma</a>
         </div>
     </div>
     <div class="col-9">
@@ -47,7 +48,7 @@
                         </select>
                         <label>Precio</label>
                         <input class="form-control" name="precio">
-                        <button type='submit'>Agregar Skin</button>
+                        <button class="btn btn-ligth btn-outline-dark ml-2" type='submit'>Agregar Skin</button>
                     </div>
                 </form>
             </div>
@@ -62,7 +63,7 @@
                                 <option value="{$tipos->tipo}">{$tipos->tipo}</option>
                             {/foreach}
                         </select>
-                        <button type='submit'>Agregar Arma</button>
+                        <button class="btn btn-ligth btn-outline-dark ml-2" type='submit'>Agregar Arma</button>
                     </div>
                 </form>
             </div>
@@ -83,7 +84,39 @@
                                 <option value="{$tipos->tipo}">{$tipos->tipo}</option>
                             {/foreach}
                         </select>
-                        <button type='submit'>Editar Arma</button> 
+                        <button class="btn btn-ligth btn-outline-dark ml-2" type='submit'>Editar Arma</button> 
+                    </div>
+                </form>
+            </div>
+            <div class="tab-pane fade" id="v-pills-deletearma" role="tabpanel" aria-labelledby="v-pills-deletearma-tab">
+                <form  class="form-inline" action='deletearma' method="POST">
+                    <div class= "form-group">
+                        <label>Arma</label>
+                        <select class="form-control" name="idarma">
+                            {foreach from=$armas item=arma }
+                                <option value="{$arma->id_arma}">{$arma->nombre}</option>
+                            {/foreach}
+                        </select>
+                        <button class="btn btn-ligth btn-outline-dark ml-2" type='button' data-toggle="modal" data-target="#Modaldeletearma">Eliminar Arma</button>
+                        <div class="modal fade" id="Modaldeletearma" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Esta seguro que quiere eliminar esta arma?</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Si elimina esta arma (categoria) se borraran todos los skins que pertenezcan a ella.
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                        <button type="submit" class="btn btn-primary">Eliminar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </form>
             </div>
