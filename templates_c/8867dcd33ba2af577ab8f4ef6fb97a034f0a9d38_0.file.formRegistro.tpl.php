@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-09-29 20:57:54
+/* Smarty version 3.1.34-dev-7, created on 2020-10-01 23:01:14
   from 'C:\xampp\htdocs\proyectos\segundocuatri\TPE\tpe\templates\formRegistro.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f7383b2d130e8_68735522',
+  'unifunc' => 'content_5f76439ae0c0f8_79456872',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '8867dcd33ba2af577ab8f4ef6fb97a034f0a9d38' => 
     array (
       0 => 'C:\\xampp\\htdocs\\proyectos\\segundocuatri\\TPE\\tpe\\templates\\formRegistro.tpl',
-      1 => 1601405750,
+      1 => 1601583791,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5f7383b2d130e8_68735522 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f76439ae0c0f8_79456872 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <section>
@@ -83,6 +83,9 @@ $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_sm
                 </form>
             </div>
 </section>
+<?php echo '<script'; ?>
+ type="text/javascript " src="js/registro.js"><?php echo '</script'; ?>
+>
 <?php $_smarty_tpl->_subTemplateRender("file:footer.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 }
 }
