@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-09-28 23:41:45
+/* Smarty version 3.1.34-dev-7, created on 2020-10-01 16:51:35
   from 'C:\xampp\htdocs\Proyectos\web2\tpe\templates\footer.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f725899a9c5f1_83443453',
+  'unifunc' => 'content_5f75ecf75fe608_30711277',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '022cce7d89558b437dfeef508bca3ff4017701e1' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Proyectos\\web2\\tpe\\templates\\footer.tpl',
-      1 => 1601329304,
+      1 => 1601563888,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f725899a9c5f1_83443453 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f75ecf75fe608_30711277 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 <footer class="container-fluid bg-dark mt-5 border-top border-white">
@@ -36,9 +36,6 @@ function content_5f725899a9c5f1_83443453 (Smarty_Internal_Template $_smarty_tpl)
 >
 <?php echo '<script'; ?>
  src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"><?php echo '</script'; ?>
->
-<?php echo '<script'; ?>
- type="text/javascript " src="js/registro.js"><?php echo '</script'; ?>
 >
 </body>
 </html><?php }

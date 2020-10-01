@@ -10,7 +10,19 @@ class SkinView{
         $smarty->assign('tipo', $tipo);
         // var_dump($skins);
         // die();
-        $smarty->display('templates/cardskins.tpl');
+        $smarty->display('templates/home.tpl');
+    } 
+
+    //pagina de admin
+
+    function showAdmin($tipo,$armas,$skins){
+        $smarty = new Smarty();
+        $smarty->assign('armas', $armas);
+        $smarty->assign('skins', $skins);
+        $smarty->assign('tipo', $tipo);
+        // var_dump($skins);
+        // die();
+        $smarty->display('templates/admin.tpl');
     } 
     //Pagina de error
     function showError($msg) {

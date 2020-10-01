@@ -15,13 +15,6 @@ class SkinController {
         $this->view = new SkinView();
     }
 
-    /*function showSkins(){
-        //pido todas las skins
-        $skins=$this->model->getAllSkins();
-        //muestro las skins
-        $this->view->showSkins($skins);
-    }*/
-
     function showTArma(){
         $armas= $this->modelarmas->getAllArmas();
         $skins= $this->modelskins->getAllSkins();
