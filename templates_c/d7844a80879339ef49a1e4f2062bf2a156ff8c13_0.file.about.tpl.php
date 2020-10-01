@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-10-02 00:01:27
+/* Smarty version 3.1.34-dev-7, created on 2020-10-02 00:03:40
   from 'C:\xampp\htdocs\proyectos\segundocuatri\TPE\tpe\templates\about.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f7651b7993b33_92928731',
+  'unifunc' => 'content_5f76523c1d2571_71816551',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd7844a80879339ef49a1e4f2062bf2a156ff8c13' => 
     array (
       0 => 'C:\\xampp\\htdocs\\proyectos\\segundocuatri\\TPE\\tpe\\templates\\about.tpl',
-      1 => 1601589686,
+      1 => 1601589819,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5f7651b7993b33_92928731 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f76523c1d2571_71816551 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <div class="container text-center mt-5">
@@ -36,8 +36,9 @@ $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_sm
                     </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">Github</li>
-                        <li class="list-group-item">Facebook</li>
+                        <li class="list-group-item">Moodle</li>
                         <li class="list-group-item">Twitter</li>
+                        <li class="list-group-item">Posee gran parte de los rifles y las pistolas.</li>
                     </ul>
                 </div>   
             </div>
@@ -49,8 +50,9 @@ $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_sm
                     </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">Github</li>
-                        <li class="list-group-item">Facebook</li>
+                        <li class="list-group-item">Moodle</li>
                         <li class="list-group-item">Twitter</li>
+                        <li class="list-group-item">Posee una parte del inventario de la pagina.</li>
                     </ul>
                 </div>    
             </div>

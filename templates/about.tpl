@@ -10,8 +10,9 @@
                     </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">Github</li>
-                        <li class="list-group-item">Facebook</li>
+                        <li class="list-group-item">Moodle</li>
                         <li class="list-group-item">Twitter</li>
+                        <li class="list-group-item">Posee gran parte de los rifles y las pistolas.</li>
                     </ul>
                 </div>   
             </div>
@@ -23,8 +24,9 @@
                     </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">Github</li>
-                        <li class="list-group-item">Facebook</li>
+                        <li class="list-group-item">Moodle</li>
                         <li class="list-group-item">Twitter</li>
+                        <li class="list-group-item">Posee una parte del inventario de la pagina.</li>
                     </ul>
                 </div>    
             </div>
