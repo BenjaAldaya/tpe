@@ -10,10 +10,10 @@
         {foreach from=$armas item=arma} 
             {if $skin->id_arma == $arma->id_arma}
                 <div class="card col-2 d-flex align-items-stretch">
-                {if $skin->id_arma == 49}
+                {if $arma->photo == 1}
                      <div class="img-holder">
                         <div class='container-img'>
-                            <img src="images/ak47disruptorfantasma.png" class="card-img-top img-fluid h-75" alt="...">
+                            <img src="images/{$skin->id_arma}.png" class="card-img-top img-fluid h-75" alt="...">
                         </div>
                     </div>
                     {else}
@@ -27,7 +27,7 @@
                         <h5 class="card-title">{$arma->nombre} | {$skin->nombre}</h5>
                     </div> <!-- Creacion de la carta con sus especificaciones mas llamativas -->
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item text-center">{$arma->tipo}</li>
+                        <li class="list-group-item text-">{$arma->tipo}</li>
                     </ul>
                     <div class="card-body text-center">
                         <a href="comprar/{$skin->id}" class="btn btn-primary stretched-link w-100">Mas información</a>

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-10-02 23:04:11
+/* Smarty version 3.1.34-dev-7, created on 2020-10-03 00:06:53
   from 'C:\xampp\htdocs\proyectos\segundocuatri\TPE\tpe\templates\cardSkins.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f7795cb6d4e66_78137867',
+  'unifunc' => 'content_5f77a47d893086_23953828',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ba5b48db55adf687efcd490e29b58ff785bcd7ac' => 
     array (
       0 => 'C:\\xampp\\htdocs\\proyectos\\segundocuatri\\TPE\\tpe\\templates\\cardSkins.tpl',
-      1 => 1601672650,
+      1 => 1601676355,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f7795cb6d4e66_78137867 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f77a47d893086_23953828 (Smarty_Internal_Template $_smarty_tpl) {
 ?><main class="container-fluid mt-2">
     <section>
     <div class="row row-cols-4 d-flex justify-content-around mt-5">
@@ -43,10 +43,11 @@ $_smarty_tpl->tpl_vars['arma']->do_else = false;
 ?> 
             <?php if ($_smarty_tpl->tpl_vars['skin']->value->id_arma == $_smarty_tpl->tpl_vars['arma']->value->id_arma) {?>
                 <div class="card col-2 d-flex align-items-stretch">
-                <?php if ($_smarty_tpl->tpl_vars['skin']->value->id_arma == 49) {?>
+                <?php if ($_smarty_tpl->tpl_vars['arma']->value->photo == 1) {?>
                      <div class="img-holder">
                         <div class='container-img'>
-                            <img src="images/ak47disruptorfantasma.png" class="card-img-top img-fluid h-75" alt="...">
+                            <img src="images/<?php echo $_smarty_tpl->tpl_vars['skin']->value->id_arma;?>
+.png" class="card-img-top img-fluid h-75" alt="...">
                         </div>
                     </div>
                     <?php } else { ?>
@@ -62,7 +63,7 @@ $_smarty_tpl->tpl_vars['arma']->do_else = false;
 </h5>
                     </div> <!-- Creacion de la carta con sus especificaciones mas llamativas -->
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item text-center"><?php echo $_smarty_tpl->tpl_vars['arma']->value->tipo;?>
+                        <li class="list-group-item text-"><?php echo $_smarty_tpl->tpl_vars['arma']->value->tipo;?>
 </li>
                     </ul>
                     <div class="card-body text-center">
