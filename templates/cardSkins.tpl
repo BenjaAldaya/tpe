@@ -10,10 +10,10 @@
         {foreach from=$armas item=arma} 
             {if $skin->id_arma == $arma->id_arma}
                 <div class="card col-2 d-flex align-items-stretch">
-                {if $skin->id_arma == 22}
+                {if $arma->photo == 1}
                      <div class="img-holder">
                         <div class='container-img'>
-                            <img src="images/ak47disruptorfantasma.png" class="card-img-top img-fluid h-75" alt="...">
+                            <img src="images/{$skin->id_arma}.png" class="card-img-top img-fluid h-75" alt="...">
                         </div>
                     </div>
                     {else}
@@ -27,18 +27,16 @@
                         <h5 class="card-title">{$arma->nombre} | {$skin->nombre}</h5>
                     </div> <!-- Creacion de la carta con sus especificaciones mas llamativas -->
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">{$arma->tipo}</li>
-                        <li class="list-group-item">{$skin->estado} {if $skin->stattrak == '1'}Stattrak{/if}</li>
-                        <li class="list-group-item">{$skin->coleccion} {if $skin->coleccion == ''}No pertenece{/if}</li>
-                        <li class="list-group-item">${$skin->precio}</li>
+                        <li class="list-group-item text-">{$arma->tipo}</li>
                     </ul>
                     <div class="card-body text-center">
-                        <a href="detalle/{$arma->nombre}/{$skin->nombre}/{$skin->id}" class="btn btn-primary stretched-link w-100">Comprar</a>
+                        <a href="comprar/{$skin->id}" class="btn btn-primary stretched-link w-100">Mas información</a>
                     </div>
                 </div>
+                
             {/if}
-        {/foreach}                        
-    {/foreach}
+        {/foreach} 
+        {/foreach}                  
     {/if}
     </div>
     </section>

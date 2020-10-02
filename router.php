@@ -78,6 +78,10 @@ switch ($params[0]) {
         $controlleradmin = new AdminController();
         $controlleradmin->deleteArma();
     break;
+    case 'comprar':
+        $controller = new SkinController();
+        $controller->showSkin($params[1]);
+    break;
     default:
         header("HTTP/1.0 404 Not Found");
         $msg = '404 not found';
