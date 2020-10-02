@@ -33,9 +33,6 @@
                         <li class="list-group-item">{$skin->coleccion} {if $skin->coleccion == ''}No pertenece{/if}</li>
                         <li class="list-group-item">${$skin->precio}</li>
                     </ul>
-                    <div class="card-body text-center">
-                        <a href="comprar/{$skin->id}" class="btn btn-primary stretched-link w-100">Comprar</a>
-                    </div>
                 </div>
                 
             {/if}
