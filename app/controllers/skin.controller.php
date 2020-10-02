@@ -35,7 +35,7 @@ class SkinController {
         $tipo = $this->modelarmas->getTipo();
         $skinsarma = $this->modelskins->getskinsarma($idarma);
         if(!($skinsarma)) {
-            $this->view->showError('Skin no encontrada');
+            $this->view->showError('No se encontraron skins');
         }
         else {
             $this->view->showSkins($tipo,$armas,$skinsarma);

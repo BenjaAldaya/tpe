@@ -1,17 +1,12 @@
 {include file="header.tpl"}
-<main class="container-fluid mt-2">
-    <section>
-    <div class="row row-cols-4 d-flex justify-content-around mt-5">
-    {if !$skins}
-        <h1 class="text-center text-primary">No hay skins disponibles de esta arma</h1>
-    {else}
-    <!-- Recorremos el arreglo de las skins en la base de datos -->
-    {foreach from=$skins item=skin} 
-    <!-- Recorremos el arreglo de las armas para encontrar la similitud con la ID -->
+{include file="skinslistnav.tpl"}
+    <main class="container-fluid mt-5">
+    {foreach from=$skins item=skin}
         {foreach from=$armas item=arma} 
             {if $skin->id_arma == $arma->id_arma}
-                <div class="card col-2 d-flex align-items-stretch">
-                {if $skin->id_arma == 22}
+            <section class="col row">
+                <div class="col-6">
+                {if $skin->id_arma == 49}
                      <div class="img-holder">
                         <div class='container-img'>
                             <img src="images/ak47disruptorfantasma.png" class="card-img-top img-fluid h-75" alt="...">
@@ -24,22 +19,24 @@
                         </div>
                     </div>
                 {/if}
-                    <div class="card-body"> 
-                        <h5 class="card-title">{$arma->nombre} | {$skin->nombre}</h5>
-                    </div> <!-- Creacion de la carta con sus especificaciones mas llamativas -->
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">{$arma->tipo}</li>
-                        <li class="list-group-item">{$skin->estado} {if $skin->stattrak == '1'}Stattrak{/if}</li>
-                        <li class="list-group-item">{$skin->coleccion} {if $skin->coleccion == ''}No pertenece{/if}</li>
-                        <li class="list-group-item">${$skin->precio}</li>
-                    </ul>
                 </div>
-                
+                <div class="card col-6">
+                <!-- Creacion de la carta con sus especificaciones mas llamativas -->
+                    <div class="card-body"> 
+                        <h5 class="card-title text-center">{$arma->nombre} | {$skin->nombre}</h5>
+                        <p class="card-text text-center">{$arma->descripcion}</p>
+                    </div>
+                        <ul class="list-group list-group-flush">
+                                <li class="list-group-item text-center">{$arma->tipo}</li>
+                                <li class="list-group-item text-center">{$skin->estado}{if $skin->stattrak == '1'} | Stattrak{/if}</li>
+                                <li class="list-group-item text-center">{$skin->coleccion} {if $skin->coleccion == ''}No pertenece a ninguna coleccion{/if}</li>
+                                <li class="list-group-item text-center text-success">${$skin->precio}</li>
+                        </ul>        
+                </div>
+                </div>
+            </section>
             {/if}
         {/foreach} 
-        {/foreach}                  
-    {/if}
-    </div>
-    </section>
-</main>
+    {/foreach}  
+    </main>
 {include file="footer.tpl"}

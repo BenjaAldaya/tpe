@@ -38,6 +38,7 @@ class SkinView{
         $smarty->assign('msg', $msg);
         $smarty->display('templates/error.tpl');
     }
+    
     //Pagina de about
     function showAbout(){
         $smarty = new Smarty();

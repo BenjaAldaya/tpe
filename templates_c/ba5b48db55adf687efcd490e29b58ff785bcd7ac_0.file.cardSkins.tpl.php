@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-10-02 06:45:20
+/* Smarty version 3.1.34-dev-7, created on 2020-10-02 23:04:11
   from 'C:\xampp\htdocs\proyectos\segundocuatri\TPE\tpe\templates\cardSkins.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f76b0607af7d8_75336371',
+  'unifunc' => 'content_5f7795cb6d4e66_78137867',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'ba5b48db55adf687efcd490e29b58ff785bcd7ac' => 
     array (
       0 => 'C:\\xampp\\htdocs\\proyectos\\segundocuatri\\TPE\\tpe\\templates\\cardSkins.tpl',
-      1 => 1601613919,
+      1 => 1601672650,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f76b0607af7d8_75336371 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f7795cb6d4e66_78137867 (Smarty_Internal_Template $_smarty_tpl) {
 ?><main class="container-fluid mt-2">
     <section>
     <div class="row row-cols-4 d-flex justify-content-around mt-5">
@@ -43,7 +43,7 @@ $_smarty_tpl->tpl_vars['arma']->do_else = false;
 ?> 
             <?php if ($_smarty_tpl->tpl_vars['skin']->value->id_arma == $_smarty_tpl->tpl_vars['arma']->value->id_arma) {?>
                 <div class="card col-2 d-flex align-items-stretch">
-                <?php if ($_smarty_tpl->tpl_vars['skin']->value->id_arma == 22) {?>
+                <?php if ($_smarty_tpl->tpl_vars['skin']->value->id_arma == 49) {?>
                      <div class="img-holder">
                         <div class='container-img'>
                             <img src="images/ak47disruptorfantasma.png" class="card-img-top img-fluid h-75" alt="...">
@@ -62,18 +62,12 @@ $_smarty_tpl->tpl_vars['arma']->do_else = false;
 </h5>
                     </div> <!-- Creacion de la carta con sus especificaciones mas llamativas -->
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><?php echo $_smarty_tpl->tpl_vars['arma']->value->tipo;?>
-</li>
-                        <li class="list-group-item"><?php echo $_smarty_tpl->tpl_vars['skin']->value->estado;?>
- <?php if ($_smarty_tpl->tpl_vars['skin']->value->stattrak == '1') {?>Stattrak<?php }?></li>
-                        <li class="list-group-item"><?php echo $_smarty_tpl->tpl_vars['skin']->value->coleccion;?>
- <?php if ($_smarty_tpl->tpl_vars['skin']->value->coleccion == '') {?>No pertenece<?php }?></li>
-                        <li class="list-group-item">$<?php echo $_smarty_tpl->tpl_vars['skin']->value->precio;?>
+                        <li class="list-group-item text-center"><?php echo $_smarty_tpl->tpl_vars['arma']->value->tipo;?>
 </li>
                     </ul>
                     <div class="card-body text-center">
                         <a href="comprar/<?php echo $_smarty_tpl->tpl_vars['skin']->value->id;?>
-" class="btn btn-primary stretched-link w-100">Comprar</a>
+" class="btn btn-primary stretched-link w-100">Mas información</a>
                     </div>
                 </div>
                 
