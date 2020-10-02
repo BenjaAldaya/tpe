@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-10-01 22:28:59
+/* Smarty version 3.1.34-dev-7, created on 2020-10-02 06:44:24
   from 'C:\xampp\htdocs\proyectos\segundocuatri\TPE\tpe\templates\skinslistnav.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f763c0b8673a6_30365508',
+  'unifunc' => 'content_5f76b0286a19b2_43221167',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'aee0df0f32abf2c2bad7cd7dba4f9cb6892785ff' => 
     array (
       0 => 'C:\\xampp\\htdocs\\proyectos\\segundocuatri\\TPE\\tpe\\templates\\skinslistnav.tpl',
-      1 => 1601583812,
+      1 => 1601613148,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f763c0b8673a6_30365508 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f76b0286a19b2_43221167 (Smarty_Internal_Template $_smarty_tpl) {
 ?>    <ul class="nav nav-tabs justify-content-around bg-dark pb-2 pt-2">
         <li class="nav-item">
             <a class="nav-link btn btn-outline-info" href="home">All</a>

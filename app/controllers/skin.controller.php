@@ -19,7 +19,7 @@ class SkinController {
         $armas= $this->modelarmas->getAllArmas();
         $skins= $this->modelskins->getAllSkins();
         $tipo= $this->modelarmas->getTipo();
-        $this->view->showSkin($tipo,$armas, $skins);
+        $this->view->showSkins($tipo,$armas, $skins);
     }
 
     function showError($msg){
@@ -31,13 +31,35 @@ class SkinController {
     }
     
     function showarma($idarma){
-        $armas= $this->modelarmas->getAllArmas();
+        $armas = $this->modelarmas->getAllArmas();
+        $tipo = $this->modelarmas->getTipo();
         $skinsarma = $this->modelskins->getskinsarma($idarma);
-        $tipo= $this->modelarmas->getTipo();
-        $this->view->showSkin($tipo,$armas,$skinsarma);
+        if(!($skinsarma)) {
+            $this->view->showError('Skin no encontrada');
+        }
+        else {
+            $this->view->showSkins($tipo,$armas,$skinsarma);
+        }
+    }
+
+    function showSkin($idarma){
+        $armas = $this->modelarmas->getAllArmas();
+        $tipo = $this->modelarmas->getTipo();
+        $skinsarma = $this->modelskins->getskin($idarma);
+        if(!($skinsarma)) {
+            $this->view->showError('Skin no encontrada');
+        }
+        else {
+            $this->view->showSkin($tipo,$armas,$skinsarma);
+        } 
     }
 
     function showRegistro(){
         $this->view->showRegistro();
+    }
+
+    function showDetail($id) {
+        $task = $this->model->get($id);
+        
     }
 }

@@ -1,27 +1,31 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-10-02 06:45:20
-  from 'C:\xampp\htdocs\proyectos\segundocuatri\TPE\tpe\templates\cardSkins.tpl' */
+/* Smarty version 3.1.34-dev-7, created on 2020-10-02 06:47:00
+  from 'C:\xampp\htdocs\proyectos\segundocuatri\TPE\tpe\templates\skinDetail.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f76b0607af7d8_75336371',
+  'unifunc' => 'content_5f76b0c45de161_25716832',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'ba5b48db55adf687efcd490e29b58ff785bcd7ac' => 
+    '09f73be3434192aee6688e0de6d55a7f7ad22d3d' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\proyectos\\segundocuatri\\TPE\\tpe\\templates\\cardSkins.tpl',
-      1 => 1601613919,
+      0 => 'C:\\xampp\\htdocs\\proyectos\\segundocuatri\\TPE\\tpe\\templates\\skinDetail.tpl',
+      1 => 1601614019,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
+    'file:header.tpl' => 1,
+    'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5f76b0607af7d8_75336371 (Smarty_Internal_Template $_smarty_tpl) {
-?><main class="container-fluid mt-2">
+function content_5f76b0c45de161_25716832 (Smarty_Internal_Template $_smarty_tpl) {
+$_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
+<main class="container-fluid mt-2">
     <section>
     <div class="row row-cols-4 d-flex justify-content-around mt-5">
     <?php if (!$_smarty_tpl->tpl_vars['skins']->value) {?>
@@ -87,5 +91,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
     <?php }?>
     </div>
     </section>
-</main><?php }
+</main>
+<?php $_smarty_tpl->_subTemplateRender("file:footer.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+}
 }

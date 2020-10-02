@@ -37,9 +37,19 @@ class SkinModel {
         return $skinarmas;
     }
 
-    function insert($nombre,$idarma,$tipo,$estado,$statrak,$precio){
+    function getskin($idskin){
+        $query = $this->db->prepare("SELECT * FROM skin WHERE id = '$idskin'");
+        $query->execute();
+
+        $skinid = $query->fetchAll(PDO::FETCH_OBJ);
+
+        return $skinid;
+    }
+
+
+    function insert($nombre,$idarma,$tipo,$estado,$stattrak,$precio){
         $query = $this->db->prepare('INSERT INTO skin (nombre,id_arma,tipo,estado,stattrak,precio) VALUES (?,?,?,?,?,?)');
-        $query->execute([$nombre,$idarma,$tipo,$estado,$statrak,$precio]);
+        $query->execute([$nombre,$idarma,$tipo,$estado,$stattrak,$precio]);
     }
 
     function deleteId($id){
