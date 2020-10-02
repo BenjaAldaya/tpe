@@ -49,7 +49,7 @@ class AdminController {
         $precio = $_POST['precio'];
 
         // verifico campos obligatorios
-        if (empty($nombre) || empty($idarma) || empty($tipo) || empty($estado) || empty($stattrak) || empty($precio)) {
+        if (empty($nombre) || empty($idarma) || empty($tipo) || empty($estado) || empty($precio)) {
             $this->view->showError('Faltan datos obligatorios');
             die();
         }
