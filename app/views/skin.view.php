@@ -3,11 +3,12 @@ require_once('libs/smarty/libs/Smarty.class.php');
 
 class SkinView{
     // Pagina principal muestra las skins filtradas o no
-    function showSkins($tipo,$armas,$skins){
+    function showSkins($tipo,$armas,$skins,$adminlog){
         $smarty = new Smarty();
         $smarty->assign('armas', $armas);
         $smarty->assign('skins', $skins);
         $smarty->assign('tipo', $tipo);
+        $smarty->assign('admin', $adminlog);
         // var_dump($skins);
         // die();
         $smarty->display('templates/home.tpl');
@@ -23,15 +24,15 @@ class SkinView{
 
     //pagina de admin
 
-    function showAdmin($tipo,$armas,$skins){
+    function showAdmin($tipo,$armas,$skins,$adminlog){
         $smarty = new Smarty();
         $smarty->assign('armas', $armas);
         $smarty->assign('skins', $skins);
         $smarty->assign('tipo', $tipo);
-        // var_dump($skins);
-        // die();
+        $smarty->assign('admin', $adminlog);
         $smarty->display('templates/admin.tpl');
     } 
+
     //Pagina de error
     function showError($msg) {
         $smarty = new Smarty();
@@ -48,6 +49,11 @@ class SkinView{
     function showRegistro(){
         $smarty = new Smarty();
         $smarty->display('templates/formRegistro.tpl');       
+    }
+
+    function showLogin(){
+        $smarty = new Smarty();
+        $smarty->display('templates/formlogin.tpl');
     }
 
 

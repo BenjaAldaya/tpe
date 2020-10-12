@@ -1,5 +1,4 @@
 {include file="header.tpl"}
-
 {include file="skinslistnav.tpl"}
 <div class="row bg-secondary text-light pt-4 border-bottom border-white">
         <div class="col-2">
@@ -132,6 +131,5 @@
             </div>
         </div> 
 </div>
-
 {include file="cardSkins.tpl"}
 {include file="footer.tpl"}

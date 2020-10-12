@@ -19,25 +19,31 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
+            <ul class="navbar-nav mr-auto d-flex w-100">
                 <li class="nav-item active">
                     <a class="nav-link text-light" href="home">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-light" href="about">About</a>
                 </li>
-                <li>
+                <li class="nav-item">
                 <a class="nav-link text-light" href="registro">Crear cuenta</a>
                 </li>
-                <li>
+                {if (isset($smarty.session.USER_NAME)) && ($smarty.session.PERMISOS == 3)}
+                <li class="nav-item">
                 <a class="nav-link text-light" href="admin">Admin</a>
                 </li>
+                {/if}
+                {if isset($smarty.session.USER_NAME)}                    
+                    <li class="nav-item ml-auto">
+                        <a class="nav-link" href="logout">{$smarty.session.USER_NAME} (LOGOUT)</a>
+                    </li>
+                {else}
+                    <li class="nav-item ml-auto" >
+                    <a class="nav-link text-light" href="login">Login</a>
+                </li>
+                {/if}
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input name="user" type="text" placeholder="Usuario" class="form-control">
-                <input name="passwrod" type="password" placeholder="Contraseña" class="form-control">
-                <button class="btn btn-primary w-10">Ingresar</button>
-            </form>
         </div>
     </nav>
 </header>

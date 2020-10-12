@@ -52,8 +52,8 @@ class SkinModel {
         $query->execute([$nombre,$idarma,$tipo,$estado,$stattrak,$precio]);
     }
 
-    function deleteId($id){
-        $query = $this->db->prepare('DELETE FROM skin WHERE id_arma = ?');
+    function delete($id){
+        $query = $this->db->prepare('DELETE FROM skin    WHERE id = ?');
         $query->execute([$id]);
     }
 }

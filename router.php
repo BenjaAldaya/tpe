@@ -1,6 +1,7 @@
 <?php
 include_once 'app/controllers/skin.controller.php';
 include_once 'app/controllers/admin.controller.php';
+include_once 'app/controllers/user.controller.php';
 
 
 // defino la base url para la construccion de links con urls semánticas
@@ -78,9 +79,25 @@ switch ($params[0]) {
         $controlleradmin = new AdminController();
         $controlleradmin->deleteArma();
     break;
+    case 'deleteskin':
+        $controlleradmin = new AdminController();
+        $controlleradmin->deleteSkin($params[1]);
+    break;
     case 'comprar':
         $controller = new SkinController();
         $controller->showSkin($params[1]);
+    break;
+    case 'login':
+        $controlleruser = new UserController();
+        $controlleruser->showLogin();
+    break;
+    case 'verify':
+        $controlleruser = new UserController();
+        $controlleruser->loginUser();
+    break;
+    case 'logout':
+        $controlleruser = new UserController();
+        $controlleruser->logout();
     break;
     default:
         header("HTTP/1.0 404 Not Found");

@@ -1,10 +1,12 @@
 <?php
+include_once 'app/helpers/user.helper.php';
 include_once 'app/models/skin.model.php';
 include_once 'app/models/armas.model.php';
 include_once 'app/views/skin.view.php';
 
 class AdminController {
 
+    private $userhelper;
     private $modelskins;
     private $modelarmas;
     private $view;
@@ -12,14 +14,23 @@ class AdminController {
     function __construct() {
         $this->modelskins = new SkinModel();
         $this->modelarmas = new ArmasModel();
+        $this->userhelper = new UserHelper();
         $this->view = new SkinView();
+
+        $this->userhelper->checklogin();
     }
 
     function showAdmin(){
-        $armas= $this->modelarmas->getAllArmas();
-        $skins= $this->modelskins->getAllSkins();
-        $tipo= $this->modelarmas->getTipo();
-        $this->view->showAdmin($tipo,$armas, $skins);
+        if (isset($_SESSION['PERMISOS']) && ($_SESSION['PERMISOS'] == 3)){
+            $armas= $this->modelarmas->getAllArmas();
+            $skins= $this->modelskins->getAllSkins();
+            $tipo= $this->modelarmas->getTipo();
+            $adminlog = 1;
+            $this->view->showAdmin($tipo,$armas, $skins ,$adminlog);
+        }
+        else{
+            $this->view->showError('No tienes acceso a esta seccion');
+        }
     }
 
 
@@ -75,16 +86,8 @@ class AdminController {
         header("Location: " . BASE_URL ."admin");
     }
 
-    function deleteSkin(){
-        $id = $_POST['idskin'];
-
-        if (empty($nombre) || empty($tipo)) {
-            $this->view->showError('Faltan datos obligatorios');
-            die();
-        }
-
-        $this->modelarmas->delete($id);
-
+    function deleteSkin($id){
+        $this->modelskins->delete($id);
         header("Location: " . BASE_URL ."admin");
     }
 
