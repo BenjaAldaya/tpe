@@ -37,7 +37,7 @@
                     </li>
                 {else}
                 <li class="nav-item ml-auto" >
-                    <a class="nav-link text-light" href="login">Login</a>
+                    <a class="nav-link text-light" href="login">Iniciar sesión</a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link text-light" href="registro">Crear cuenta</a>
