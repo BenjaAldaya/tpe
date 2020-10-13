@@ -29,7 +29,7 @@
                             <ul class="list-group list-group-flush">
                                 <form action='editskin/{$skin->id}' method='POST'>
                                     <li class="list-group-item text-center">
-                                        <label>{$arma->nombre} a :</label>
+                                        <label>{$arma->nombre} a:</label>
                                         <select name='idarma'>
                                             {foreach from=$armas item=arma}
                                                 <option value='{$arma->id_arma}'>{$arma->nombre}</option>
@@ -43,7 +43,7 @@
                                     <li class="list-group-item text-center">
                                         <label> {$skin->tipo} a: </label>
                                         <select name='tipo'>
-                                            <option value='Consumido'>Consumidor</option>
+                                            <option value='Consumidor'>Consumidor</option>
                                             <option value='Militar'>Militar</option>
                                             <option value='Indrustrial'>Indrustrial</option>
                                             <option value='Restringido'>Restringido</option>
@@ -80,7 +80,7 @@
                                         <input value='Vacio' name='coleccion'>    
                                         {/if}
                                     </li>
-                                    <li class="list-group-item text-center text-success">
+                                    <li class="list-group-item text-center">
                                         <label>Precio: $</label>
                                         <input value='{$skin->precio}' name='precio'>
                                     </li>
@@ -89,15 +89,15 @@
                                     </li>
                                 </form>
                             </ul>
-                        {else}
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item text-center">{$arma->tipo}</li>
-                            <li class="list-group-item text-center">{$skin->tipo}</li>
-                            <li class="list-group-item text-center">{$skin->estado}{if $skin->stattrak == '1'} | Stattrak{/if}</li>
-                            <li class="list-group-item text-center">{$skin->coleccion} {if $skin->coleccion == ''}No pertenece a ninguna coleccion{/if}</li>
-                            <li class="list-group-item text-center text-success">${$skin->precio}</li>
-                        </ul>
-                    {/if}         
+                            {else}
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item text-center">{$arma->tipo}</li>
+                                <li class="list-group-item text-center">{$skin->tipo}</li>
+                                <li class="list-group-item text-center">{$skin->estado}{if $skin->stattrak == '1'} | Stattrak{/if}</li>
+                                <li class="list-group-item text-center">{$skin->coleccion} {if $skin->coleccion == ''}No pertenece a ninguna coleccion{/if}</li>
+                                <li class="list-group-item text-center text-success">${$skin->precio}</li>
+                            </ul>
+                        {/if}         
                     </div>
                 </section>
             {/if}

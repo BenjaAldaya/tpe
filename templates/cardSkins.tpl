@@ -27,9 +27,10 @@
                             <h5 class="card-title">{$arma->nombre} | {$skin->nombre}</h5>
                         </div> <!-- Creacion de la carta con sus especificaciones mas llamativas -->
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item text-">{$arma->tipo}</li>
+                            <li class="list-group-item text-center">{$arma->tipo}</li>
                         </ul>
                         {if (isset($smarty.session.USER_NAME)) && ($smarty.session.PERMISOS == 3) && $admin == 1}
+                            <a href="comprar/{$skin->id}" class="btn btn-primary w-100">Mas información</a>
                             <a href="editar/{$skin->id}" class="btn btn-warning w-40">Editar</a>
                             <a href="deleteskin/{$skin->id}" class="btn btn-danger w-40">Eliminar</a>
                         {else}
