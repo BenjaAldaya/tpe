@@ -1,7 +1,6 @@
 {include file="header.tpl"}
 {include file="skinslistnav.tpl"}
     <main class="container-fluid mt-5">
-    {foreach from=$skins item=skin}
         {foreach from=$armas item=arma} 
             {if $skin->id_arma == $arma->id_arma}
             <section class="d-flex justify-content-center">
@@ -12,12 +11,12 @@
                                 <img src="images/{$skin->id_arma}.png" class="card-img-top img-fluid h-75" alt="...">
                             </div>
                         </div>
-                        {else}
-                            <div class="img-holder">
-                                <div class='container-img'>
-                                 <img src='images/noimage.png' class="card-img-top img-fluid" alt="...">
-                                </div>
+                    {else}
+                        <div class="img-holder">
+                            <div class='container-img'>
+                                <img src='images/noimage.png' class="card-img-top img-fluid" alt="...">
                             </div>
+                        </div>
                     {/if}
                 </div>
                 <div class="card col-5">
@@ -36,6 +35,5 @@
             </section>
             {/if}
         {/foreach} 
-    {/foreach}  
     </main>
 {include file="footer.tpl"}

@@ -26,7 +26,7 @@ class UserController {
         // verifico campos obligatorios
         if (empty($username) || empty($password)) {
             // $this->view->showFormLogin("Faltan datos obligatorios");
-            $this->view->showError('faltan datos obligatorios');
+            $this->view->showError('Faltan datos obligatorios');
             die();
         }
 
@@ -46,6 +46,17 @@ class UserController {
             $this->view->showError("Credenciales inválidas");
         }
 
+    }
+    function register() {
+        $username = $_POST['user'];
+        $password = $_POST['password'];
+        $email = $_POST['email'];
+
+        if (empty($username) || empty($password) || empty($email)) {
+            // $this->view->showRegistro("Faltan datos obligatorios");
+            $this->view->showError('Faltan datos obligatorios');
+            die();
+        }
     }
 
     function logout() {

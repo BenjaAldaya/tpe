@@ -16,8 +16,9 @@ class SkinView{
     
     function showSkin($tipo,$armas,$skin){
         $smarty = new Smarty();
+        $thisskin = $skin[0];
         $smarty->assign('armas', $armas);
-        $smarty->assign('skins', $skin);
+        $smarty->assign('skin', $thisskin);
         $smarty->assign('tipo', $tipo);
         $smarty->display('templates/skinDetail.tpl');
     }

@@ -99,6 +99,9 @@ switch ($params[0]) {
         $controlleruser = new UserController();
         $controlleruser->logout();
     break;
+    case 'register':
+        $controlleruser = new UserController();
+        $controlleruser->register();
     default:
         header("HTTP/1.0 404 Not Found");
         $msg = '404 not found';

@@ -26,9 +26,6 @@
                 <li class="nav-item">
                     <a class="nav-link text-light" href="about">About</a>
                 </li>
-                <li class="nav-item">
-                <a class="nav-link text-light" href="registro">Crear cuenta</a>
-                </li>
                 {if (isset($smarty.session.USER_NAME)) && ($smarty.session.PERMISOS == 3)}
                 <li class="nav-item">
                 <a class="nav-link text-light" href="admin">Admin</a>
@@ -39,8 +36,11 @@
                         <a class="nav-link" href="logout">{$smarty.session.USER_NAME} (LOGOUT)</a>
                     </li>
                 {else}
-                    <li class="nav-item ml-auto" >
+                <li class="nav-item ml-auto" >
                     <a class="nav-link text-light" href="login">Login</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link text-light" href="registro">Crear cuenta</a>
                 </li>
                 {/if}
             </ul>
