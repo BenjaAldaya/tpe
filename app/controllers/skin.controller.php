@@ -47,15 +47,16 @@ class SkinController {
         }
     }
 
-    function showSkin($idarma){
+    function showSkin($idskin){
         $armas = $this->modelarmas->getAllArmas();
         $tipo = $this->modelarmas->getTipo();
-        $skinsarma = $this->modelskins->getskin($idarma);
-        if(!($skinsarma)) {
+        $skinarma = $this->modelskins->getskin($idskin);
+        $adminlog =0;
+        if(!($skinarma)) {
             $this->view->showError('Skin no encontrada');
         }
         else {
-            $this->view->showSkin($tipo,$armas,$skinsarma);
+            $this->view->showSkin($tipo,$armas,$skinarma,$adminlog);
         } 
     }
 

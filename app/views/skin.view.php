@@ -9,16 +9,18 @@ class SkinView{
         $smarty->assign('skins', $skins);
         $smarty->assign('tipo', $tipo);
         $smarty->assign('admin', $adminlog);
-        // var_dump($skins);
-        // die();
         $smarty->display('templates/home.tpl');
     }
-    
-    function showSkin($tipo,$armas,$skin){
+    // Pagina de detalle de skins
+    function showSkin($tipo,$armas,$skin,$adminlog){
+        // var_dump($skin);
+        // die();
+        $thisskin = $skin[0];
         $smarty = new Smarty();
         $smarty->assign('armas', $armas);
-        $smarty->assign('skins', $skin);
+        $smarty->assign('skin', $thisskin);
         $smarty->assign('tipo', $tipo);
+        $smarty->assign('admin', $adminlog);
         $smarty->display('templates/skinDetail.tpl');
     }
 

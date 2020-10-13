@@ -56,4 +56,9 @@ class SkinModel {
         $query = $this->db->prepare('DELETE FROM skin    WHERE id = ?');
         $query->execute([$id]);
     }
+
+    function edit($id,$nombre, $idarma, $tipo,$estado,$stattrak,$precio,$coleccion){
+        $query = $this->db->prepare("UPDATE skin SET nombre= ?, id_arma= ?, tipo= ?, estado=?, stattrak= ?, precio=? , coleccion=? WHERE id=?");
+        $query->execute([$nombre, $idarma, $tipo,$estado,$stattrak,$precio,$coleccion,$id]);
+    }
 }

@@ -105,23 +105,41 @@ class AdminController {
 
         header("Location: " . BASE_URL ."admin");
     }
+    function showEditSkin($idskin){
+        if (isset($_SESSION['PERMISOS']) && ($_SESSION['PERMISOS'] == 3)){
+            $armas = $this->modelarmas->getAllArmas();
+            $tipo = $this->modelarmas->getTipo();
+            $skinarma = $this->modelskins->getskin($idskin);
+            $adminlog = 1;
+            if(!($skinarma)) {
+                $this->view->showError('Skin no encontrada');
+            }
+            else {
+                $this->view->showSkin($tipo,$armas,$skinarma,$adminlog);
+            }
+        }
+        else {
+            $this->view->showError('No tienes acceso a esta seccion');
+        }
+    }
 
-    function editSkin(){
+    function editSkin($id){
         $nombre = $_POST['nombre'];
         $idarma = $_POST['idarma'];
         $tipo = $_POST['tipo'];
         $estado = $_POST['estado'];
-        $statrak = $_POST['statrak'];
+        $coleccion = $_POST['coleccion'];
+        $stattrak = $_POST['stattrak'];
         $precio = $_POST['precio'];
 
         // verifico campos obligatorios
-        if (empty($nombre) || empty($idarma) || empty($tipo) || empty($estado) || empty($statrak) || empty($precio)) {
+        if (!(isset($nombre) || isset($idarma) || isset($tipo) || isset($estado) || isset($stattrak) || isset($precio))) {
             $this->view->showError('Faltan datos obligatorios');
             die();
         }
 
         // inserto la tarea en la DB
-        $this->modelskins->edit($nombre, $idarma, $tipo,$estado,$statrak,$precio);
+        $this->modelskins->edit($id,$nombre, $idarma, $tipo,$estado,$stattrak,$precio,$coleccion);
 
 
         // redirigimos al listado
