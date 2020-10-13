@@ -39,11 +39,12 @@ class SkinController {
         $armas = $this->modelarmas->getAllArmas();
         $tipo = $this->modelarmas->getTipo();
         $skinsarma = $this->modelskins->getskinsarma($idarma);
+        $adminlog = 0;
         if(!($skinsarma)) {
             $this->view->showError('No se encontraron skins');
         }
         else {
-            $this->view->showSkins($tipo,$armas,$skinsarma);
+            $this->view->showSkins($tipo,$armas,$skinsarma,$adminlog);
         }
     }
 
