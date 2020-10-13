@@ -51,7 +51,7 @@
 
                     <div class="form-group row ">
                         <div class="col-sm-12 d-flex justify-content-center">
-                            <button type="submit" class="btn btn-primary btn-lg btn-dark btn-outline-light mt-4">Enviar</button>
+                            <button type="submit" class="btn btn-lg btn-info btn-outline-primary mt-4">Enviar</button>
                         </div>
                     </div>
                 </form>

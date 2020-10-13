@@ -1,15 +1,15 @@
 {include file="header.tpl"}
 {include file="skinslistnav.tpl"}
-<div class="row bg-secondary text-light pt-4 border-bottom border-white">
-        <div class="col-2">
+<div class="row bg-secondary text-info border-bottom border-white">
+        <div class="col-2 border-right border-primary">
             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                <a class="nav-link active" id="v-pills-addskin-tab" data-toggle="pill" href="#v-pills-addskin" role="tab" aria-controls="v-pills-addskin" aria-selected="false">Agregar Skin</a>
-                <a class="nav-link" id="v-pills-addarma-tab" data-toggle="pill" href="#v-pills-addarma" role="tab" aria-controls="v-pills-addarma" aria-selected="false">Agregar Arma</a>
-                <a class="nav-link" id="v-pills-editarma-tab" data-toggle="pill" href="#v-pills-editarma" role="tab" aria-controls="v-pills-editarma" aria-selected="false">Editar Arma</a>
-                <a class="nav-link" id="v-pills-deletearma-tab" data-toggle="pill" href="#v-pills-deletearma" role="tab" aria-controls="v-pills-deletearma" aria-selected="false">Eliminar Arma</a>
+                <a class="nav-link active text-warning" id="v-pills-addskin-tab" data-toggle="pill" href="#v-pills-addskin" role="tab" aria-controls="v-pills-addskin" aria-selected="false">Agregar Skin</a>
+                <a class="nav-link text-warning" id="v-pills-addarma-tab" data-toggle="pill" href="#v-pills-addarma" role="tab" aria-controls="v-pills-addarma" aria-selected="false">Agregar Arma</a>
+                <a class="nav-link text-warning" id="v-pills-editarma-tab" data-toggle="pill" href="#v-pills-editarma" role="tab" aria-controls="v-pills-editarma" aria-selected="false">Editar Arma</a>
+                <a class="nav-link text-warning" id="v-pills-deletearma-tab" data-toggle="pill" href="#v-pills-deletearma" role="tab" aria-controls="v-pills-deletearma" aria-selected="false">Eliminar Arma</a>
             </div>
         </div>
-        <div class="col-10">
+        <div class="col-10 m-auto">
             <div class="tab-content w-100" id="v-pills-tabContent">
                 <!-- Agregar skin -->
                 <div class="tab-pane fade show active" id="v-pills-addskin" role="tabpanel" aria-labelledby="v-pills-addskin-tab">
@@ -59,52 +59,70 @@
                 <!-- Agregar Arma -->
                 <div class="tab-pane fade" id="v-pills-addarma" role="tabpanel" aria-labelledby="v-pills-addarma-tab">
                     <form class="form-inline"  action='addarma' method="POST">
-                        <div class= "form-group">
-                            <label>Nombre</label>
-                            <input class="form-control" name="nombre" type="text"> 
-                            <label>Tipo</label>
-                            <select class="form-control" name="tipo">
-                                {foreach from=$tipo item=tipos}
-                                    <option value="{$tipos->tipo}">{$tipos->tipo}</option>
-                                {/foreach}
-                            </select>
+                        <div class="form-group col">
+                            <div class="col-6">
+                                <label>Nombre</label>
+                                <input class="form-control w-100" name="nombre" type="text"> 
+                            </div>
+                            <div class="col-6">
+                                <label>Tipo</label>
+                                <select class="form-control w-100" name="tipo">
+                                    {foreach from=$tipo item=tipos}
+                                        <option value="{$tipos->tipo}">{$tipos->tipo}</option>
+                                    {/foreach}
+                                </select>
+                            </div>
+                            <div class="col-12 d-flex justify-content-center mt-5">
                             <button class="btn btn-success ml-2" type='submit'>Agregar Arma</button>
+                            </div>
                         </div>
                     </form>
                 </div>
                 <!-- Editar arma -->
                 <div class="tab-pane fade" id="v-pills-editarma" role="tabpanel" aria-labelledby="v-pills-editarma-tab">
                     <form  class="form-inline" action='editarma' method="POST">
-                        <div class= "form-group">
-                            <label>Arma</label>
-                            <select class="form-control" name="idarma">
-                                {foreach from=$armas item=arma }
-                                    <option value="{$arma->id_arma}">{$arma->nombre}</option>
-                                {/foreach}
-                            </select>
-                            <label>Nuevo Nombre</label>
-                            <input class="form-control" name="nombre" type="text">
-                            <label>Tipo</label>
-                            <select class="form-control" name="tipo">
-                                {foreach from=$tipo item=tipos}
-                                    <option value="{$tipos->tipo}">{$tipos->tipo}</option>
-                                {/foreach}
-                            </select>
-                            <button class="btn btn-success ml-2" type='submit'>Editar Arma</button> 
+                        <div class="form-group col">
+                            <div class="col-4">
+                                <label>Arma</label>
+                                <select class="form-control w-100" name="idarma">
+                                    {foreach from=$armas item=arma }
+                                        <option value="{$arma->id_arma}">{$arma->nombre}</option>
+                                    {/foreach}
+                                </select>
+                            </div>
+                            <div class="col-4">
+                                <label>Nuevo Nombre</label>
+                                <input class="form-control w-100" name="nombre" type="text">
+                            </div>
+                            <div class="col-4">
+                                <label>Tipo</label>
+                                <select class="form-control w-100" name="tipo">
+                                    {foreach from=$tipo item=tipos}
+                                        <option value="{$tipos->tipo}">{$tipos->tipo}</option>
+                                    {/foreach}
+                                </select>
+                            </div>
+                            <div class="col-12 d-flex justify-content-center mt-5">
+                                <button class="btn btn-warning ml-2" type='submit'>Editar Arma</button>
+                            </div> 
                         </div>
                     </form>
                 </div>
                 <!-- Eliminar Arma -->
                 <div class="tab-pane fade" id="v-pills-deletearma" role="tabpanel" aria-labelledby="v-pills-deletearma-tab">
                     <form  class="form-inline" action='deletearma' method="POST">
-                        <div class= "form-group">
-                            <label>Arma</label>
-                            <select class="form-control" name="idarma">
-                                {foreach from=$armas item=arma }
-                                    <option value="{$arma->id_arma}">{$arma->nombre}</option>
-                                {/foreach}
-                            </select>
-                            <button class="btn btn-success ml-2" type='button' data-toggle="modal" data-target="#Modaldeletearma">Eliminar Arma</button>
+                        <div class= "form-group col">
+                            <div class="col-6">
+                                <label>Arma</label>
+                                <select class="form-control w-100" name="idarma">
+                                    {foreach from=$armas item=arma }
+                                        <option value="{$arma->id_arma}">{$arma->nombre}</option>
+                                    {/foreach}
+                                </select>
+                            </div>
+                            <div class="col-12 d-flex justify-content-center mt-5">
+                                <button class="btn btn-danger ml-2" type='button' data-toggle="modal" data-target="#Modaldeletearma">Eliminar Arma</button>
+                            </div>    
                             <div class="modal fade" id="Modaldeletearma" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
