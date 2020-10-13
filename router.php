@@ -75,6 +75,14 @@ switch ($params[0]) {
         $controlleradmin = new AdminController();
         $controlleradmin->editArma();
     break;
+    case 'editar':
+        $controlleradmin = new AdminController();
+        $controlleradmin->showEditSkin($params[1]);
+    break;
+    case 'editskin':
+        $controlleradmin = new AdminController();
+        $controlleradmin->editskin($params[1]);
+    break;
     case 'deletearma':
         $controlleradmin = new AdminController();
         $controlleradmin->deleteArma();

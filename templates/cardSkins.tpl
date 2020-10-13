@@ -9,7 +9,7 @@
             <!-- Recorremos el arreglo de las armas para encontrar la similitud con la ID -->
             {foreach from=$armas item=arma} 
                 {if $skin->id_arma == $arma->id_arma}
-                    <div class="card col-2 d-flex align-items-stretch">
+                    <div class="card col-2 d-flex ">
                         {if $arma->photo == 1}
                             <div class="img-holder">
                                 <div class='container-img'>
@@ -30,11 +30,11 @@
                             <li class="list-group-item text-">{$arma->tipo}</li>
                         </ul>
                         {if (isset($smarty.session.USER_NAME)) && ($smarty.session.PERMISOS == 3) && $admin == 1}
-                            <a href="admin/editar/{$skin->id}" class="btn btn-warning w-40">Editar</a>
+                            <a href="editar/{$skin->id}" class="btn btn-warning w-40">Editar</a>
                             <a href="deleteskin/{$skin->id}" class="btn btn-danger w-40">Eliminar</a>
                         {else}
                             <div class="card-body text-center">
-                                <a href="comprar/{$skin->id}" class="btn btn-primary stretched-link w-100">Mas información</a>
+                                <a href="comprar/{$skin->id}" class="btn btn-primary w-100">Mas información</a>
                             </div>
                         {/if}
                     </div>    
