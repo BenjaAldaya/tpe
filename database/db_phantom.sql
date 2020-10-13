@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-10-2020 a las 00:15:58
--- Versión del servidor: 10.4.11-MariaDB
--- Versión de PHP: 7.2.31
+-- Tiempo de generación: 13-10-2020 a las 03:18:38
+-- Versión del servidor: 10.4.6-MariaDB
+-- Versión de PHP: 7.3.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -110,7 +111,6 @@ CREATE TABLE `skin` (
 --
 
 INSERT INTO `skin` (`id`, `id_arma`, `nombre`, `tipo`, `estado`, `coleccion`, `stattrak`, `precio`) VALUES
-(5, 39, 'Bosque boreal', 'encubierto', 'Algo desgastado', NULL, 1, 6820),
 (6, 45, 'Tela escarlata', 'encubierto', 'Casi nuevo', NULL, 0, 43956),
 (9, 1, 'Halcon', 'Consumidor', 'Deplorable', NULL, 1, 32),
 (11, 49, 'Disruptor Fantasma', 'Consumidor', 'Recien fabricado', NULL, 1, 4322),
