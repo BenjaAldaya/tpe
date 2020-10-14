@@ -18,6 +18,7 @@ class ArmasModel {
 
 
     function getAllArmas(){
+    //funcion para obtener todas las armas
     $query = $this->db->prepare ('SELECT * FROM arma');
     $query->execute();
 
@@ -27,6 +28,7 @@ class ArmasModel {
     }
 
     function getTipo(){
+        //funcion para obtener el tipo de arma
         $query = $this->db->prepare('SELECT DISTINCT tipo FROM arma');
         $query->execute();
 
@@ -35,16 +37,19 @@ class ArmasModel {
     }
 
     function insert($nombre,$tipo){
+        //funcion para insertar una categoria de arma
         $query = $this->db->prepare('INSERT INTO arma (nombre, tipo) VALUES (?,?)');
         $query->execute([$nombre,$tipo]);
     }
 
     function edit($id,$nombre,$tipo){
+        //funcion para editar una categoria
         $query = $this->db->prepare("UPDATE arma SET nombre= ?, tipo= ? WHERE id_arma=?");
         $query->execute([$nombre,$tipo,$id]);
     }
 
     function delete($id){
+        //funcion para eliminar una categoria
         $query = $this->db->prepare('DELETE FROM arma WHERE id_arma = ?');
         $query->execute([$id]);
     }

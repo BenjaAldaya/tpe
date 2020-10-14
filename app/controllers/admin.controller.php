@@ -21,6 +21,7 @@ class AdminController {
     }
 
     function showAdmin(){
+        // Si cumple con que sea un administrador, podra acceder a la pagina admin, si no, no la podra acceder.
         if (isset($_SESSION['PERMISOS']) && ($_SESSION['PERMISOS'] == 3)){
             $armas= $this->modelarmas->getAllArmas();
             $skins= $this->modelskins->getAllSkins();
@@ -105,6 +106,7 @@ class AdminController {
 
         header("Location: " . BASE_URL ."admin");
     }
+    
     function showEditSkin($idskin){
         if (isset($_SESSION['PERMISOS']) && ($_SESSION['PERMISOS'] == 3)){
             $armas = $this->modelarmas->getAllArmas();
