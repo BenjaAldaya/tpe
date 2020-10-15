@@ -32,7 +32,7 @@
                                     <label>{$arma->nombre} a :</label>
                                     <select name='idarma'>
                                         {foreach from=$armas item=arma}
-                                            <option value='{$arma->id_arma}'>{$arma->nombre}</option>
+                                            <option value='{$arma->id_arma}' {if $arma->id_arma == $skin->id_arma} selected {/if}>{$arma->nombre}</option>
                                         {/foreach}
                                     </select>
                                 </li>
@@ -43,7 +43,7 @@
                                 <li class="list-group-item text-center">
                                     <label> {$skin->tipo} a: </label>
                                     <select name='tipo'>
-                                        <option value='Consumido'>Consumidor</option>
+                                        <option value='Consumidor' >Consumidor</option>
                                         <option value='Militar'>Militar</option>
                                         <option value='Indrustrial'>Indrustrial</option>
                                         <option value='Restringido'>Restringido</option>

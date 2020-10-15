@@ -143,7 +143,7 @@ class AdminController {
 
 
         // redirigimos al listado
-        header("Location: " . BASE_URL ."/admin") ;
+        header("Location: " . BASE_URL ."comprar/" . $id) ;
     }
     
 }
