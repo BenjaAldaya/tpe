@@ -29,8 +29,9 @@ class SkinModel {
     }
 
     function getskinsarma($idarma){
-        $query = $this->db->prepare("SELECT * FROM skin WHERE id_arma = '$idarma'");
-        $query->execute();
+        // funcion para obtener una skin por ID de arma
+        $query = $this->db->prepare("SELECT * FROM skin WHERE id_arma = ?");
+        $query->execute([$idarma]);
 
         $skinarmas = $query->fetchAll(PDO::FETCH_OBJ);
 
@@ -38,8 +39,9 @@ class SkinModel {
     }
 
     function getskin($idskin){
-        $query = $this->db->prepare("SELECT * FROM skin WHERE id = '$idskin'");
-        $query->execute();
+        //funcion para obtener una skin por ID de skin
+        $query = $this->db->prepare("SELECT * FROM skin WHERE id = ?");
+        $query->execute([$idskin]);
 
         $skinid = $query->fetchAll(PDO::FETCH_OBJ);
 
@@ -48,16 +50,19 @@ class SkinModel {
 
 
     function insert($nombre,$idarma,$tipo,$estado,$stattrak,$precio){
+        // funcion para insertar una skin en la base de datos
         $query = $this->db->prepare('INSERT INTO skin (nombre,id_arma,tipo,estado,stattrak,precio) VALUES (?,?,?,?,?,?)');
         $query->execute([$nombre,$idarma,$tipo,$estado,$stattrak,$precio]);
     }
 
     function delete($id){
-        $query = $this->db->prepare('DELETE FROM skin    WHERE id = ?');
+        // funcion para borrar una skin en la base de datos
+        $query = $this->db->prepare('DELETE FROM skin WHERE id = ?');
         $query->execute([$id]);
     }
 
     function edit($id,$nombre, $idarma, $tipo,$estado,$stattrak,$precio,$coleccion){
+        // funcion para editar una skin en la base de datos
         $query = $this->db->prepare("UPDATE skin SET nombre= ?, id_arma= ?, tipo= ?, estado=?, stattrak= ?, precio=? , coleccion=? WHERE id=?");
         $query->execute([$nombre, $idarma, $tipo,$estado,$stattrak,$precio,$coleccion,$id]);
     }

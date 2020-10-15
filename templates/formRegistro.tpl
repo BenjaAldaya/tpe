@@ -4,13 +4,13 @@
                 <h1>Crear Cuenta</h1>
             </div>
             <div class="bg-dark text-white pt-4 formularioinicio">
-                <form class="container" id="formularioregistro">
+                <form action="register" class="container" id="formularioregistro">
                     <div class="form-group row">
                         <div class="col-sm-2 ">
                             <label>Usuario:</label>
                         </div>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control w-100 p-4">
+                            <input name="user" type="text" class="form-control w-100 p-4">
                         </div>
                     </div>
                     <div class="form-group row ">
@@ -18,7 +18,7 @@
                             <label>Contraseña:</label>
                         </div>
                         <div class="col-sm-8">
-                            <input type="password" class="form-control p-4">
+                            <input name="password" type="password" class="form-control p-4">
                         </div>
                     </div>
                     <div class="form-group row ">
@@ -26,7 +26,7 @@
                             <label>Repetir Contraseña:</label>
                         </div>
                         <div class="col-sm-8">
-                            <input type="password" class="form-control p-4">
+                            <input name="repeatpassword" type="password" class="form-control p-4">
                         </div>
                     </div>
                     <div class="form-group row">
@@ -34,7 +34,7 @@
                             <label>Email:</label>
                         </div>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control p-4">
+                            <input name="email" type="text" class="form-control p-4">
                         </div>
                     </div>
                     <div class="form-group row">
@@ -51,7 +51,7 @@
 
                     <div class="form-group row ">
                         <div class="col-sm-12 d-flex justify-content-center">
-                            <button type="submit" class="btn btn-primary btn-lg btn-dark btn-outline-light mt-4">Registrarse</button>
+                            <button type="submit" class="btn btn-lg btn-info btn-outline-primary mt-4">Enviar</button>
                         </div>
                     </div>
                 </form>

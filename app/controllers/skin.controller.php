@@ -20,6 +20,7 @@ class SkinController {
     }
 
     function showTArma(){
+        //Controlador llama al modelo para obtener las armas y skins, ademas llama a view para visualizarse.
         $armas= $this->modelarmas->getAllArmas();
         $skins= $this->modelskins->getAllSkins();
         $tipo= $this->modelarmas->getTipo();
@@ -28,14 +29,17 @@ class SkinController {
     }
 
     function showError($msg){
+        //Cuando hay un error llamamos a esta funcion, con su respectivo mensaje pasado por parametro.
         $this->view->showError($msg);
     }
 
     function showAbout(){
+        //Pagina de about, llama al view para visualizarse.
         $this->view->showAbout();
     }
     
     function showarma($idarma){
+        //Funcion para listar las skins por categoria.
         $armas = $this->modelarmas->getAllArmas();
         $tipo = $this->modelarmas->getTipo();
         $skinsarma = $this->modelskins->getskinsarma($idarma);
@@ -49,6 +53,7 @@ class SkinController {
     }
 
     function showSkin($idskin){
+        // Funcion para mostrar la skin en detalle.
         $armas = $this->modelarmas->getAllArmas();
         $tipo = $this->modelarmas->getTipo();
         $skinarma = $this->modelskins->getskin($idskin);
@@ -62,11 +67,7 @@ class SkinController {
     }
 
     function showRegistro(){
+        // Funcion para mostrar la pagina de registro.
         $this->view->showRegistro();
-    }
-
-    function showDetail($id) {
-        $task = $this->model->get($id);
-        
     }
 }

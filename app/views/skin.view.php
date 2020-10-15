@@ -17,6 +17,7 @@ class SkinView{
         // die();
         $thisskin = $skin[0];
         $smarty = new Smarty();
+        $thisskin = $skin[0];
         $smarty->assign('armas', $armas);
         $smarty->assign('skin', $thisskin);
         $smarty->assign('tipo', $tipo);
