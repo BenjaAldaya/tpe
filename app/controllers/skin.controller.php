@@ -21,16 +21,18 @@ class SkinController {
 
     function showTArma(){
         //Controlador llama al modelo para obtener las armas y skins, ademas llama a view para visualizarse.
-        $armas= $this->modelarmas->getAllArmas();
-        $skins= $this->modelskins->getAllSkins();
-        $tipo= $this->modelarmas->getTipo();
+        $armas = $this->modelarmas->getAllArmas();
+        $skins = $this->modelskins->getAllSkins();
+        $tipo = $this->modelarmas->getTipo();
         $adminlog = 0;
         $this->view->showSkins($tipo,$armas, $skins,$adminlog);
     }
 
     function showError($msg){
+        $armas = $this->modelarmas->getAllArmas();
+        $tipo = $this->modelarmas->getTipo();
         //Cuando hay un error llamamos a esta funcion, con su respectivo mensaje pasado por parametro.
-        $this->view->showError($msg);
+        $this->view->showVError($msg,$tipo,$armas);
     }
 
     function showAbout(){
@@ -45,7 +47,7 @@ class SkinController {
         $skinsarma = $this->modelskins->getskinsarma($idarma);
         $adminlog = 0;
         if(!($skinsarma)) {
-            $this->view->showError('No se encontraron skins');
+            $this->showError('No se encontraron skins');
         }
         else {
             $this->view->showSkins($tipo,$armas,$skinsarma,$adminlog);

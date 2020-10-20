@@ -15,9 +15,9 @@ class UserController {
         $this->userHelper = new UserHelper();
     }
 
-    function showLogin(){
+    function showLogin($error = null){
         // Controlador llama a la visual para poder logearse.
-        $this->view->showLogin();
+        $this->view->showLogin($error);
     }
 
     public function loginUser() {
@@ -27,7 +27,7 @@ class UserController {
         // verifico campos obligatorios
         if (empty($username) || empty($password)) {
             // $this->view->showFormLogin("Faltan datos obligatorios");
-            $this->view->showError('Faltan datos obligatorios');
+            $this->showLogin('Faltan datos obligatorios');
             die();
         }
 
@@ -44,7 +44,7 @@ class UserController {
             header("Location: " . BASE_URL . 'admin'); 
             
         } else {
-            $this->view->showError("Credenciales inválidas");
+            $this->showLogin("Credenciales inválidas");
         }
 
     }
