@@ -173,7 +173,7 @@ class AdminController {
 
 
         // redirigimos al listado
-        header("Location: " . BASE_URL ."/admin");}
+        header("Location: " . BASE_URL ."admin");}
         else{
             $this->showError('No tienes acceso a esta seccion');
         }

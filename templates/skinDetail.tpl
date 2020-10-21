@@ -29,7 +29,7 @@
                         <ul class="list-group list-group-flush">
                             <form action='editskin/{$skin->id}' method='POST'>
                                 <li class="list-group-item text-center">
-                                    <label>Nombre del arma:</label>
+                                    <label>Arma:</label>
                                     <select name='idarma'>
                                         <option value='{$arma->id_arma}'>{$arma->nombre}</option>
                                         <optgroup label="Pistola">
@@ -38,24 +38,28 @@
                                             <option value='{$arma->id_arma}'>{$arma->nombre}</option>
                                             {/if}
                                         {/foreach}
+                                        </optgroup>
                                         <optgroup label="Subfusil">
                                         {foreach from=$armas item=arma}
                                             {if $arma->tipo == 'Subfusil'}
                                             <option value='{$arma->id_arma}'>{$arma->nombre}</option>
                                             {/if}
                                         {/foreach}
+                                        </optgroup>
                                         <optgroup label="Rifle">
                                         {foreach from=$armas item=arma}   
                                             {if $arma->tipo == 'Rifle'}
                                             <option value='{$arma->id_arma}'>{$arma->nombre}</option>
                                             {/if}
                                         {/foreach}
+                                        </optgroup>
                                         <optgroup label="Cuchillo">
                                         {foreach from=$armas item=arma}    
                                             {if $arma->tipo == 'Cuchillo'}
                                             <option value='{$arma->id_arma}'>{$arma->nombre}</option>
                                             {/if}
                                         {/foreach}
+                                        </optgroup>
                                     </select>
                                 </li>
                                 <li class="list-group-item text-center">
@@ -87,7 +91,7 @@
                                         <option value='Bastante Desgastado'>Bastante Desgastado</option>
                                         <option value='Deplorable'>Deplorable</option>
                                     </select>
-                                    <label>|</label>
+                                    <label> | </label>
                                         <label> Stattrak:</label>
                                     <select name='stattrak'>
                                         <option value="{$skin->stattrak}">{if $skin->stattrak == 1}Si{else}No{/if}</option>
