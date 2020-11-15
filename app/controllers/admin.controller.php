@@ -173,14 +173,7 @@ class AdminController {
 
 
         // redirigimos al listado
-<<<<<<< HEAD
-        header("Location: " . BASE_URL ."comprar/" . $id) ;
-=======
-        header("Location: " . BASE_URL ."admin");}
-        else{
-            $this->showError('No tienes acceso a esta seccion');
-        }
->>>>>>> 324a2d8a0ded5a7b784927a745b1f46fd66f52df
+        header("Location: " . BASE_URL ."admin");
     }
     
 }
