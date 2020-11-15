@@ -20,6 +20,13 @@ class AdminController {
         $this->userhelper->checklogin();
     }
 
+    function showError($msg){
+        $armas = $this->modelarmas->getAllArmas();
+        $tipo = $this->modelarmas->getTipo();
+        //Cuando hay un error llamamos a esta funcion, con su respectivo mensaje pasado por parametro.
+        $this->view->showVError($msg,$tipo,$armas);
+    }
+
     function showAdmin(){
         // Si cumple con que sea un administrador, podra acceder a la pagina admin, si no, no la podra acceder.
         if (isset($_SESSION['PERMISOS']) && ($_SESSION['PERMISOS'] == 3)){
@@ -30,12 +37,13 @@ class AdminController {
             $this->view->showAdmin($tipo,$armas, $skins ,$adminlog);
         }
         else{
-            $this->view->showError('No tienes acceso a esta seccion');
+            $this->showError('No tienes acceso a esta seccion');
         }
     }
 
 
     function addArma(){
+        if (isset($_SESSION['PERMISOS']) && ($_SESSION['PERMISOS'] == 3)){
         $nombre = $_POST['nombre'];
         $tipo = $_POST['tipo'];
 
@@ -49,10 +57,14 @@ class AdminController {
         $this->modelarmas->insert($nombre, $tipo);
 
         // redirigimos al listado
-        header("Location: " . BASE_URL ."admin");
+        header("Location: " . BASE_URL ."admin");}
+        else{
+            $this->showError('No tienes acceso a esta seccion');
+        }
     }
 
     function addSkin(){
+        if (isset($_SESSION['PERMISOS']) && ($_SESSION['PERMISOS'] == 3)){
         $nombre = $_POST['nombre'];
         $idarma = $_POST['idarma'];
         $tipo = $_POST['tipo'];
@@ -71,40 +83,55 @@ class AdminController {
 
 
         // redirigimos al listado
-        header("Location: " . BASE_URL ."admin") ;
+        header("Location: " . BASE_URL ."admin") ;}
+        else{
+            $this->showError('No tienes acceso a esta seccion');
+        }
     }
 
     function deleteArma(){
+        if (isset($_SESSION['PERMISOS']) && ($_SESSION['PERMISOS'] == 3)){
         $id = $_POST['idarma'];
 
         if (empty($id)) {
-            $this->view->showError('Faltan datos obligatorios');
+            $this->showError('Faltan datos obligatorios');
             die();
         }
         $this->modelskins->deleteId($id);
         $this->modelarmas->delete($id);
 
-        header("Location: " . BASE_URL ."admin");
+        header("Location: " . BASE_URL ."admin");}
+        else{
+            $this->showError('No tienes acceso a esta seccion');
+        }
     }
 
     function deleteSkin($id){
+        if (isset($_SESSION['PERMISOS']) && ($_SESSION['PERMISOS'] == 3)){
         $this->modelskins->delete($id);
-        header("Location: " . BASE_URL ."admin");
+        header("Location: " . BASE_URL ."admin");}
+        else{
+            $this->showError('No tienes acceso a esta seccion');
+        }
     }
 
     function editArma(){
+        if (isset($_SESSION['PERMISOS']) && ($_SESSION['PERMISOS'] == 3)){
         $nombre = $_POST['nombre'];
         $tipo = $_POST['tipo'];
         $id = $_POST['idarma'];
 
         if (empty($nombre) || empty($tipo)) {
-            $this->view->showError('Faltan datos obligatorios');
+            $this->showError('Faltan datos obligatorios');
             die();
         }
 
         $this->modelarmas->edit($id,$nombre,$tipo);
 
-        header("Location: " . BASE_URL ."admin");
+        header("Location: " . BASE_URL ."admin");}
+        else{
+            $this->showError('No tienes acceso a esta seccion');
+        }
     }
     
     function showEditSkin($idskin){
@@ -121,11 +148,12 @@ class AdminController {
             }
         }
         else {
-            $this->view->showError('No tienes acceso a esta seccion');
+            $this->showError('No tienes acceso a esta seccion');
         }
     }
 
     function editSkin($id){
+        if (isset($_SESSION['PERMISOS']) && ($_SESSION['PERMISOS'] == 3)){
         $nombre = $_POST['nombre'];
         $idarma = $_POST['idarma'];
         $tipo = $_POST['tipo'];
@@ -145,7 +173,14 @@ class AdminController {
 
 
         // redirigimos al listado
+<<<<<<< HEAD
         header("Location: " . BASE_URL ."comprar/" . $id) ;
+=======
+        header("Location: " . BASE_URL ."admin");}
+        else{
+            $this->showError('No tienes acceso a esta seccion');
+        }
+>>>>>>> 324a2d8a0ded5a7b784927a745b1f46fd66f52df
     }
     
 }
