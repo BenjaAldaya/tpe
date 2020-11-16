@@ -40,8 +40,9 @@ class SkinController {
         $this->view->showAbout();
     }
     
-    function showarma($idarma){
+    function showarma($params = null){
         //Funcion para listar las skins por categoria.
+        $idarma = $params[':ID'];
         $armas = $this->modelarmas->getAllArmas();
         $tipo = $this->modelarmas->getTipo();
         $skinsarma = $this->modelskins->getskinsarma($idarma);
@@ -54,7 +55,8 @@ class SkinController {
         }
     }
 
-    function showSkin($idskin){
+    function showSkin($params = null){
+        $idskin = $params[':ID'];
         // Funcion para mostrar la skin en detalle.
         $armas = $this->modelarmas->getAllArmas();
         $tipo = $this->modelarmas->getTipo();

@@ -97,7 +97,7 @@ class AdminController {
             $this->showError('Faltan datos obligatorios');
             die();
         }
-        $this->modelskins->deleteId($id);
+        $this->modelskins->delete($id);
         $this->modelarmas->delete($id);
 
         header("Location: " . BASE_URL ."admin");}
@@ -106,7 +106,8 @@ class AdminController {
         }
     }
 
-    function deleteSkin($id){
+    function deleteSkin($params=null){
+        $id = $params[':ID'];
         if (isset($_SESSION['PERMISOS']) && ($_SESSION['PERMISOS'] == 3)){
         $this->modelskins->delete($id);
         header("Location: " . BASE_URL ."admin");}
@@ -134,7 +135,8 @@ class AdminController {
         }
     }
     
-    function showEditSkin($idskin){
+    function showEditSkin($params=null){
+        $idskin = $params[':ID'];
         if (isset($_SESSION['PERMISOS']) && ($_SESSION['PERMISOS'] == 3)){
             $armas = $this->modelarmas->getAllArmas();
             $tipo = $this->modelarmas->getTipo();
@@ -152,28 +154,29 @@ class AdminController {
         }
     }
 
-    function editSkin($id){
+    function editSkin($params=null){
+        $id =$params[':ID'];
         if (isset($_SESSION['PERMISOS']) && ($_SESSION['PERMISOS'] == 3)){
-        $nombre = $_POST['nombre'];
-        $idarma = $_POST['idarma'];
-        $tipo = $_POST['tipo'];
-        $estado = $_POST['estado'];
-        $coleccion = $_POST['coleccion'];
-        $stattrak = $_POST['stattrak'];
-        $precio = $_POST['precio'];
+            $nombre = $_POST['nombre'];
+            $idarma = $_POST['idarma'];
+            $tipo = $_POST['tipo'];
+            $estado = $_POST['estado'];
+            $coleccion = $_POST['coleccion'];
+            $stattrak = $_POST['stattrak'];
+            $precio = $_POST['precio'];
 
-        // verifico campos obligatorios
-        if (!(isset($nombre) || isset($idarma) || isset($tipo) || isset($estado) || isset($stattrak) || isset($precio))) {
-            $this->view->showError('Faltan datos obligatorios');
-            die();
-        }
+            // verifico campos obligatorios
+            if (!(isset($nombre) || isset($idarma) || isset($tipo) || isset($estado) || isset($stattrak) || isset($precio))) {
+                $this->view->showError('Faltan datos obligatorios');
+                die();
+            }
 
         // inserto la tarea en la DB
-        $this->modelskins->edit($id,$nombre, $idarma, $tipo,$estado,$stattrak,$precio,$coleccion);
-
-
+            $this->modelskins->edit($id,$nombre, $idarma, $tipo,$estado,$stattrak,$precio,$coleccion);
+        }else{
         // redirigimos al listado
         header("Location: " . BASE_URL ."admin");
+        }
     }
     
 }

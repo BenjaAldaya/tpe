@@ -57,7 +57,7 @@ class SkinModel {
 
     function delete($id){
         // funcion para borrar una skin en la base de datos
-        $query = $this->db->prepare('DELETE FROM skin WHERE id = ?');
+        $query = $this->db->prepare('DELETE FROM skin WHERE id_arma = ?');
         $query->execute([$id]);
     }
 
