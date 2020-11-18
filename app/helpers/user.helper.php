@@ -2,35 +2,36 @@
 
 class UserHelper {
     public function __construct() {
+        if (session_status() != PHP_SESSION_ACTIVE) {
+            session_start();
+        }
     }
 
     /**
      * Barrera de seguridad para usuario logueado
      */
-    function checkLogin() {
+    function checkAdminLogin() {
         //Detectamos la sesion, si esta activa o inactiva.
-        session_start();
+        ;
         if (!isset($_SESSION['ID_USER'])) {
-            $status=0; 
-        }else{
-            $status=1;
+            if (!isset($_SESSION['PERMISOS']) && !($_SESSION['PERMISOS'] == 3)){
+                header("Location: " . BASE_URL);
+                die();
+            }
         }
-        return $status;
     }   
     
     function logout() {
         //Funcion para desconectar al usuario de la sesion.
-        session_start();
         session_destroy();
         header("Location: " . BASE_URL . 'home');
     }    
 
     function login($user) {
-        //funcion para logearse.
-        session_start();
+        //funcion para logearse
         $_SESSION['ID_USER'] = $user->id;
         $_SESSION['USER_NAME'] = $user->usuario;
-        $_SESSION['PERMISOS'] = $user->administrador;
+        $_SESSION['PERMISOS'] = $user->permiso;
     }
 
 

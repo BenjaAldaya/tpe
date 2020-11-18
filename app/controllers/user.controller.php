@@ -15,7 +15,7 @@ class UserController {
         $this->userHelper = new UserHelper();
     }
 
-    function showLogin($error = null){
+    function showLogin($error=null){
         // Controlador llama a la visual para poder logearse.
         $this->view->showLogin($error);
     }
@@ -27,7 +27,7 @@ class UserController {
         // verifico campos obligatorios
         if (empty($username) || empty($password)) {
             // $this->view->showFormLogin("Faltan datos obligatorios");
-            $this->showLogin('Faltan datos obligatorios');
+            $this->view->showLogin('Faltan datos obligatorios');
             die();
         }
 
@@ -40,25 +40,51 @@ class UserController {
             // armo la sesion del usuario
             $this->userHelper->login($user);
 
-            // redirigimos al listado
-            header("Location: " . BASE_URL . 'admin'); 
+            if (($_SESSION['PERMISOS'] == 3)){
+                header("Location: " . BASE_URL . 'admin'); 
+            }else{
+                header("Location: " . BASE_URL); 
+            }            
             
         } else {
-            $this->showLogin("Credenciales inválidas");
+            $this->showLogin("Usuario y contraseña invalido");
         }
 
     }
-    function register() {
+    function registrer() {
         //funcion para registrar
         // aunque aun no la estamos utilizando
         $username = $_POST['user'];
         $password = $_POST['password'];
+        $spassword= $_POST['repeatpassword'];
         $email = $_POST['email'];
 
-        if (empty($username) || empty($password) || empty($email)) {
+        if (empty($username) || empty($password) || empty($spassword) | empty($email )) {
             // $this->view->showRegistro("Faltan datos obligatorios");
             $this->view->showError('Faltan datos obligatorios');
             die();
+        }
+        if ($password != $spassword){
+            $this->view->showError('Las contraseñas son incorrectas');
+            die();
+        }   
+        //busco si existe el usuario
+        $userrepeat = $this->model->getUser($username);
+        //busco si existe el email
+        $emailrepeat = $this->model->getEmail($email);
+        if($userrepeat){
+            $this->view->showError('El usuario ya existe');
+            die();
+        }else if($emailrepeat){  
+            $this->view->showError('El email ya existe');
+            die();
+          
+        }else{//si no existe ninguno de los 2 registro y logeo la cuenta
+            $passhash= password_hash($password,PASSWORD_DEFAULT);
+            $this->model->registrer($username,$passhash,$email);
+            $user = $this->model->getUser($username);
+            $this->userHelper->login($user);
+            header("Location: " . BASE_URL); 
         }
     }
 

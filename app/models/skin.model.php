@@ -43,7 +43,7 @@ class SkinModel {
         $query = $this->db->prepare("SELECT * FROM skin WHERE id = ?");
         $query->execute([$idskin]);
 
-        $skinid = $query->fetchAll(PDO::FETCH_OBJ);
+        $skinid = $query->fetch(PDO::FETCH_OBJ);
 
         return $skinid;
     }

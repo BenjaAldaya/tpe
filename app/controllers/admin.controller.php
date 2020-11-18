@@ -16,8 +16,7 @@ class AdminController {
         $this->modelarmas = new ArmasModel();
         $this->userhelper = new UserHelper();
         $this->view = new SkinView();
-
-        $this->userhelper->checklogin();
+        $this->userhelper->checkAdminlogin();
     }
 
     function showError($msg){
@@ -29,16 +28,11 @@ class AdminController {
 
     function showAdmin(){
         // Si cumple con que sea un administrador, podra acceder a la pagina admin, si no, no la podra acceder.
-        if (isset($_SESSION['PERMISOS']) && ($_SESSION['PERMISOS'] == 3)){
             $armas= $this->modelarmas->getAllArmas();
             $skins= $this->modelskins->getAllSkins();
             $tipo= $this->modelarmas->getTipo();
             $adminlog = 1;
-            $this->view->showAdmin($tipo,$armas, $skins ,$adminlog);
-        }
-        else{
-            $this->showError('No tienes acceso a esta seccion');
-        }
+            $this->view->showAdmin($tipo,$armas, $skins ,$adminlog);       
     }
 
 
@@ -150,7 +144,7 @@ class AdminController {
             }
         }
         else {
-            $this->showError('No tienes acceso a esta seccion');
+            $this->view->showError('No tienes acceso a esta seccion');
         }
     }
 

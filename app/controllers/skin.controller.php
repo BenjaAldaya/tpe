@@ -15,8 +15,6 @@ class SkinController {
         $this->modelarmas = new ArmasModel();
         $this->userhelper = new UserHelper();
         $this->view = new SkinView();
-
-        $this->userhelper->checklogin();
     }
 
     function showTArma(){

@@ -24,4 +24,14 @@ class UserModel {
         $query->execute([$user]);
         return $query->fetch(PDO::FETCH_OBJ);
     }
+    public function getEmail($email) {
+        $query = $this->db->prepare('SELECT * FROM usuarios WHERE email = ?');
+        $query->execute([$email]);
+        return $query->fetch(PDO::FETCH_OBJ);
+    }
+
+    public function registrer($username,$passhash,$email){
+        $query = $this->db->prepare('INSERT INTO usuarios (usuario,email,password,permiso) VALUES (?,?,?,?)');
+        $query->execute([$username,$email,$passhash,1]);
+    }
 }

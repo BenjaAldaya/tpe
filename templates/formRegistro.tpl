@@ -4,7 +4,7 @@
                 <h1>Crear Cuenta</h1>
             </div>
             <div class="bg-dark text-white pt-4 formularioinicio">
-                <form action="register" class="container" id="formularioregistro">
+                <form action="registrer" class="container" id="formularioregistro" method='POST'>
                     <div class="form-group row">
                         <div class="col-sm-2 ">
                             <label>Usuario:</label>

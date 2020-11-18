@@ -1,6 +1,6 @@
 {include file="header.tpl"}
 <section>
-{if $error != ''}
+{if $error != null}
     <div class="bordearticle bg-dark text-white w-100 text-center">
         <h1 class="text-danger">Iniciar Sesión</h1>
         <h5 class="text-danger text-center">{$error}</h5>

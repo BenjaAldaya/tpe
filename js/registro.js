@@ -7,7 +7,6 @@ function scriptregistrarse() {
     textocaptcha.innerHTML = numerocaptcha;
     let formularioregistro = document.querySelector("#formularioregistro");
     formularioregistro.addEventListener("submit", function(e) {
-        e.preventDefault();
         validarregistro();
     });
 

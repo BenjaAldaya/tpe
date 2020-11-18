@@ -37,11 +37,9 @@ class SkinView{
     } 
 
     //Pagina de error
-    function showVError($msg,$tipo,$armas){
+    function showError($msg){
         $smarty = new Smarty();
         $smarty->assign('msg', $msg);
-        $smarty->assign('armas', $armas);
-        $smarty->assign('tipo', $tipo);
         $smarty->display('templates/error.tpl');
     }
     

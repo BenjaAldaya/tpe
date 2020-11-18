@@ -22,7 +22,7 @@ $router->addRoute('deletearma','POST','AdminController','deleteArma');
 $router->addRoute('deleteskin/:ID','GET','AdminController','deleteSkin');
 $router->addRoute('comprar/:ID','GET','SkinController','showSkin');
 $router->addRoute('login','GET','UserController','showLogin');
-$router->addRoute('verify','GET','UserController','loginUser');
+$router->addRoute('verify','POST','UserController','loginUser');
 $router->addRoute('logout','GET','UserController','logout');
 $router->addRoute('registrer','POST','UserController','registrer');
 
