@@ -40,7 +40,7 @@ class UserController {
             // armo la sesion del usuario
             $this->userHelper->login($user);
 
-            if (($_SESSION['PERMISOS'] == 3)){
+            if (($_SESSION['PERMISOS'] == 1)){
                 header("Location: " . BASE_URL . 'admin'); 
             }else{
                 header("Location: " . BASE_URL); 

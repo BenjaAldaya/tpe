@@ -15,9 +15,9 @@ class SkinView{
     function showSkin($tipo,$armas,$skin,$adminlog){
         // var_dump($skin);
         // die();
-        $thisskin = $skin[0];
+        $thisskin = $skin; 
         $smarty = new Smarty();
-        $thisskin = $skin[0];
+        // $thisskin = $skin[0];
         $smarty->assign('armas', $armas);
         $smarty->assign('skin', $thisskin);
         $smarty->assign('tipo', $tipo);
@@ -27,12 +27,13 @@ class SkinView{
 
     //pagina de admin
 
-    function showAdmin($tipo,$armas,$skins,$adminlog){
+    function showAdmin($tipo,$armas,$skins,$adminlog,$users){
         $smarty = new Smarty();
         $smarty->assign('armas', $armas);
         $smarty->assign('skins', $skins);
         $smarty->assign('tipo', $tipo);
         $smarty->assign('admin', $adminlog);
+        $smarty->assign('user', $users);
         $smarty->display('templates/admin.tpl');
     } 
 
@@ -63,3 +64,7 @@ class SkinView{
 
 
 }
+
+
+
+

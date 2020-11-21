@@ -1,23 +1,19 @@
 <?php
 
 class UserHelper {
-    public function __construct() {
+    /**
+     * Barrera de seguridad para usuario logueado
+     */
+    function __construct  (){
         if (session_status() != PHP_SESSION_ACTIVE) {
             session_start();
         }
     }
-
-    /**
-     * Barrera de seguridad para usuario logueado
-     */
     function checkAdminLogin() {
         //Detectamos la sesion, si esta activa o inactiva.
-        ;
-        if (!isset($_SESSION['ID_USER'])) {
-            if (!isset($_SESSION['PERMISOS']) && !($_SESSION['PERMISOS'] == 3)){
-                header("Location: " . BASE_URL);
-                die();
-            }
+        if (!isset($_SESSION['ID_USER']) || !($_SESSION['PERMISOS'] == 1)) {
+            header("Location: " . BASE_URL);
+            die();
         }
     }   
     
@@ -27,7 +23,7 @@ class UserHelper {
         header("Location: " . BASE_URL . 'home');
     }    
 
-    function login($user) {
+    function login($user) {   
         //funcion para logearse
         $_SESSION['ID_USER'] = $user->id;
         $_SESSION['USER_NAME'] = $user->usuario;
