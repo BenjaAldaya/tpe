@@ -26,6 +26,5 @@ $router->addRoute('verify','POST','UserController','loginUser');
 $router->addRoute('logout','GET','UserController','logout');
 $router->addRoute('registrer','POST','UserController','registrer');
 $router->addRoute('editpermisos','POST','AdminController','editpermisos');
-$router->addRoute('deleteuser','POST','AdminController','deleteuser');
 
 $router->route($_REQUEST['action'],  $_SERVER['REQUEST_METHOD']);

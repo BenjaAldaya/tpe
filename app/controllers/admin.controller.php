@@ -190,7 +190,7 @@ class AdminController {
                 $this->showError('Faltan datos obligatorios');
                 die();
             }
-            // $this->modelcomentarios->deletecoments($id);
+            $this->modelcomentarios->deletecoments($id);
             $this->modeluser->deleteuser($id);
     
             header("Location: " . BASE_URL ."admin");}
