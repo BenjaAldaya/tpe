@@ -26,7 +26,7 @@
                 <li class="nav-item">
                     <a class="nav-link text-light" href="about">About</a>
                 </li>
-                {if (isset($smarty.session.USER_NAME)) && ($smarty.session.PERMISOS == 3)}
+                {if (isset($smarty.session.USER_NAME)) && ($smarty.session.PERMISOS == 1)}
                 <li class="nav-item">
                 <a class="nav-link text-light" href="admin">Admin</a>
                 </li>

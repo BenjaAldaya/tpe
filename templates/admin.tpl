@@ -7,6 +7,8 @@
                 <a class="nav-link text-warning" id="v-pills-addarma-tab" data-toggle="pill" href="#v-pills-addarma" role="tab" aria-controls="v-pills-addarma" aria-selected="false">Agregar Arma</a>
                 <a class="nav-link text-warning" id="v-pills-editarma-tab" data-toggle="pill" href="#v-pills-editarma" role="tab" aria-controls="v-pills-editarma" aria-selected="false">Editar Arma</a>
                 <a class="nav-link text-warning" id="v-pills-deletearma-tab" data-toggle="pill" href="#v-pills-deletearma" role="tab" aria-controls="v-pills-deletearma" aria-selected="false">Eliminar Arma</a>
+                <a class="nav-link text-warning" id="v-pills-changepermiso-tab" data-toggle="pill" href="#v-pills-changepermiso" role="tab" aria-controls="v-pills-changepermiso" aria-selected="false">Cambiar Permisos</a>
+                <a class="nav-link text-warning" id="v-pills-deleteuser-tab" data-toggle="pill" href="#v-pills-deleteuser" role="tab" aria-controls="v-pills-deleteuser" aria-selected="false">Eliminar Usuario</a>
             </div>
         </div>
         <div class="col-10 m-auto">
@@ -145,7 +147,70 @@
                         </div>
                     </form>
                 </div>
-                <!-- Eliminar SKIN -->
+                <!-- Eliminar USUARIO-->
+                <div class="tab-pane fade" id="v-pills-deleteuser" role="tabpanel" aria-labelledby="v-pills-deleteuser-tab">
+                    <form  class="form-inline" action='deleteuser' method="POST">
+                        <div class="form-group col">
+                            <div class="col-4">
+                                <label>Usuario</label>
+                                <select class="form-control w-100" name="iduser">
+                                    {foreach from=$user item=users}
+                                        <option value="{$users->id}">{$users->usuario}</option>
+                                    {/foreach}
+                                </select>
+                            </div>
+                            <div class="col-12 d-flex justify-content-center mt-5">
+                                <button class="btn btn-danger ml-2" type='button' data-toggle="modal" data-target="#Modaldeleteuser">Eliminar Usuario</button>
+                            </div>    
+                            <div class="modal fade" id="Modaldeleteuser" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Esta seguro que quiere eliminar este usuario?</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Si elimina este usuario se borraran todos los comentarios y puntaciones que pertenezcan a el.
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                            <button type="submit" class="btn btn-primary">Eliminar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- Editar Permiso de usuario -->
+                <div class="tab-pane fade" id="v-pills-changepermiso" role="tabpanel" aria-labelledby="v-pills-changepermiso-tab">
+                    <form  class="form-inline" action='editpermisos' method="POST">
+                        <div class= "form-group col">
+                            <div class="col-4">
+                                <label>Usuario</label>
+                                <select class="form-control w-100" name="iduser">
+                                    {foreach from=$user item=users}
+                                        {if (($users->usuario != $smarty.session.USER_NAME) && ($users->usuario != 'admin'))}
+                                            <option value="{$users->id}">{$users->usuario} | {if ($users->permiso == 1)} Administrador {else} Usuario {/if}</option>
+                                        {/if}
+                                    {/foreach}
+                                </select>
+                            </div>
+                             <div class="col-4">
+                                <label>Permisos</label>
+                                <select class="form-control w-100" name="permiso">
+                                        <option value="1">Administrador</option>
+                                        <option value="0">Usuario</option>
+                                </select>
+                            </div>
+                             <div class="col-12 d-flex justify-content-center mt-5">
+                                <button class="btn btn-warning ml-2" type='submit'>Editar permisos</button>
+                            </div> 
+                        </div>
+                    </form>
+                </div>
             </div>
         </div> 
 </div>

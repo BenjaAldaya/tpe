@@ -16,7 +16,7 @@ $router->addRoute('admin','GET','AdminController','showAdmin');
 $router->addRoute('addskin','POST','AdminController','addSkin');
 $router->addRoute('addarma','POST','AdminController','addArma');
 $router->addRoute('editarma','POST','AdminController','editArma');
-$router->addRoute('editar/:ID','POST','AdminController','showEditSkin');
+$router->addRoute('editar/:ID','GET','AdminController','showEditSkin');
 $router->addRoute('editskin/:ID','POST','AdminController','editskin');
 $router->addRoute('deletearma','POST','AdminController','deleteArma');
 $router->addRoute('deleteskin/:ID','GET','AdminController','deleteSkin');
@@ -25,5 +25,6 @@ $router->addRoute('login','GET','UserController','showLogin');
 $router->addRoute('verify','POST','UserController','loginUser');
 $router->addRoute('logout','GET','UserController','logout');
 $router->addRoute('registrer','POST','UserController','registrer');
+$router->addRoute('editpermisos','POST','AdminController','editpermisos');
 
 $router->route($_REQUEST['action'],  $_SERVER['REQUEST_METHOD']);
