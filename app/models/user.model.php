@@ -33,7 +33,7 @@ class UserModel {
 
     public function registrer($username,$passhash,$email){
         $query = $this->db->prepare('INSERT INTO usuarios (usuario,email,password,permiso) VALUES (?,?,?,?)');
-        $query->execute([$username,$email,$passhash,1]);
+        $query->execute([$username,$email,$passhash,0]);
     }
 
     public function GetAll(){
@@ -46,5 +46,11 @@ class UserModel {
     public function UpdatePermiso($id,$permiso){
         $query = $this->db->prepare("UPDATE usuarios SET permiso=? WHERE id=?");
         $query->execute([$permiso,$id]);
+    }
+
+    function deleteuser($id){
+        // funcion para borrar una skin en la base de datos
+        $query = $this->db->prepare('DELETE FROM usuarios WHERE id = ?');
+        $query->execute([$id]);
     }
 }
