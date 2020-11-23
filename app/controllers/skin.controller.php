@@ -30,7 +30,7 @@ class SkinController {
         $armas = $this->modelarmas->getAllArmas();
         $tipo = $this->modelarmas->getTipo();
         //Cuando hay un error llamamos a esta funcion, con su respectivo mensaje pasado por parametro.
-        $this->view->showVError($msg,$tipo,$armas);
+        $this->view->showError($msg,$tipo,$armas);
     }
 
     function showAbout(){
@@ -66,10 +66,5 @@ class SkinController {
         else {
             $this->view->showSkin($tipo,$armas,$skinarma,$adminlog);
         } 
-    }
-
-    function showRegistro(){
-        // Funcion para mostrar la pagina de registro.
-        $this->view->showRegistro();
     }
 }

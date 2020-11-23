@@ -11,7 +11,7 @@ $router = new Router();
 $router->setDefaultRoute('SkinController','showTArma');
 $router->addRoute('armas/:TIPO/:ID','GET','SkinController','showarma');
 $router->addRoute('about','GET','SkinController','showAbout');
-$router->addRoute('registro','GET','SkinController','showRegistro');
+$router->addRoute('registro','GET','UserController','showRegistro');
 $router->addRoute('admin','GET','AdminController','showAdmin');
 $router->addRoute('addskin','POST','AdminController','addSkin');
 $router->addRoute('addarma','POST','AdminController','addArma');

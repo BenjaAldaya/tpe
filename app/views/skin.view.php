@@ -33,14 +33,16 @@ class SkinView{
         $smarty->assign('skins', $skins);
         $smarty->assign('tipo', $tipo);
         $smarty->assign('admin', $adminlog);
-        $smarty->assign('user', $users);
+        $smarty->assign('users', $users);
         $smarty->display('templates/admin.tpl');
     } 
 
     //Pagina de error
-    function showError($msg){
+    function showError($msg, $tipo, $armas){
         $smarty = new Smarty();
         $smarty->assign('msg', $msg);
+        $smarty->assign('tipo', $tipo);
+        $smarty->assign('armas', $armas);
         $smarty->display('templates/error.tpl');
     }
     
@@ -50,8 +52,9 @@ class SkinView{
         $smarty->display('templates/about.tpl');
     }
     //Pagina de registro
-    function showRegistro(){
+    function showRegistro($error = null){
         $smarty = new Smarty();
+        $smarty->assign('error', $error);
         $smarty->display('templates/formRegistro.tpl');       
     }
 

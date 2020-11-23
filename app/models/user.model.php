@@ -32,8 +32,8 @@ class UserModel {
     }
 
     public function registrer($username,$passhash,$email){
-        $query = $this->db->prepare('INSERT INTO usuarios (usuario,email,password,permiso) VALUES (?,?,?,?)');
-        $query->execute([$username,$email,$passhash,1]);
+        $query = $this->db->prepare('INSERT INTO usuarios (usuario,email,pass,permiso) VALUES (?,?,?,?)');
+        $query->execute([$username,$email,$passhash,0]);
     }
 
     public function GetAll(){

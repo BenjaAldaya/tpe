@@ -2,6 +2,7 @@
 include_once 'app/views/skin.view.php';
 include_once 'app/models/user.model.php';
 include_once 'app/helpers/user.helper.php';
+include_once 'app/controllers/skin.controller.php';
 
 class UserController {
 
@@ -13,11 +14,17 @@ class UserController {
         $this->model = new UserModel();
         $this->view = new SkinView();
         $this->userHelper = new UserHelper();
+        $this->skinController = new SkinController();
     }
 
     function showLogin($error=null){
         // Controlador llama a la visual para poder logearse.
         $this->view->showLogin($error);
+    }
+
+    function showRegistro($error=null){
+        // Funcion para mostrar la pagina de registro.
+        $this->view->showRegistro($error);
     }
 
     public function loginUser() {
@@ -35,7 +42,7 @@ class UserController {
         $user = $this->model->getUser($username);
 
         // si el usuario existe, y las contraseñas coinciden
-        if ($user && password_verify($password, $user->password)) {
+        if ($user && password_verify($password, $user->pass)) {
             
             // armo la sesion del usuario
             $this->userHelper->login($user);
@@ -61,11 +68,11 @@ class UserController {
 
         if (empty($username) || empty($password) || empty($spassword) | empty($email )) {
             // $this->view->showRegistro("Faltan datos obligatorios");
-            $this->view->showError('Faltan datos obligatorios');
+            $this->view->showRegistro('Faltan datos obligatorios.');
             die();
         }
         if ($password != $spassword){
-            $this->view->showError('Las contraseñas son incorrectas');
+            $this->view->showRegistro('Las contraseñas no son iguales.');
             die();
         }   
         //busco si existe el usuario
@@ -73,10 +80,10 @@ class UserController {
         //busco si existe el email
         $emailrepeat = $this->model->getEmail($email);
         if($userrepeat){
-            $this->view->showError('El usuario ya existe');
+            $this->view->showRegistro('Ya existe un usuario con ese nombre.');
             die();
         }else if($emailrepeat){  
-            $this->view->showError('El email ya existe');
+            $this->view->showRegistro('Ya existe un usuario con ese email.');
             die();
           
         }else{//si no existe ninguno de los 2 registro y logeo la cuenta

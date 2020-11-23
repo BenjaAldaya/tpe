@@ -27,7 +27,7 @@ class UserHelper {
         //funcion para logearse
         $_SESSION['ID_USER'] = $user->id;
         $_SESSION['USER_NAME'] = $user->usuario;
-        $_SESSION['PERMISOS'] = $user->administrador;
+        $_SESSION['PERMISOS'] = $user->permiso;
     }
 
 

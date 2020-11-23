@@ -23,16 +23,24 @@ class AdminController {
     }
 
     function showError($msg){
-        $this->view->showVError($msg,$tipo,$armas);
+        $armas = $this->modelarmas->getAllArmas();
+        $tipo = $this->modelarmas->getTipo();
+        //Cuando hay un error llamamos a esta funcion, con su respectivo mensaje pasado por parametro.
+        $this->view->showError($msg,$tipo,$armas);
     }
 
     function showAdmin(){
-            $armas= $this->modelarmas->getAllArmas();
-            $skins= $this->modelskins->getAllSkins();
-            $tipo= $this->modelarmas->getTipo();
-            $users= $this->modeluser->GetAll();
+        if (isset($_SESSION['PERMISOS']) && ($_SESSION['PERMISOS'] == 1)){
+            $armas = $this->modelarmas->getAllArmas();
+            $skins = $this->modelskins->getAllSkins();
+            $tipo = $this->modelarmas->getTipo();
+            $users = $this->modeluser->GetAll();
             $adminlog = 1;
-            $this->view->showAdmin($tipo,$armas, $skins ,$adminlog,$users);       
+            $this->view->showAdmin($tipo, $armas, $skins , $adminlog, $users);
+        }
+        else{
+            $this->showError('No tienes acceso a esta seccion');
+        }
     }
 
 
@@ -43,7 +51,7 @@ class AdminController {
 
         // verifico campos obligatorios
         if (empty($nombre) || empty($tipo)) {
-            $this->view->showError('Faltan datos obligatorios');
+            $this->showError('Faltan datos obligatorios');
             die();
         }
 
@@ -68,7 +76,7 @@ class AdminController {
 
         // verifico campos obligatorios
         if (empty($nombre) || empty($idarma) || empty($tipo) || empty($estado) || empty($precio)) {
-            $this->view->showError('Faltan datos obligatorios');
+            $this->showError('Faltan datos obligatorios');
             die();
         }
 
@@ -101,8 +109,8 @@ class AdminController {
     }
 
     function deleteSkin($params=null){
-        $id = $params[':ID'];
         if (isset($_SESSION['PERMISOS']) && ($_SESSION['PERMISOS'] == 1)){
+        $id = $params[':ID'];
         $this->modelskins->delete($id);
         header("Location: " . BASE_URL ."admin");}
         else{
@@ -121,7 +129,7 @@ class AdminController {
             die();
         }
 
-        $this->modelarmas->edit($id,$nombre,$tipo);
+        $this->modelarmas->edit($id, $nombre, $tipo);
 
         header("Location: " . BASE_URL ."admin");}
         else{
@@ -137,14 +145,14 @@ class AdminController {
             $skinarma = $this->modelskins->getskin($idskin);
             $adminlog = 1;
             if(!($skinarma)) {
-                $this->view->showError('Skin no encontrada');
+                $this->showError('Skin no encontrada');
             }
             else {
-                $this->view->showSkin($tipo,$armas,$skinarma,$adminlog);
+                $this->view->showSkin($tipo, $armas, $skinarma, $adminlog);
             }
         }
         else {
-            $this->view->showError('No tienes acceso a esta seccion');
+            $this->showError('No tienes acceso a esta seccion');
         }
     }
 
@@ -161,12 +169,12 @@ class AdminController {
 
             // verifico campos obligatorios
             if (!(isset($nombre) || isset($idarma) || isset($tipo) || isset($estado) || isset($stattrak) || isset($precio))) {
-                $this->view->showError('Faltan datos obligatorios');
+                $this->showError('Faltan datos obligatorios');
                 die();
             }
 
         // inserto la tarea en la DB
-        $this->modelskins->edit($id,$nombre, $idarma, $tipo,$estado,$stattrak,$precio,$coleccion);
+        $this->modelskins->edit($id, $nombre, $idarma, $tipo, $estado, $stattrak, $precio, $coleccion);
         // redirigimos al listado
         header("Location: " . BASE_URL ."admin");
         }
@@ -176,9 +184,9 @@ class AdminController {
         $id = $_POST['iduser'];
         $permiso = $_POST['permiso'];
         if ($id == 2){
-            $this->view->showError('No se puede cambiar los permisos del usuario Admin');
+            $this->showError('No se puede cambiar los permisos del usuario Admin');
         }else{
-        $this->modeluser->updatepermiso($id,$permiso);
+        $this->modeluser->updatepermiso($id, $permiso);
         header("Location: " . BASE_URL ."admin");
         }
     }

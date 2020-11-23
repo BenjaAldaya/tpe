@@ -154,8 +154,8 @@
                             <div class="col-4">
                                 <label>Usuario</label>
                                 <select class="form-control w-100" name="iduser">
-                                    {foreach from=$user item=users}
-                                        <option value="{$users->id}">{$users->usuario}</option>
+                                    {foreach from=$users item=user}
+                                        <option value="{$user->id}">{$user->usuario}</option>
                                     {/foreach}
                                 </select>
                             </div>
@@ -191,9 +191,9 @@
                             <div class="col-4">
                                 <label>Usuario</label>
                                 <select class="form-control w-100" name="iduser">
-                                    {foreach from=$user item=users}
-                                        {if (($users->usuario != $smarty.session.USER_NAME) && ($users->usuario != 'admin'))}
-                                            <option value="{$users->id}">{$users->usuario} | {if ($users->permiso == 1)} Administrador {else} Usuario {/if}</option>
+                                    {foreach from=$users item=user}
+                                        {if (($user->usuario != $smarty.session.USER_NAME) && ($user->usuario != 'admin'))}
+                                            <option value="{$user->id}">{$user->usuario} | {if ($user->permiso == 1)} Administrador {else} Usuario {/if}</option>
                                         {/if}
                                     {/foreach}
                                 </select>
