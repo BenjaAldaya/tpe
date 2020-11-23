@@ -26,7 +26,7 @@
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item text-center">{$arma->tipo}</li>
                         </ul>
-                        {if (isset($smarty.session.USER_NAME)) && ($smarty.session.PERMISOS == 3) && $admin == 1}
+                        {if $admin == 1}
                             <div class="row">
                                 <a href="comprar/{$skin->id}" class="btn btn-primary w-100">Mas información</a>
                                 <a href="editar/{$skin->id}" class="btn btn-warning w-50">Editar</a>

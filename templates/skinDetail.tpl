@@ -25,7 +25,7 @@
                         <h5 class="card-title text-center">{$arma->nombre} | {$skin->nombre}</h5>
                         <p class="card-text text-center">{$arma->descripcion}</p>
                     </div>
-                    {if (isset($smarty.session.USER_NAME)) && ($smarty.session.PERMISOS == 3) && ($admin == 1)}
+                    {if ($admin == 1)}
                         <ul class="list-group list-group-flush">
                             <form action='editskin/{$skin->id}' method='POST'>
                                 <li class="list-group-item text-center">
