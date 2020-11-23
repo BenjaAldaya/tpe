@@ -3,6 +3,7 @@ require_once 'libs/Router.php';
 include_once 'app/controllers/skin.controller.php';
 include_once 'app/controllers/admin.controller.php';
 include_once 'app/controllers/user.controller.php';
+include_once 'app/api/apicoment.controller.php';
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
@@ -26,5 +27,6 @@ $router->addRoute('verify','POST','UserController','loginUser');
 $router->addRoute('logout','GET','UserController','logout');
 $router->addRoute('registrer','POST','UserController','registrer');
 $router->addRoute('editpermisos','POST','AdminController','editpermisos');
+$router->addRoute('skins','GET','ApiComentController','getAll');
 
 $router->route($_REQUEST['action'],  $_SERVER['REQUEST_METHOD']);
