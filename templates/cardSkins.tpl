@@ -1,9 +1,6 @@
-﻿<main class="container-fluid mt-2">
+﻿<main class="container-fluid mt-2 fondonuke">
     <section>
     <div class="row row-cols-4 d-flex justify-content-around mt-5">
-    {if !$skins}
-        <h1 class="text-center text-primary">No hay skins disponibles de esta arma</h1>
-    {else}
         <!-- Recorremos el arreglo de las skins en la base de datos -->
         {foreach from=$skins item=skin} 
             <!-- Recorremos el arreglo de las armas para encontrar la similitud con la ID -->
@@ -30,9 +27,11 @@
                             <li class="list-group-item text-center">{$arma->tipo}</li>
                         </ul>
                         {if (isset($smarty.session.USER_NAME)) && ($smarty.session.PERMISOS == 3) && $admin == 1}
-                            <a href="comprar/{$skin->id}" class="btn btn-primary w-100">Mas información</a>
-                            <a href="editar/{$skin->id}" class="btn btn-warning w-40">Editar</a>
-                            <a href="deleteskin/{$skin->id}" class="btn btn-danger w-40">Eliminar</a>
+                            <div class="row">
+                                <a href="comprar/{$skin->id}" class="btn btn-primary w-100">Mas información</a>
+                                <a href="editar/{$skin->id}" class="btn btn-warning w-50">Editar</a>
+                                <a href="deleteskin/{$skin->id}" class="btn btn-danger w-50">Eliminar</a>
+                            </div>
                         {else}
                             <div class="card-body text-center">
                                 <a href="comprar/{$skin->id}" class="btn btn-primary w-100">Mas información</a>
@@ -42,7 +41,6 @@
                 {/if}
             {/foreach} 
         {/foreach}                  
-    {/if}
     </div>
     </section>
 </main>

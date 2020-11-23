@@ -1,7 +1,7 @@
 {include file="header.tpl"}
 {include file="skinslistnav.tpl"}
 <div class="row bg-secondary text-info border-bottom border-white">
-        <div class="col-2 border-right border-primary">
+        <div class="col-2 bg-info border-right border-primary">
             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                 <a class="nav-link active text-warning" id="v-pills-addskin-tab" data-toggle="pill" href="#v-pills-addskin" role="tab" aria-controls="v-pills-addskin" aria-selected="false">Agregar Skin</a>
                 <a class="nav-link text-warning" id="v-pills-addarma-tab" data-toggle="pill" href="#v-pills-addarma" role="tab" aria-controls="v-pills-addarma" aria-selected="false">Agregar Arma</a>

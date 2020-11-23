@@ -1,7 +1,7 @@
 .img-holder {
     position: relative;
     width: 100%;
-    padding-top: 80%;
+    padding-top: 100%;
 }
 
 .container-img {
@@ -16,6 +16,10 @@
 
 .container-img img {
     height: 100%;
+}
+
+.fondonuke {
+    background-image: url("../images/background.jpg");
 }
 
 
