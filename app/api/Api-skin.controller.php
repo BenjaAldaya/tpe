@@ -1,16 +1,13 @@
 <?php
-include_once 'app/helpers/user.helper.php';
-include_once 'app/models/armas.model.php';
+include_once 'app/models/skin.model.php';
 include_once 'app/api/api.view.php';
 
 class ApiSkinController{
     private $modelskins;
-    private $modelarmas;
     private $view;
 
     function __construct() {
         $this->modelskins = new SkinModel();
-        $this->modelarmas = new ArmasModel();
         $this->view = new ApiView();
     }
 

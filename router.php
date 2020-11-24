@@ -4,6 +4,7 @@ include_once 'app/controllers/skin.controller.php';
 include_once 'app/controllers/admin.controller.php';
 include_once 'app/controllers/user.controller.php';
 include_once 'app/api/api-comment.controller.php';
+include_once 'app/api/api-user.controller.php';
 
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
@@ -34,9 +35,11 @@ $router->addRoute('registrer','POST','UserController','registrer');
 // API
 $router->addRoute('comments','GET','ApiCommentController','getAll');
 $router->addRoute('comments/:ID', 'GET', 'ApiCommentController', 'get');
+$router->addRoute('commentSkin/:ID', 'GET', 'ApiCommentController', 'getCommentsbySkin');
 $router->addRoute('comments/:ID', 'DELETE', 'ApiCommentController', 'delete');
 $router->addRoute('comments', 'POST', 'ApiCommentController', 'add');
 $router->addRoute('comments/:ID', 'PUT', 'ApiCommentController', 'update');
+$router->addRoute('user/:ID', 'GET', 'ApiUserController', 'getName');
 
 
 $router->route($_REQUEST['action'],  $_SERVER['REQUEST_METHOD']);

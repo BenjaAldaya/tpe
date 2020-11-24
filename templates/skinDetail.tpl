@@ -4,6 +4,7 @@
     {foreach from=$armas item=arma} 
         {if $skin->id_arma == $arma->id_arma}
             <section class="d-flex justify-content-center">
+                <div class="invisible" id="idskin">{$skin->id}</div>
                 <div class="col-5">
                     {if $arma->photo == 1}
                         <div class="img-holder">
@@ -138,13 +139,7 @@
                 <div class="p-2 col-8 text-center">Comentario</div>
             </div>
         </div>
-        <div id="commentbox">
-            <div class="d-flex flex-row bg-info col">
-                <div class="p-2 col-2">SharkL</div>
-                <div class="p-2 col-2 text-center">5</div>
-                <div class="p-2 col-8 text-center">Me encanta esta skin y me gustaria tenerla en mi inventario. Lorem impsum asdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasd</div>
-            </div>
-        </div>
+        <div id="commentbox"></div>
     </section> 
 </main>
 <script type="text/javascript " src="js/comments.js"></script>
