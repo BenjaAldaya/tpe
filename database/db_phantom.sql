@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-10-2020 a las 03:29:54
--- Versión del servidor: 10.4.6-MariaDB
--- Versión de PHP: 7.3.9
+-- Tiempo de generación: 25-11-2020 a las 00:34:43
+-- Versión del servidor: 10.4.11-MariaDB
+-- Versión de PHP: 7.2.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -87,7 +86,29 @@ INSERT INTO `arma` (`id_arma`, `nombre`, `tipo`, `descripcion`, `photo`) VALUES
 (46, 'Ursus', 'Cuchillo', NULL, 0),
 (47, 'Dagas Sombrias', 'Cuchillo', NULL, 0),
 (48, 'Karambit', 'Cuchillo', NULL, 0),
-(49, 'AK-47', 'Rifle', 'Potente y fiable, el AK-47 es uno de los rifles de asalto más famosos del mundo. Es sumamente letal en ráfagas cortas y controladas.', 1);
+(49, 'AK-47', 'Rifle', 'Potente y fiable, el AK-47 es uno de los rifles de asalto más famosos del mundo. Es sumamente letal en ráfagas cortas y controladas.', 1),
+(50, 'USP-S', 'Pistola', NULL, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `comentarios`
+--
+
+CREATE TABLE `comentarios` (
+  `id` int(11) NOT NULL,
+  `id_user` int(30) NOT NULL,
+  `id_skin` int(30) NOT NULL,
+  `comentario` varchar(144) NOT NULL,
+  `valoracion` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `comentarios`
+--
+
+INSERT INTO `comentarios` (`id`, `id_user`, `id_skin`, `comentario`, `valoracion`) VALUES
+(3, 13, 16, 'Que hermosa skin ojala algún día este en mi inventario', 5);
 
 -- --------------------------------------------------------
 
@@ -111,10 +132,7 @@ CREATE TABLE `skin` (
 --
 
 INSERT INTO `skin` (`id`, `id_arma`, `nombre`, `tipo`, `estado`, `coleccion`, `stattrak`, `precio`) VALUES
-(6, 45, 'Tela escarlata', 'encubierto', 'Casi nuevo', NULL, 0, 43956),
-(9, 1, 'Halcon', 'Consumidor', 'Deplorable', NULL, 1, 32),
-(11, 49, 'Disruptor Fantasma', 'Consumidor', 'Recien fabricado', NULL, 1, 4322),
-(12, 49, 'Aquamarine Revenge', 'Encubierto', 'Deplorable', NULL, 1, 3622);
+(16, 49, 'Aquamarine Revenge', 'Encubierto', 'Recien fabricado', NULL, 1, 6325);
 
 -- --------------------------------------------------------
 
@@ -125,17 +143,17 @@ INSERT INTO `skin` (`id`, `id_arma`, `nombre`, `tipo`, `estado`, `coleccion`, `s
 CREATE TABLE `usuarios` (
   `id` int(11) NOT NULL,
   `usuario` varchar(12) NOT NULL,
-  `email` varchar(20) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `administrador` varchar(3) NOT NULL
+  `email` varchar(30) NOT NULL,
+  `pass` varchar(255) NOT NULL,
+  `permiso` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `usuario`, `email`, `password`, `administrador`) VALUES
-(2, 'admin', 'admin@admin.com', '$2y$12$q.9pPLDIz9E.kBBfZSD9ueZObiqNVdHHHCAhBqTPlF2lji97OVHKu', '3');
+INSERT INTO `usuarios` (`id`, `usuario`, `email`, `pass`, `permiso`) VALUES
+(13, 'admin', 'admin@admin.com', '$2y$10$bj3UCWJS7MozsQ30gqVVZ.P46u/mVctSYJoh7.QMj/aahbXQI.AkG', 1);
 
 --
 -- Índices para tablas volcadas
@@ -146,6 +164,13 @@ INSERT INTO `usuarios` (`id`, `usuario`, `email`, `password`, `administrador`) V
 --
 ALTER TABLE `arma`
   ADD PRIMARY KEY (`id_arma`);
+
+--
+-- Indices de la tabla `comentarios`
+--
+ALTER TABLE `comentarios`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_user` (`id_user`,`id_skin`);
 
 --
 -- Indices de la tabla `skin`
@@ -168,19 +193,25 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `arma`
 --
 ALTER TABLE `arma`
-  MODIFY `id_arma` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id_arma` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+
+--
+-- AUTO_INCREMENT de la tabla `comentarios`
+--
+ALTER TABLE `comentarios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `skin`
 --
 ALTER TABLE `skin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Restricciones para tablas volcadas
