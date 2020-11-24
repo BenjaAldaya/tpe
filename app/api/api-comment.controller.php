@@ -1,7 +1,7 @@
 <?php
-include_once 'app/helpers/user.helper.php';
 include_once 'app/models/comment.model.php';
 include_once 'app/api/api.view.php';
+include_once 'app/models/user.model.php';
 
 class ApiCommentController{
     private $modelcomment;
@@ -9,6 +9,7 @@ class ApiCommentController{
 
     function __construct() {
         $this->modelcomment = new commentModel();
+        $this->modeluser = new UserModel();
         $this->view = new ApiView();
     }
 
@@ -85,6 +86,16 @@ class ApiCommentController{
         else { 
             $this->view->response("No se pudo insertar", 500);
         }
+    }
+
+    public function getName($params = null) {
+        // $params es un array asociativo con los parámetros de la ruta
+        $idUser = $params[':ID'];
+        $userName = $this->modeluser->getName($idUser);
+        if ($userName)
+            $this->view->response($userName, 200);
+        else
+            $this->view->response("El usuario con el id = $idUser no existe.", 404);
     }
 
 }
