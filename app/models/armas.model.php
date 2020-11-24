@@ -27,6 +27,15 @@ class ArmasModel {
     return $armas;
     }
 
+    function getarma($id){
+        $query = $this->db->prepare('SELECT * FROM arma WHERE id = ?');
+        $query->execute([$id]);
+
+        $armaid = $query->fetch(PDO::FETCH_OBJ);
+
+        return $armaid;
+    }
+
     function getTipo(){
         //funcion para obtener el tipo de arma
         $query = $this->db->prepare('SELECT DISTINCT tipo FROM arma');
@@ -36,16 +45,18 @@ class ArmasModel {
         return $tipo; 
     }
 
-    function insert($nombre,$tipo){
+    function insert($nombre,$tipo,$descripcion){
         //funcion para insertar una categoria de arma
-        $query = $this->db->prepare('INSERT INTO arma (nombre, tipo) VALUES (?,?)');
-        $query->execute([$nombre,$tipo]);
+        $query = $this->db->prepare('INSERT INTO arma (nombre, tipo, descripcion) VALUES (?,?,?)');
+        $query->execute([$nombre,$tipo,$descripcion]);
+
+        return $this->db->lastInsertId();
     }
 
-    function edit($id,$nombre,$tipo){
+    function edit($id,$nombre,$tipo, $descripcion){
         //funcion para editar una categoria
-        $query = $this->db->prepare("UPDATE arma SET nombre= ?, tipo= ? WHERE id_arma=?");
-        $query->execute([$nombre,$tipo,$id]);
+        $query = $this->db->prepare("UPDATE arma SET nombre = ?, tipo = ?, descripcion = ? WHERE id_arma=?");
+        $query->execute([$nombre,$tipo,$descripcion,$id]);
     }
 
     function delete($id){

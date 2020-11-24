@@ -104,6 +104,10 @@
                                     {/foreach}
                                 </select>
                             </div>
+                            <div class="col-4">
+                                <label>Descripcion</label>
+                                <input class="form-control w-100" name="descripcion" type="text">
+                            </div>
                             <div class="col-12 d-flex justify-content-center mt-5">
                                 <button class="btn btn-warning ml-2" type='submit'>Editar Arma</button>
                             </div> 

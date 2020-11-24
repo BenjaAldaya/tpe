@@ -48,6 +48,7 @@ class AdminController {
         if (isset($_SESSION['PERMISOS']) && ($_SESSION['PERMISOS'] == 1)){
         $nombre = $_POST['nombre'];
         $tipo = $_POST['tipo'];
+        $descripcion = $_POST['descripcion'];
 
         // verifico campos obligatorios
         if (empty($nombre) || empty($tipo)) {
@@ -56,7 +57,7 @@ class AdminController {
         }
 
         // inserto la tarea en la DB
-        $this->modelarmas->insert($nombre, $tipo);
+        $this->modelarmas->insert($nombre, $tipo,$descripcion);
 
         // redirigimos al listado
         header("Location: " . BASE_URL ."admin");}
@@ -122,6 +123,7 @@ class AdminController {
         if (isset($_SESSION['PERMISOS']) && ($_SESSION['PERMISOS'] == 1)){
         $nombre = $_POST['nombre'];
         $tipo = $_POST['tipo'];
+        $descripcion = $_POST['descripcion'];
         $id = $_POST['idarma'];
 
         if (empty($nombre) || empty($tipo)) {
@@ -129,7 +131,7 @@ class AdminController {
             die();
         }
 
-        $this->modelarmas->edit($id, $nombre, $tipo);
+        $this->modelarmas->edit($id, $nombre, $tipo, $descripcion);
 
         header("Location: " . BASE_URL ."admin");}
         else{
@@ -177,6 +179,10 @@ class AdminController {
         $this->modelskins->edit($id, $nombre, $idarma, $tipo, $estado, $stattrak, $precio, $coleccion);
         // redirigimos al listado
         header("Location: " . BASE_URL ."admin");
+        }
+        else
+        {
+            $this->showError('No tienes acceso a esta seccion');
         }
     }
 

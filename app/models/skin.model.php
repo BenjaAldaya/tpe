@@ -53,6 +53,7 @@ class SkinModel {
         // funcion para insertar una skin en la base de datos
         $query = $this->db->prepare('INSERT INTO skin (nombre,id_arma,tipo,estado,stattrak,precio) VALUES (?,?,?,?,?,?)');
         $query->execute([$nombre,$idarma,$tipo,$estado,$stattrak,$precio]);
+        return $this->db->lastInsertId();
     }
 
     function delete($id){
