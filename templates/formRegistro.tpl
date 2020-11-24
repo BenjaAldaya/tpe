@@ -84,7 +84,7 @@
                             <label>Repetir Contraseña:</label>
                         </div>
                         <div class="col-sm-8">
-                            <input name="repeatpassword" type="password" class="form-control p-4">
+                            <input name="rpassword" type="password" class="form-control p-4">
                         </div>
                     </div>
                     <div class="form-group row">

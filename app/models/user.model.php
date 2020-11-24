@@ -31,9 +31,10 @@ class UserModel {
         return $query->fetch(PDO::FETCH_OBJ);
     }
 
-    public function registrer($username,$passhash,$email){
+    public function insert($username,$passhash,$email){
         $query = $this->db->prepare('INSERT INTO usuarios (usuario,email,pass,permiso) VALUES (?,?,?,?)');
         $query->execute([$username,$email,$passhash,0]);
+        return $this->db->lastInsertId();
     }
 
     public function GetAll(){
@@ -44,7 +45,7 @@ class UserModel {
     }
 
     public function UpdatePermiso($id,$permiso){
-        $query = $this->db->prepare("UPDATE usuarios SET permiso=? WHERE id=?");
+        $query = $this->db->prepare("UPDATE usuarios SET permiso = ? WHERE id = ?");
         $query->execute([$permiso,$id]);
     }
 }

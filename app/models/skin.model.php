@@ -58,13 +58,14 @@ class SkinModel {
 
     function delete($id){
         // funcion para borrar una skin en la base de datos
-        $query = $this->db->prepare('DELETE FROM skin WHERE id_arma = ?');
+        $query = $this->db->prepare('DELETE FROM skin WHERE id = ?');
         $query->execute([$id]);
+        return $query->rowCount();
     }
 
     function edit($id,$nombre, $idarma, $tipo,$estado,$stattrak,$precio,$coleccion){
         // funcion para editar una skin en la base de datos
-        $query = $this->db->prepare("UPDATE skin SET nombre= ?, id_arma= ?, tipo= ?, estado=?, stattrak= ?, precio=? , coleccion=? WHERE id=?");
+        $query = $this->db->prepare("UPDATE skin SET nombre= ?, id_arma= ?, tipo= ?, estado=?, stattrak= ?, precio=? , coleccion=? WHERE id = ?");
         $query->execute([$nombre, $idarma, $tipo,$estado,$stattrak,$precio,$coleccion,$id]);
     }
 }

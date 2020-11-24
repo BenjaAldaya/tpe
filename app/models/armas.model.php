@@ -28,7 +28,7 @@ class ArmasModel {
     }
 
     function getarma($id){
-        $query = $this->db->prepare('SELECT * FROM arma WHERE id = ?');
+        $query = $this->db->prepare('SELECT * FROM arma WHERE id_arma = ?');
         $query->execute([$id]);
 
         $armaid = $query->fetch(PDO::FETCH_OBJ);

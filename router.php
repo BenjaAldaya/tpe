@@ -3,8 +3,8 @@ require_once 'libs/Router.php';
 include_once 'app/controllers/skin.controller.php';
 include_once 'app/controllers/admin.controller.php';
 include_once 'app/controllers/user.controller.php';
-include_once 'app/api/api-skin.controller.php';
-include_once 'app/api/api-arma.controller.php';
+include_once 'app/api/api-comment.controller.php';
+
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
@@ -32,11 +32,11 @@ $router->addRoute('verify','POST','UserController','loginUser');
 $router->addRoute('logout','GET','UserController','logout');
 $router->addRoute('registrer','POST','UserController','registrer');
 // API
-$router->addRoute('skins','GET','ApiSkinController','getAll');
-$router->addRoute('skins/:ID', 'GET', 'ApiSkinController', 'get');
-$router->addRoute('skins/:ID', 'DELETE', 'ApiSkinController', 'delete');
-$router->addRoute('skins', 'POST', 'ApiSkinController', 'add');
-$router->addRoute('skins/:ID', 'PUT', 'ApiSkinController', 'update');
+$router->addRoute('comments','GET','ApiCommentController','getAll');
+$router->addRoute('comments/:ID', 'GET', 'ApiCommentController', 'get');
+$router->addRoute('comments/:ID', 'DELETE', 'ApiCommentController', 'delete');
+$router->addRoute('comments', 'POST', 'ApiCommentController', 'add');
+$router->addRoute('comments/:ID', 'PUT', 'ApiCommentController', 'update');
 
 
 $router->route($_REQUEST['action'],  $_SERVER['REQUEST_METHOD']);

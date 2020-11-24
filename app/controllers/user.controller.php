@@ -63,10 +63,10 @@ class UserController {
         // aunque aun no la estamos utilizando
         $username = $_POST['user'];
         $password = $_POST['password'];
-        $spassword= $_POST['repeatpassword'];
+        $spassword = $_POST['rpassword'];
         $email = $_POST['email'];
 
-        if (empty($username) || empty($password) || empty($spassword) | empty($email )) {
+        if (empty($username) || empty($password) || empty($spassword) | empty($email)) {
             // $this->view->showRegistro("Faltan datos obligatorios");
             $this->view->showRegistro('Faltan datos obligatorios.');
             die();
@@ -79,6 +79,7 @@ class UserController {
         $userrepeat = $this->model->getUser($username);
         //busco si existe el email
         $emailrepeat = $this->model->getEmail($email);
+
         if($userrepeat){
             $this->view->showRegistro('Ya existe un usuario con ese nombre.');
             die();
@@ -86,9 +87,9 @@ class UserController {
             $this->view->showRegistro('Ya existe un usuario con ese email.');
             die();
           
-        }else{//si no existe ninguno de los 2 registro y logeo la cuenta
-            $passhash= password_hash($password,PASSWORD_DEFAULT);
-            $this->model->registrer($username,$passhash,$email);
+        }else{//si no existe ninguno de los 2, registro y logeo la cuenta:
+            $passhash = password_hash($password,PASSWORD_DEFAULT);
+            $this->model->insert($username,$passhash,$email);
             $user = $this->model->getUser($username);
             $this->userHelper->login($user);
             header("Location: " . BASE_URL); 

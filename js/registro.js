@@ -6,7 +6,8 @@ function scriptregistrarse() {
     let numerocaptcha = Math.floor(Math.random() * (999999 - 100000) + 100000);
     textocaptcha.innerHTML = numerocaptcha;
     let formularioregistro = document.querySelector("#formularioregistro");
-    formularioregistro.addEventListener("submit", function(e) {
+    formularioregistro.addEventListener("submit", e => {
+        e.preventDefault();
         validarregistro();
     });
 

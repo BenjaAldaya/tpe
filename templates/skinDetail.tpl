@@ -129,6 +129,23 @@
                 </div>
             </section>
         {/if}
-    {/foreach}  
+    {/foreach} 
+    <section class="mt-5 w-100">
+        <div>
+            <div class="d-flex flex-row bg-primary col">
+                <div class="p-2 col-2">Usuario</div>
+                <div class="p-2 col-2 text-center">Valoracion</div>
+                <div class="p-2 col-8 text-center">Comentario</div>
+            </div>
+        </div>
+        <div id="commentbox">
+            <div class="d-flex flex-row bg-info col">
+                <div class="p-2 col-2">SharkL</div>
+                <div class="p-2 col-2 text-center">5</div>
+                <div class="p-2 col-8 text-center">Me encanta esta skin y me gustaria tenerla en mi inventario. Lorem impsum asdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasd</div>
+            </div>
+        </div>
+    </section> 
 </main>
+<script type="text/javascript " src="js/comments.js"></script>
 {include file="footer.tpl"}
