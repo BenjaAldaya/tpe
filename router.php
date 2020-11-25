@@ -3,7 +3,6 @@ require_once 'libs/Router.php';
 include_once 'app/controllers/skin.controller.php';
 include_once 'app/controllers/admin.controller.php';
 include_once 'app/controllers/user.controller.php';
-include_once 'app/api/api-comment.controller.php';
 
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
@@ -27,18 +26,19 @@ $router->addRoute('editskin/:ID','POST','AdminController','editskin');
 $router->addRoute('deletearma','POST','AdminController','deleteArma');
 $router->addRoute('deleteskin/:ID','GET','AdminController','deleteSkin');
 $router->addRoute('editpermisos','POST','AdminController','editpermisos');
+$router->addRoute('deleteuser','POST','AdminController','deleteuser');
 // Acciones de la sesion
 $router->addRoute('verify','POST','UserController','loginUser');
 $router->addRoute('logout','GET','UserController','logout');
 $router->addRoute('registrer','POST','UserController','registrer');
 // API
-$router->addRoute('comments','GET','ApiCommentController','getAll');
-$router->addRoute('comments/:ID', 'GET', 'ApiCommentController', 'get');
-$router->addRoute('commentSkin/:ID', 'GET', 'ApiCommentController', 'getCommentsbySkin');
-$router->addRoute('comments/:ID', 'DELETE', 'ApiCommentController', 'delete');
-$router->addRoute('comments', 'POST', 'ApiCommentController', 'add');
-$router->addRoute('comments/:ID', 'PUT', 'ApiCommentController', 'update');
-$router->addRoute('user/:ID', 'GET', 'ApiCommentController', 'getName');
+// $router->addRoute('comments','GET','ApiCommentController','getAll');
+// $router->addRoute('comments/:ID', 'GET', 'ApiCommentController', 'get');
+// $router->addRoute('commentSkin/:ID', 'GET', 'ApiCommentController', 'getCommentsbySkin');
+// $router->addRoute('comments/:ID', 'DELETE', 'ApiCommentController', 'delete');
+// $router->addRoute('comments', 'POST', 'ApiCommentController', 'add');
+// $router->addRoute('comments/:ID', 'PUT', 'ApiCommentController', 'update');
+// $router->addRoute('user/:ID', 'GET', 'ApiCommentController', 'getName');
 
 
 $router->route($_REQUEST['action'],  $_SERVER['REQUEST_METHOD']);
