@@ -15,7 +15,18 @@ class UserHelper {
             header("Location: " . BASE_URL);
             die();
         }
-    }   
+    }
+    
+    function checkUserLogin() {
+        //Detectamos la sesion, si esta activa o inactiva.
+        $log;
+        if (!isset($_SESSION['ID_USER'])) {
+            $log=0;
+            return $log;
+        }
+            $log=$_SESSION['ID_USER'];
+            return $log;
+    } 
     
     function logout() {
         //Funcion para desconectar al usuario de la sesion.
