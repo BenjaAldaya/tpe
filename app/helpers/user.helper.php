@@ -24,7 +24,7 @@ class UserHelper {
             $log=0;
             return $log;
         }
-            $log=$_SESSION['ID_USER'];
+            $log=1;
             return $log;
     } 
     

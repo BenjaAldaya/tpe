@@ -54,6 +54,7 @@ class SkinController {
     }
 
     function showSkin($params = null){
+        $userlogin = $this->userhelper->checkUserLogin();
         $idskin = $params[':ID'];
         // Funcion para mostrar la skin en detalle.
         $armas = $this->modelarmas->getAllArmas();
@@ -64,7 +65,7 @@ class SkinController {
             $this->view->showError('Skin no encontrada');
         }
         else {
-            $this->view->showSkin($tipo,$armas,$skinarma,$adminlog);
+            $this->view->showSkin($tipo,$armas,$skinarma,$adminlog,$userlogin);
         } 
     }
 }

@@ -60,4 +60,5 @@ class UserModel {
         $query = $this->db->prepare("UPDATE usuarios SET permiso = ? WHERE id = ?");
         $query->execute([$permiso,$id]);
     }
+
 }

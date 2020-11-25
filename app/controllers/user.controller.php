@@ -99,4 +99,5 @@ class UserController {
     function logout() {
         $this->userHelper->logout();
     }
+
 }

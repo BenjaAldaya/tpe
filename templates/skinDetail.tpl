@@ -130,7 +130,50 @@
                 </div>
             </section>
         {/if}
-    {/foreach} 
+    {/foreach}
+    <section class="mt-5 w-100">         
+        <form id="comment-form" action="comments" class='bg-secondary' method="POST" class="my-4" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-8">
+                    {if $userlogin == 1}
+                        <span>Usuario: </span>
+                        <span>{$smarty.session.USER_NAME}</span>
+                        <param name='user' value='{$smarty.session.ID_USER}'>
+                
+                    {else}
+                        <span>Usuario: </span>
+                        <button><a href="login"> Iniciar Sesion</a></button>
+                    {/if}
+                </div>
+                <div class="col-3">
+                    <div class="form-group">
+                        <label>Valoracion</label>
+                        <select name="valoracion" class="form-control">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-7">
+                    <label>Comentario:</label>
+                    <textarea name="comment" class="form-control" rows="3"></textarea>
+                </div>
+                <div class='col-2'></div>
+                <div class='col'>
+                    {if $userlogin == 1}
+                        <button type="submit" class="btn btn-primary">Enviar Comentario</button>
+                    {else}
+                        <button type="submit" class="btn btn-primary" disabled>Enviar Comentario</button>
+                    {/if}
+                </div>
+            </div>
+        </form>
+    </section>
     <section class="mt-5 w-100">
         <div>
             <div class="d-flex flex-row bg-primary col">
