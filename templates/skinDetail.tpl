@@ -202,4 +202,5 @@
     </section>
 </main>
 <script type="text/javascript " src="js/comments.js"></script>
+{* {include file="comments.tpl"} *}
 {include file="footer.tpl"}
