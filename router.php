@@ -31,14 +31,6 @@ $router->addRoute('deleteuser','POST','AdminController','deleteuser');
 $router->addRoute('verify','POST','UserController','loginUser');
 $router->addRoute('logout','GET','UserController','logout');
 $router->addRoute('registrer','POST','UserController','registrer');
-// API
-// $router->addRoute('comments','GET','ApiCommentController','getAll');
-// $router->addRoute('comments/:ID', 'GET', 'ApiCommentController', 'get');
-// $router->addRoute('commentSkin/:ID', 'GET', 'ApiCommentController', 'getCommentsbySkin');
-// $router->addRoute('comments/:ID', 'DELETE', 'ApiCommentController', 'delete');
-// $router->addRoute('comments', 'POST', 'ApiCommentController', 'add');
-// $router->addRoute('comments/:ID', 'PUT', 'ApiCommentController', 'update');
-// $router->addRoute('user/:ID', 'GET', 'ApiCommentController', 'getName');
 
 
 $router->route($_REQUEST['action'],  $_SERVER['REQUEST_METHOD']);

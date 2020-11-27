@@ -106,6 +106,7 @@ class ApiCommentController{
     }
 
     public function getName($params = null) {
+        //funcion para obtener el nombre de una persona teniendo el ID, util para los comentarios
         // $params es un array asociativo con los parámetros de la ruta
         $idUser = $params[':ID'];
         $userName = $this->modeluser->getName($idUser);
