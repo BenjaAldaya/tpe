@@ -5,6 +5,7 @@
         {if $skin->id_arma == $arma->id_arma}
             <section class="d-flex justify-content-center">
                 <div class="invisible" id="idskin">{$skin->id}</div>
+                <div class="invisible" id="admin">{$admin}</div>
                 <div class="col-5">
                     {if $arma->photo == 1}
                         <div class="img-holder">
@@ -109,6 +110,7 @@
                                     <input value='Vacio' name='coleccion'>    
                                     {/if}
                                 </li>
+                                <li class="list-group-item text-center" id="valtotal"></li>
                                 <li class="list-group-item text-center">
                                     <label>Precio: $</label>
                                     <input value='{$skin->precio}' name='precio'>
@@ -137,6 +139,9 @@
         <table class="table table-striped table-dark">
             <thead class="thead-dark">
                 <tr>
+                    {if $admin == 1}
+                    <th scope="col">RM</th>
+                    {/if}
                     <th scope="col">Usuario</th>
                     <th scope="col">Valoracion</th>
                     <th scope="col">Comentario</th>

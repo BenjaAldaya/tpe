@@ -10,10 +10,14 @@ class UserHelper {
         }
     }
     function checkAdminLogin() {
+        $log;
         //Detectamos la sesion, si esta activa o inactiva.
         if (!isset($_SESSION['ID_USER']) || !($_SESSION['PERMISOS'] == 1)) {
-            header("Location: " . BASE_URL);
-            die();
+            $log=0;
+            return $log;
+        }else{
+            $log=1;
+            return $log;
         }
     }
     
@@ -24,8 +28,10 @@ class UserHelper {
             $log=0;
             return $log;
         }
+        else{
             $log=1;
             return $log;
+        }
     } 
     
     function logout() {

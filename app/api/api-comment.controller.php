@@ -59,14 +59,19 @@ class ApiCommentController{
     // }
 
     public function delete($params = null) {
-        $this->userhelper->checkAdminLogin();
-        $idComment = $params[':ID'];
-        $success = $this->modelcomment->delete($idComment);
-        if ($success) {
-            $this->view->response("El comentario con la ID = $idComment se borró exitosamente.", 200);
+        $log = $this->userhelper->checkAdminLogin();
+        if($log = 1){
+            $idComment = $params[':ID'];
+            $success = $this->modelcomment->delete($idComment);
+            if ($success) {
+                $this->view->response("El comentario con la ID = $idComment se borró exitosamente.", 200);
+            }
+            else { 
+                $this->view->response("El comentario con la ID = $idComment no existe.", 404);
+            }
         }
-        else { 
-            $this->view->response("El comentario con la ID = $idComment no existe.", 404);
+        else {
+            $this->view->response("No tienes acceso a esta funcion", 404);
         }
     }
 
