@@ -42,10 +42,7 @@ class ApiCommentController{
     public function getCommentsbySkin($params = null){
         $idSkin = $params[':ID'];
         $comments = $this->modelcomment->getcommentSkin($idSkin);
-        if($comments)
-            $this->view->response($comments, 200);
-        else
-            $this->view->response("Esta skin no tiene ningun comentario", 404);
+         $this->view->response($comments, 200);
     }
 
     //util para hacer un filtro

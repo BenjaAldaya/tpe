@@ -15,7 +15,7 @@ class SkinModel {
         $db = new PDO('mysql:host=localhost;'.'dbname=db_phantom;charset=utf8', 'root', '');
         return $db;
     }
-
+    //$gsent->bindParam(':calories', $calorías, PDO::PARAM_INT);
     function getAllSkins($inicio,$cant) {
 
         // 2. Enviar la consulta (2 sub-pasos: prepare y execute)

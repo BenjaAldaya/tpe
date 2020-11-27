@@ -45,7 +45,7 @@ class AdminController {
                 $inicio=$cant-4;
             }
             $armas = $this->modelarmas->getAllArmas();
-            $skins = $this->modelskins->getAllSkins($inicio,$cant);
+            $skins = $this->modelskins->getAllSkins($inicio,$cant   );
             $tipo = $this->modelarmas->getTipo();
             $users = $this->modeluser->GetAll();
             $adminlog = 1;
@@ -159,11 +159,13 @@ class AdminController {
             $tipo = $this->modelarmas->getTipo();
             $skinarma = $this->modelskins->getskin($idskin);
             $adminlog = 1;
+            $userlogin=$this->userhelper->checkUserLogin();
+            $admincomment=$this->userhelper->checkAdminLoginComment();
             if(!($skinarma)) {
                 $this->showError('Skin no encontrada');
             }
             else {
-                $this->view->showSkin($tipo, $armas, $skinarma, $adminlog);
+                $this->view->showSkin($tipo, $armas, $skinarma, $adminlog,$userlogin,$admincomment);
             }
         }
         else {
