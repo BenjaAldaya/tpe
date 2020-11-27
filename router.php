@@ -10,7 +10,7 @@ define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] 
 
 $router = new Router();
 // Secciones de la pagina
-$router->setDefaultRoute('SkinController','showError');
+$router->setDefaultRoute('SkinController','showTArma');
 $router->addRoute('home','GET','SkinController','showTArma');
 $router->addRoute('home/:PAGE','GET','SkinController','showTArma');
 $router->addRoute('armas/:TIPO/:ID','GET','SkinController','showarma');
