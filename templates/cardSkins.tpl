@@ -27,10 +27,10 @@
                             <li class="list-group-item text-center">{$arma->tipo}</li>
                         </ul>
                         {if $admin == 1}
-                            <div class="row">
-                                <a href="comprar/{$skin->id}" class="btn btn-primary w-100">Mas información</a>
-                                <a href="editar/{$skin->id}" class="btn btn-warning w-50">Editar</a>
-                                <a href="deleteskin/{$skin->id}" class="btn btn-danger w-50">Eliminar</a>
+                            <div class="row p-3">
+                                <a href="comprar/{$skin->id}" class="btn btn-primary w-100 ">Mas información</a>
+                                <a href="editar/{$skin->id}" class="btn btn-warning w-50 mt-1 border">Editar</a>
+                                <a href="deleteskin/{$skin->id}" class="btn btn-danger w-50 mt-1 border">Eliminar</a>
                             </div>
                         {else}
                             <div class="card-body text-center">

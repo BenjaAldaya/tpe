@@ -18,6 +18,7 @@ $router->addRoute('about','GET','SkinController','showAbout');
 $router->addRoute('registro','GET','UserController','showRegistro');
 $router->addRoute('comprar/:ID','GET','SkinController','showSkin');
 $router->addRoute('admin','GET','AdminController','showAdmin');
+$router->addRoute('admin/:PAGE','GET','AdminController','showAdmin');
 $router->addRoute('login','GET','UserController','showLogin');
 // Acciones del administrador
 $router->addRoute('addskin','POST','AdminController','addSkin');

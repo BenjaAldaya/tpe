@@ -29,10 +29,23 @@ class AdminController {
         $this->view->showError($msg,$tipo,$armas);
     }
 
-    function showAdmin(){
+    function showAdmin($params=null){
         if (isset($_SESSION['PERMISOS']) && ($_SESSION['PERMISOS'] == 1)){
+            if ($params != null) {
+                $base=$params[':PAGE'];
+            }else{
+                $base=null;
+            }
+                $baseint=intval($base);
+                if($base==null){
+                    $inicio=0;
+                    $cant=4;
+                }else{
+                $cant=$baseint*4;
+                $inicio=$cant-4;
+            }
             $armas = $this->modelarmas->getAllArmas();
-            $skins = $this->modelskins->getAllSkins();
+            $skins = $this->modelskins->getAllSkins($inicio,$cant);
             $tipo = $this->modelarmas->getTipo();
             $users = $this->modeluser->GetAll();
             $adminlog = 1;
