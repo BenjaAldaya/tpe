@@ -3,25 +3,25 @@
 // getComments);
 
 document.addEventListener('DOMContentLoaded', e => {
-    let comentarios = [];
-    let user = {};
     let idSkin = document.querySelector("#idskin").innerHTML;
-    getComments(idSkin, comentarios, user);
+    getComments(idSkin);
     document.querySelector('#comment-form').addEventListener('submit', e => {
         e.preventDefault();
         addComment(idSkin);
     });
-
 });
 
 
-async function getComments(idSkin, comentarios, user) {
+async function getComments(idSkin) {
     try {
+        let comentarios = [];
+        let user = {};
+        let valoraciontotal = 0;
+        document.querySelector('#commentbox').innerHTML = '';
         // Me encargo de traer unicamente los comentarios de la skin que estamos viendo.
         const response = await fetch(`api/comments/${idSkin}`);
         const comments = await response.json();
         comentarios = comments;
-
         for (let index = 0; index < comentarios.length; index++) {
             // Una vez obtengo el ID de quien escribio, le busco el nombre.
             try {
@@ -32,36 +32,42 @@ async function getComments(idSkin, comentarios, user) {
             } catch (e) {
                 console.log(e);
             }
+            valoraciontotal = valoraciontotal + Number(comentarios[index].valoracion);
             // Escribo el comentario en la caja de comentarios.
-            document.querySelector('#commentbox').innerHTML +=
-                `<div class="d-flex flex-row bg-info col">
-            <div class="p-2 col-2">${user.usuario}</div>
-            <div class="p-2 col-2 text-center">${comentarios[index].valoracion}</div>
-            <div class="p-2 col-8 text-center">${comentarios[index].comentario}</div>
-            </div>`;
+            document.querySelector('#commentbox').innerHTML +=`
+                <tr>
+                <td>${user.usuario}</td>
+                <td>${comentarios[index].valoracion}</td>
+                <td>${comentarios[index].comentario}</td>
+                </tr>
+            `;
         }
+        valoraciontotal = valoraciontotal / comentarios.length;
+        document.querySelector("#valtotal").innerHTML = "Valoración promedio: " + valoraciontotal;
+        document.querySelector("#comTotal").innerHTML = "Comentarios total: " + comentarios.length;
     } catch (e) {
         console.log(e);
     }
 };
-// add comment sin termina
+
+// add comment sin terminar
 async function addComment(idSkin) {
     const comment = {
-        id_user: document.querySelector('param[name=user]').value,
-        comentario: document.querySelector('textarea[name=comment]').value,
-        valoracion: document.querySelector('select[name=valoracion]').value,
+        id_user : document.querySelector('param[name=user]').value,
+        comentario : document.querySelector('textarea[name=comment]').value,
+        valoracion : document.querySelector('select[name=valoracion]').value,
     }
     try {
-        const response = await fetch(`api/comments/${idSkin}`, {
+        const response = await fetch('api/comments/' + idSkin, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(comment)
         });
 
         const c = await response.json();
-        // app.comentarios.push(c);
-        console.log(c);
-
+        document.querySelector('textarea[name=comment]').value = '';
+        document.querySelector('select[name=valoracion]').value = 1;
+        getComments(idSkin);
     } catch (e) {
         console.log(e);
     }

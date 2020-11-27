@@ -22,6 +22,7 @@ class ApiCommentController{
     function getData(){ 
         return json_decode($this->data); 
     } 
+    
     //util para mostrar comentarios generales en inicio
     // function getAll() {
     //     $comments = $this->modelcomment->getAllcomments();
@@ -46,6 +47,7 @@ class ApiCommentController{
         else
             $this->view->response("Esta skin no tiene ningun comentario", 404);
     }
+
     //util para hacer un filtro
     // public function getCommentsbyUser($params = null){
     //     $idUser = $params[':ID'];

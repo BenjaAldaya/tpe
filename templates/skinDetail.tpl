@@ -124,6 +124,7 @@
                             <li class="list-group-item text-center">{$skin->tipo}</li>
                             <li class="list-group-item text-center">{$skin->estado}{if $skin->stattrak == '1'} | Stattrak{/if}</li>
                             <li class="list-group-item text-center">{$skin->coleccion} {if $skin->coleccion == ''}No pertenece a ninguna coleccion{/if}</li>
+                            <li class="list-group-item text-center" id="valtotal"></li>
                             <li class="list-group-item text-center text-success">${$skin->precio}</li>
                         </ul>
                     {/if}         
@@ -131,23 +132,37 @@
             </section>
         {/if}
     {/foreach}
+    <section class="mt-5 w-100">
+        <div class="text-center text-primary"><h4 id="comTotal"></h4></div>
+        <table class="table table-striped table-dark">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Usuario</th>
+                    <th scope="col">Valoracion</th>
+                    <th scope="col">Comentario</th>
+                </tr>
+            </thead>
+            <tbody id="commentbox">
+            </tbody>
+        </table>
+    </section>
+    
     <section class="mt-5 w-100">         
-        <form id="comment-form" action="comments" class='bg-secondary' method="POST" class="my-4" enctype="multipart/form-data">
-            <div class="row">
-                <div class="col-8">
-                    {if $userlogin == 1}
-                        <span>Usuario: </span>
-                        <span>{$smarty.session.USER_NAME}</span>
-                        <param name='user' value='{$smarty.session.ID_USER}'>
-                
-                    {else}
-                        <span>Usuario: </span>
-                        <button><a href="login"> Iniciar Sesion</a></button>
-                    {/if}
+        <form id="comment-form" action="comments" method="POST" class="my-4" enctype="multipart/form-data">
+            <div class="row col">
+                <div class="form-group col-7 text-info text-center">
+                {if $userlogin == 1}
+                    <label>Comentario:</label>
+                    <textarea name="comment" class="form-control" rows="3" maxlength="144"></textarea>
+                {else}
+                    <label>Comentario:</label>
+                    <textarea name="comment" class="form-control" rows="3" disabled></textarea>
+                {/if}
                 </div>
-                <div class="col-3">
-                    <div class="form-group">
-                        <label>Valoracion</label>
+                <div class="col-4">
+                    <div class="form-group text-info text-center">
+                    {if $userlogin == 1}
+                        <label>Valoración:</label>
                         <select name="valoracion" class="form-control">
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -155,35 +170,30 @@
                             <option value="4">4</option>
                             <option value="5">5</option>
                         </select>
+                    {else}
+                        <label>Valoración:</label>
+                        <select name="valoracion" class="form-control" disabled>
+                            <option value="1">1</option>
+                        </select>
+                    {/if}
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="form-group col-7">
-                    <label>Comentario:</label>
-                    <textarea name="comment" class="form-control" rows="3"></textarea>
+                <div class="col-6">
+                    {if $userlogin == 1}
+                        <param name='user' value='{$smarty.session.ID_USER}'>
+                    {/if}
                 </div>
                 <div class='col-2'></div>
                 <div class='col'>
                     {if $userlogin == 1}
                         <button type="submit" class="btn btn-primary">Enviar Comentario</button>
                     {else}
-                        <button type="submit" class="btn btn-primary" disabled>Enviar Comentario</button>
+                        <button class="btn btn-info"><a href="login" class="text-warning">Iniciar Sesion</a></button>
                     {/if}
                 </div>
             </div>
         </form>
     </section>
-    <section class="mt-5 w-100">
-        <div>
-            <div class="d-flex flex-row bg-primary col">
-                <div class="p-2 col-2">Usuario</div>
-                <div class="p-2 col-2 text-center">Valoracion</div>
-                <div class="p-2 col-8 text-center">Comentario</div>
-            </div>
-        </div>
-        <div id="commentbox"></div>
-    </section> 
 </main>
 <script type="text/javascript " src="js/comments.js"></script>
 {include file="footer.tpl"}
