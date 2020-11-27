@@ -135,11 +135,11 @@
         {/if}
     {/foreach}
     <section class="mt-5 w-100">
-        <div class="text-center text-primary"><h4 id="comTotal"></h4></div>
+        <div class="text-center text-primary"><h3 id="comTotal"></h3></div>
         <table class="table table-striped table-dark">
             <thead class="thead-dark">
                 <tr>
-                    {if $admin == 1}
+                    {if $admincomment == 1}
                     <th scope="col">RM</th>
                     {/if}
                     <th scope="col">Usuario</th>
@@ -151,7 +151,7 @@
             </tbody>
         </table>
     </section>
-    
+    {* COMENTARIOS *}
     <section class="mt-5 w-100">         
         <form id="comment-form" action="comments" method="POST" class="my-4" enctype="multipart/form-data">
             <div class="row col">
@@ -185,7 +185,8 @@
                 </div>
                 <div class="col-6">
                     {if $userlogin == 1}
-                        <param name='user' value='{$smarty.session.ID_USER}'>
+                        <param name='userid' value='{$smarty.session.ID_USER}'>
+                        <param name='username' value='{$smarty.session.USER_NAME}'>
                     {/if}
                 </div>
                 <div class='col-2'></div>

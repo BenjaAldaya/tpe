@@ -73,10 +73,10 @@ class commentModel {
         return $result;
     }
 
-    function insert($iduser,$idskin,$comentario,$valoracion){
+    function insert($iduser,$username,$idskin,$comentario,$valoracion){
         // funcion para insertar una skin en la base de datos
-        $query = $this->db->prepare('INSERT INTO comentarios (id_user,id_skin,comentario,valoracion) VALUES (?,?,?,?)');
-        $query->execute([$iduser,$idskin,$comentario,$valoracion]);
+        $query = $this->db->prepare('INSERT INTO comentarios (id_user,usuario,id_skin,comentario,valoracion) VALUES (?,?,?,?,?)');
+        $query->execute([$iduser,$username,$idskin,$comentario,$valoracion]);
         return $this->db->lastInsertId();
     }
 }

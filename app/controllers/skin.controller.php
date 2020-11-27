@@ -60,12 +60,13 @@ class SkinController {
         $armas = $this->modelarmas->getAllArmas();
         $tipo = $this->modelarmas->getTipo();
         $skinarma = $this->modelskins->getskin($idskin);
-        $adminlog = $this->userhelper->checkAdminLogin();
+        $adminlog=0;
+        $admincomment = $this->userhelper->checkAdminLoginComment();
         if(!($skinarma)) {
             $this->view->showError('Skin no encontrada');
         }
         else {
-            $this->view->showSkin($tipo,$armas,$skinarma,$adminlog,$userlogin);
+            $this->view->showSkin($tipo,$armas,$skinarma,$adminlog,$userlogin,$admincomment);
         } 
     }
 }

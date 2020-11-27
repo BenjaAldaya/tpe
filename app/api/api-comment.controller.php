@@ -59,7 +59,7 @@ class ApiCommentController{
     // }
 
     public function delete($params = null) {
-        $log = $this->userhelper->checkAdminLogin();
+        $log = $this->userhelper->checkAdminComment();
         if($log = 1){
             $idComment = $params[':ID'];
             $success = $this->modelcomment->delete($idComment);
@@ -80,6 +80,7 @@ class ApiCommentController{
         if($this->userhelper->checkUserLogin()== 1){
             $body = $this->getData();
             $iduser = $body->id_user;
+            $username = $body->usuario;
             $idskin = $params[':ID']; 
             $comentario = $body->comentario; 
             $valoracion = $body->valoracion; 
@@ -91,7 +92,7 @@ class ApiCommentController{
                 die();
             }
 
-            $id = $this->modelcomment->insert($iduser,$idskin,$comentario,$valoracion);
+            $id = $this->modelcomment->insert($iduser,$username,$idskin,$comentario,$valoracion);
 
             if ($id > 0) {
                 $comment = $this->modelcomment->get($id);

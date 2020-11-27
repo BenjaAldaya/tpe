@@ -12,7 +12,7 @@ class SkinView{
         $smarty->display('templates/home.tpl');
     }
     // Pagina de detalle de skins
-    function showSkin($tipo,$armas,$skin,$adminlog,$userlogin){
+    function showSkin($tipo,$armas,$skin,$adminlog,$userlogin,$admincomment){
         // var_dump($skin);
         // die();
         $thisskin = $skin; 
@@ -23,6 +23,7 @@ class SkinView{
         $smarty->assign('tipo', $tipo);
         $smarty->assign('admin', $adminlog);
         $smarty->assign('userlogin',$userlogin);
+        $smarty->assign('admincomment',$admincomment);
         $smarty->display('templates/skinDetail.tpl');
     }
 
