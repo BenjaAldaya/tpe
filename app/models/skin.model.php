@@ -16,10 +16,10 @@ class SkinModel {
         return $db;
     }
 
-    function getAllSkins() {
+    function getAllSkins($inicio,$cant) {
 
         // 2. Enviar la consulta (2 sub-pasos: prepare y execute)
-        $query = $this->db->prepare('SELECT * FROM skin');
+        $query = $this->db->prepare('SELECT * FROM skin LIMIT '.$inicio.','.$cant.'');
         $query->execute();
 
         // 3. Obtengo la respuesta con un fetchAll (porque son muchos)

@@ -1,6 +1,6 @@
 
 
-<footer class="container-fluid bg-dark mt-5 border-top border-white">
+<footer class="container-fluid bg-dark border-top border-white">
   <div class="row mx-auto d-flex justify-content-center">
       <p class="text-center text-primary m-4">&#169; 2020 - 2021</p>
   </div>

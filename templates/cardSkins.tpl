@@ -1,12 +1,12 @@
 ﻿<main class="container-fluid mt-2 fondonuke">
     <section>
-    <div class="row row-cols-4 d-flex justify-content-around mt-5">
+    <div class="row  p-5 d-flex justify-content-around m-5 row-cols-4">
         <!-- Recorremos el arreglo de las skins en la base de datos -->
         {foreach from=$skins item=skin} 
             <!-- Recorremos el arreglo de las armas para encontrar la similitud con la ID -->
             {foreach from=$armas item=arma} 
                 {if $skin->id_arma == $arma->id_arma}
-                    <div class="card col-2 d-flex ">
+                    <div class="card p-2 col-2 m-5 d-flex ">
                         {if $arma->photo == 1}
                             <div class="img-holder">
                                 <div class='container-img'>

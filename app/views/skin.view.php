@@ -40,7 +40,7 @@ class SkinView{
     } 
 
     //Pagina de error
-    function showError($msg, $tipo, $armas){
+    function showError($msg=null, $tipo, $armas){
         $smarty = new Smarty();
         $smarty->assign('msg', $msg);
         $smarty->assign('tipo', $tipo);
