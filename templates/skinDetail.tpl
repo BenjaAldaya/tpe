@@ -5,7 +5,7 @@
         {if $skin->id_arma == $arma->id_arma}
             <section class="d-flex justify-content-center">
                 <div class="invisible" id="idskin">{$skin->id}</div>
-                <div class="invisible" id="admin">{$admin}</div>
+                <div class="invisible" id="admin">{$admincomment}</div>
                 <div class="col-5">
                     {if $arma->photo == 1}
                         <div class="img-holder">

@@ -59,7 +59,7 @@ class ApiCommentController{
     // }
 
     public function delete($params = null) {
-        $log = $this->userhelper->checkAdminComment();
+        $log = $this->userhelper->checkAdminLoginComment();
         if($log = 1){
             $idComment = $params[':ID'];
             $success = $this->modelcomment->delete($idComment);

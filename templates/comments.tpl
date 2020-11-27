@@ -4,7 +4,7 @@
         <table class="table table-striped table-dark">
             <thead class="thead-dark">
                 <tr>
-                    {if $admin == 1}
+                    {if $admincomment == 1}
                     <th scope="col">RM</th>
                     {/if}
                     <th scope="col" class="text-center">Usuario</th>
@@ -53,6 +53,7 @@
                     <div class='col-12'>
                     {if $userlogin == 1}
                         <param name='user' value='{$smarty.session.ID_USER}'>
+                        <param name='username' value='{$smarty.session.USER_NAME}'>
                         <button type="submit" class="btn btn-primary">Enviar Comentario</button>
                     {else}
                         <button class="btn btn-info"><a href="login" class="text-warning">Iniciar Sesion</a></button>
