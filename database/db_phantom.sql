@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-11-2020 a las 00:34:43
--- Versión del servidor: 10.4.11-MariaDB
--- Versión de PHP: 7.2.31
+-- Tiempo de generación: 27-11-2020 a las 11:53:57
+-- Versión del servidor: 10.4.6-MariaDB
+-- Versión de PHP: 7.3.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -98,6 +99,7 @@ INSERT INTO `arma` (`id_arma`, `nombre`, `tipo`, `descripcion`, `photo`) VALUES
 CREATE TABLE `comentarios` (
   `id` int(11) NOT NULL,
   `id_user` int(30) NOT NULL,
+  `usuario` varchar(100) NOT NULL,
   `id_skin` int(30) NOT NULL,
   `comentario` varchar(144) NOT NULL,
   `valoracion` int(1) NOT NULL
@@ -107,8 +109,8 @@ CREATE TABLE `comentarios` (
 -- Volcado de datos para la tabla `comentarios`
 --
 
-INSERT INTO `comentarios` (`id`, `id_user`, `id_skin`, `comentario`, `valoracion`) VALUES
-(3, 13, 16, 'Que hermosa skin ojala algún día este en mi inventario', 5);
+INSERT INTO `comentarios` (`id`, `id_user`, `usuario`, `id_skin`, `comentario`, `valoracion`) VALUES
+(30, 14, 'Houth', 16, 'asdasd', 4);
 
 -- --------------------------------------------------------
 
@@ -132,7 +134,12 @@ CREATE TABLE `skin` (
 --
 
 INSERT INTO `skin` (`id`, `id_arma`, `nombre`, `tipo`, `estado`, `coleccion`, `stattrak`, `precio`) VALUES
-(16, 49, 'Aquamarine Revenge', 'Encubierto', 'Recien fabricado', NULL, 1, 6325);
+(16, 49, 'Aquamarine Revenge', 'Encubierto', 'Recien fabricado', NULL, 1, 6325),
+(18, 1, 'asd1', 'Consumidor', 'Deplorable', NULL, 0, 123),
+(19, 1, 'asdasd4', 'Consumidor', 'Deplorable', NULL, 0, 123123),
+(20, 1, 'f123asd', 'Consumidor', 'Deplorable', NULL, 0, 5123),
+(21, 1, '1234123', 'Consumidor', 'Deplorable', NULL, 0, 41423123),
+(22, 1, '132414234', 'Consumidor', 'Deplorable', NULL, 0, 51234);
 
 -- --------------------------------------------------------
 
@@ -153,7 +160,11 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `usuario`, `email`, `pass`, `permiso`) VALUES
-(13, 'admin', 'admin@admin.com', '$2y$10$bj3UCWJS7MozsQ30gqVVZ.P46u/mVctSYJoh7.QMj/aahbXQI.AkG', 1);
+(13, 'admin', 'admin@admin.com', '$2y$10$bj3UCWJS7MozsQ30gqVVZ.P46u/mVctSYJoh7.QMj/aahbXQI.AkG', 1),
+(14, 'Houth', 'faku_binetti@hotmail.com', '$2y$10$m.MABNMp3yPawgiSqQZJRes3f72Fy5r90HP8Kfeo4nx.mf4UOojb2', 1),
+(15, 'admin1', 'admin@admin.com', '$2y$10$bj3UCWJS7MozsQ30gqVVZ.P46u/mVctSYJoh7.QMj/aahbXQI.AkG', 1),
+(16, 'admin2', 'admin@admin.com', '$2y$10$bj3UCWJS7MozsQ30gqVVZ.P46u/mVctSYJoh7.QMj/aahbXQI.AkG', 1),
+(17, 'admin3', 'admin@admin.com', '$2y$10$bj3UCWJS7MozsQ30gqVVZ.P46u/mVctSYJoh7.QMj/aahbXQI.AkG', 1);
 
 --
 -- Índices para tablas volcadas
@@ -170,7 +181,8 @@ ALTER TABLE `arma`
 --
 ALTER TABLE `comentarios`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id_user` (`id_user`,`id_skin`);
+  ADD KEY `id_user` (`id_user`,`id_skin`),
+  ADD KEY `id_skin` (`id_skin`);
 
 --
 -- Indices de la tabla `skin`
@@ -199,23 +211,30 @@ ALTER TABLE `arma`
 -- AUTO_INCREMENT de la tabla `comentarios`
 --
 ALTER TABLE `comentarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT de la tabla `skin`
 --
 ALTER TABLE `skin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- Restricciones para tablas volcadas
 --
+
+--
+-- Filtros para la tabla `comentarios`
+--
+ALTER TABLE `comentarios`
+  ADD CONSTRAINT `comentarios_ibfk_1` FOREIGN KEY (`id_skin`) REFERENCES `skin` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `comentarios_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `skin`
