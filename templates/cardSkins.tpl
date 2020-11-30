@@ -7,10 +7,10 @@
             {foreach from=$armas item=arma} 
                 {if $skin->id_arma == $arma->id_arma}
                     <div class="card p-2 col-2 m-5 d-flex ">
-                        {if $arma->photo == 1}
+                        {if $skin->imagen != ''}
                             <div class="img-holder">
                                 <div class='container-img'>
-                                    <img src="images/{$skin->id_arma}.png" class="card-img-top img-fluid h-75" alt="...">
+                                    <img src="{$skin->imagen}" class="card-img-top img-fluid h-75" alt="...">
                                 </div>
                             </div>
                             {else}

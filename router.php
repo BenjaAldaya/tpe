@@ -31,6 +31,7 @@ $router->addRoute('deletearma','POST','AdminController','deleteArma');
 $router->addRoute('deleteskin/:ID','GET','AdminController','deleteSkin');
 $router->addRoute('editpermisos','POST','AdminController','editpermisos');
 $router->addRoute('deleteuser','POST','AdminController','deleteuser');
+$router->addRoute('deleteimage/:ID','GET','AdminController','deleteimage');
 // Acciones de la sesion
 $router->addRoute('verify','POST','UserController','loginUser');
 $router->addRoute('logout','GET','UserController','logout');

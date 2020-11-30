@@ -15,7 +15,7 @@
             <div class="tab-content w-100" id="v-pills-tabContent">
                 <!-- Agregar skin -->
                 <div class="tab-pane fade show active" id="v-pills-addskin" role="tabpanel" aria-labelledby="v-pills-addskin-tab">
-                    <form class="form-inline" action='addskin' method="POST">
+                    <form class="form-inline" action='addskin' method="POST" enctype="multipart/form-data">
                         <div class= "form-group w-100">
                             <div class="col-5">
                                 <label>Nombre</label>
@@ -54,7 +54,19 @@
                                 <label>Precio</label>
                                 <input class="form-control w-100" name="precio">
                             </div>
-                            <button class="btn btn-success ml-2" type='submit'>Agregar skin</button>
+                            <div class="col-5">
+                            <div>
+                                    <label>Imagen:</label>
+                                    <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="input_image" name="input_image">
+                                    <label class="custom-file-label" for="input_image">Buscar Imagen</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-5">
+                            <label>.</label>
+                            <button class="btn btn-success w-100" type='submit'>Agregar skin</button>
+                            </div>
                         </div>
                     </form>
                 </div>

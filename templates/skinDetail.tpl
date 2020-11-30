@@ -7,10 +7,10 @@
                 <param name='idSkin' value='{$skin->id}'>
                 <param name='admin' value='{$admincomment}'>
                 <div class="col-5">
-                    {if $arma->photo == 1}
+                    {if $skin->imagen != ''}
                         <div class="img-holder">
                             <div class='container-img'>
-                                <img src="images/{$skin->id_arma}.png" class="card-img-top img-fluid h-75" alt="...">
+                                <img src="{$skin->imagen}" class="card-img-top img-fluid h-75" alt="...">
                             </div>
                         </div>
                         {else}
@@ -29,7 +29,7 @@
                     </div>
                     {if ($admin == 1)}
                         <ul class="list-group list-group-flush">
-                            <form action='editskin/{$skin->id}' method='POST'>
+                            <form action='editskin/{$skin->id}' method='POST' enctype="multipart/form-data">
                                 <li class="list-group-item text-center">
                                     <label>Arma:</label>
                                     <select name='idarma'>
@@ -114,6 +114,15 @@
                                 <li class="list-group-item text-center">
                                     <label>Precio: $</label>
                                     <input value='{$skin->precio}' name='precio'>
+                                </li>
+                                <li class="list-group-item text-center">
+                                    <label>Imagen:</label>
+                                    <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="input_image" name="input_image">
+                                    <label class="custom-file-label" for="input_image">Buscar Imagen</label>
+                                    <a class="btn btn-danger mb-4" href="deleteimage/{$skin->id}">Borrar Imagen</a>
+                                    </div>
+
                                 </li>
                                 <li class="list-group-item text-center text-success">
                                     <button type='submit' class="btn btn-primary w-100">Confirmar edicion</button>

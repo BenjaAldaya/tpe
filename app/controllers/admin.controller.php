@@ -59,9 +59,9 @@ class AdminController {
 
     function addArma(){
         if (isset($_SESSION['PERMISOS']) && ($_SESSION['PERMISOS'] == 1)){
-        $nombre = $_POST['nombre'];
-        $tipo = $_POST['tipo'];
-        $descripcion = $_POST['descripcion'];
+            $nombre = $_POST['nombre'];
+            $tipo = $_POST['tipo'];
+            $descripcion = $_POST['descripcion'];
 
         // verifico campos obligatorios
         if (empty($nombre) || empty($tipo)) {
@@ -78,29 +78,40 @@ class AdminController {
             $this->showError('No tienes acceso a esta seccion');
         }
     }
+    function uniqueSaveName($realName, $tempName) {
+        
+        $filePath = "images/" . uniqid("", true) . "." 
+            . strtolower(pathinfo($realName, PATHINFO_EXTENSION));
+
+        move_uploaded_file($tempName, $filePath);
+
+        return $filePath;
+    }
 
     function addSkin(){
         if (isset($_SESSION['PERMISOS']) && ($_SESSION['PERMISOS'] == 1)){
-        $nombre = $_POST['nombre'];
-        $idarma = $_POST['idarma'];
-        $tipo = $_POST['tipo'];
-        $estado = $_POST['estado'];
-        $stattrak = $_POST['statrak'];
-        $precio = $_POST['precio'];
+            $nombre = $_POST['nombre'];
+            $idarma = $_POST['idarma'];
+            $tipo = $_POST['tipo'];
+            $estado = $_POST['estado'];
+            $stattrak = $_POST['statrak'];
+            $precio = $_POST['precio'];
 
-        // verifico campos obligatorios
-        if (empty($nombre) || empty($idarma) || empty($tipo) || empty($estado) || empty($precio)) {
-            $this->showError('Faltan datos obligatorios');
-            die();
-        }
+            // verifico campos obligatorios
+            if (empty($nombre) || empty($idarma) || empty($tipo) || empty($estado) || empty($precio)) {
+                $this->showError('Faltan datos obligatorios');
+                die();
+            }
+            if($_FILES['input_image']['type'] == "image/jpg" || $_FILES['input_image']['type'] == "image/jpeg" || $_FILES['input_image']['type'] == "image/png" ){
+                $imagename= $this->uniqueSaveName($_FILES['input_image']['name'],$_FILES['input_image']['tmp_name']);
+                $this->modelskins->insert($nombre, $idarma, $tipo, $estado, $stattrak, $precio,$imagename);
 
-        // inserto la tarea en la DB
-        $this->modelskins->insert($nombre, $idarma, $tipo, $estado, $stattrak, $precio);
-
-
-        // redirigimos al listado
-        header("Location: " . BASE_URL ."admin") ;}
-        else{
+            }else{
+                $this->modelskins->insert($nombre, $idarma, $tipo, $estado, $stattrak, $precio);
+            }
+            // redirigimos al listado
+            header("Location: " . BASE_URL ."admin") ;
+        }else{
             $this->showError('No tienes acceso a esta seccion');
         }
     }
@@ -189,16 +200,25 @@ class AdminController {
                 $this->showError('Faltan datos obligatorios');
                 die();
             }
-
-        // inserto la tarea en la DB
-        $this->modelskins->edit($id, $nombre, $idarma, $tipo, $estado, $stattrak, $precio, $coleccion);
-        // redirigimos al listado
-        header("Location: " . BASE_URL ."admin");
+            if($_FILES['input_image']['type'] == "image/jpg" || $_FILES['input_image']['type'] == "image/jpeg" || $_FILES['input_image']['type'] == "image/png" ){
+                $imagename= $this->uniqueSaveName($_FILES['input_image']['name'],$_FILES['input_image']['tmp_name']);
+                $this->modelskins->edit($id, $nombre, $idarma, $tipo, $estado, $stattrak, $precio, $coleccion,$imagename);
+            }else{
+                $this->modelskins->edit($id, $nombre, $idarma, $tipo, $estado, $stattrak, $precio, $coleccion);
+            }
+            header("Location: " . BASE_URL ."comprar"."/"."$id");
         }
         else
         {
             $this->showError('No tienes acceso a esta seccion');
         }
+    }
+
+    function deleteimage($params=null){
+        $idskin=$params[':ID'];
+        $skin=$this->modelskins->getSkin($idskin);
+        $this->modelskins->removeimg($skin->id,$skin->nombre, $skin->id_arma, $skin->tipo,$skin->estado,$skin->stattrak,$skin->precio,$skin->coleccion);
+        header("Location: " . BASE_URL ."editar"."/"."$idskin");
     }
 
     function editPermisos(){

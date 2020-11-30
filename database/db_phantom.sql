@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-11-2020 a las 11:53:57
+-- Tiempo de generación: 30-11-2020 a las 04:30:18
 -- Versión del servidor: 10.4.6-MariaDB
 -- Versión de PHP: 7.3.9
 
@@ -110,7 +110,9 @@ CREATE TABLE `comentarios` (
 --
 
 INSERT INTO `comentarios` (`id`, `id_user`, `usuario`, `id_skin`, `comentario`, `valoracion`) VALUES
-(30, 14, 'Houth', 16, 'asdasd', 4);
+(31, 14, 'Houth', 21, 'asdasd', 3),
+(32, 14, 'Houth', 21, 'asdasd', 2),
+(35, 14, 'Houth', 16, 'asdasd', 3);
 
 -- --------------------------------------------------------
 
@@ -126,20 +128,26 @@ CREATE TABLE `skin` (
   `estado` varchar(45) DEFAULT NULL,
   `coleccion` varchar(45) DEFAULT NULL,
   `stattrak` tinyint(1) DEFAULT NULL,
-  `precio` int(11) DEFAULT NULL
+  `precio` int(11) DEFAULT NULL,
+  `imagen` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `skin`
 --
 
-INSERT INTO `skin` (`id`, `id_arma`, `nombre`, `tipo`, `estado`, `coleccion`, `stattrak`, `precio`) VALUES
-(16, 49, 'Aquamarine Revenge', 'Encubierto', 'Recien fabricado', NULL, 1, 6325),
-(18, 1, 'asd1', 'Consumidor', 'Deplorable', NULL, 0, 123),
-(19, 1, 'asdasd4', 'Consumidor', 'Deplorable', NULL, 0, 123123),
-(20, 1, 'f123asd', 'Consumidor', 'Deplorable', NULL, 0, 5123),
-(21, 1, '1234123', 'Consumidor', 'Deplorable', NULL, 0, 41423123),
-(22, 1, '132414234', 'Consumidor', 'Deplorable', NULL, 0, 51234);
+INSERT INTO `skin` (`id`, `id_arma`, `nombre`, `tipo`, `estado`, `coleccion`, `stattrak`, `precio`, `imagen`) VALUES
+(16, 49, 'Aquamarine Revenge', 'Encubierto', 'Recien fabricado', 'Vacio', 1, 6325, NULL),
+(18, 1, 'asd1', 'Consumidor', 'Deplorable', NULL, 0, 123, ''),
+(19, 1, 'asdasd4', 'Consumidor', 'Deplorable', NULL, 0, 123123, ''),
+(20, 1, 'f123asd', 'Consumidor', 'Deplorable', NULL, 0, 5123, ''),
+(21, 1, '1234123', 'Consumidor', 'Deplorable', NULL, 0, 41423123, ''),
+(22, 1, '132414234', 'Consumidor', 'Deplorable', NULL, 0, 51234, ''),
+(23, 6, '123344444', 'Consumidor', 'Algo desgastado', NULL, 1, 42141, ''),
+(24, 10, 'jkedd', 'Militar', 'Recien fabricado', NULL, 1, 123131, ''),
+(25, 6, 'aljhbdf', 'Restringido', 'Bastante desgastado', NULL, 1, 1234555, ''),
+(26, 11, 'lkjglsfhjlsfgh', 'Contrabando', 'Bastante desgastado', NULL, 0, 5552, ''),
+(31, 1, 'sadasd4444', 'Consumidor', 'Deplorable', 'Vacio', 0, 1233, NULL);
 
 -- --------------------------------------------------------
 
@@ -162,7 +170,7 @@ CREATE TABLE `usuarios` (
 INSERT INTO `usuarios` (`id`, `usuario`, `email`, `pass`, `permiso`) VALUES
 (13, 'admin', 'admin@admin.com', '$2y$10$bj3UCWJS7MozsQ30gqVVZ.P46u/mVctSYJoh7.QMj/aahbXQI.AkG', 1),
 (14, 'Houth', 'faku_binetti@hotmail.com', '$2y$10$m.MABNMp3yPawgiSqQZJRes3f72Fy5r90HP8Kfeo4nx.mf4UOojb2', 1),
-(15, 'admin1', 'admin@admin.com', '$2y$10$bj3UCWJS7MozsQ30gqVVZ.P46u/mVctSYJoh7.QMj/aahbXQI.AkG', 1),
+(15, 'admin1', 'admin@admin.com', '$2y$10$bj3UCWJS7MozsQ30gqVVZ.P46u/mVctSYJoh7.QMj/aahbXQI.AkG', 0),
 (16, 'admin2', 'admin@admin.com', '$2y$10$bj3UCWJS7MozsQ30gqVVZ.P46u/mVctSYJoh7.QMj/aahbXQI.AkG', 1),
 (17, 'admin3', 'admin@admin.com', '$2y$10$bj3UCWJS7MozsQ30gqVVZ.P46u/mVctSYJoh7.QMj/aahbXQI.AkG', 1);
 
@@ -211,13 +219,13 @@ ALTER TABLE `arma`
 -- AUTO_INCREMENT de la tabla `comentarios`
 --
 ALTER TABLE `comentarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT de la tabla `skin`
 --
 ALTER TABLE `skin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
