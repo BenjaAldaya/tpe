@@ -235,19 +235,14 @@
     <div class='mx-auto'>
         <nav aria-label="Page navigation example">
             <ul class="pagination">
-                {* <li class="page-item">
-                <a class="page-link" href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                </a>
-                </li> *}
-                <li class="page-item"><a class="page-link" href="admin/1">1</a></li>
-                <li class="page-item"><a class="page-link" href="admin/2">2</a></li>
-                <li class="page-item"><a class="page-link" href="admin/3">3</a></li>
-                {* <li class="page-item">
-                <a class="page-link" href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                </a>
-                </li> *}
+                {if $page > 1}
+                    <li class="page-item"><a class="page-link" href="admin/{$page-1}"><span>&laquo;</span></a></li>
+                {else}
+                    <li class="page-item disabled"><a class="page-link" href="admin/{$page-1}" ><span>&laquo;</span></a></li>
+                {/if}
+                <li class="page-item">
+                <a class="page-link" href="admin/{$page+1}"><span>&raquo;</span></a>
+                </li>
             </ul>
         </nav>
     </div>

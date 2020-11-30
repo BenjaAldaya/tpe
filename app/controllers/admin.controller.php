@@ -36,8 +36,10 @@ class AdminController {
         if (isset($_SESSION['PERMISOS']) && ($_SESSION['PERMISOS'] == 1)){
             if ($params != null) {
                 $base=$params[':PAGE'];
+                $page=$params[':PAGE'];
             }else{
                 $base=null;
+                $page=1;
             }
                 $baseint=intval($base);
                 if($base==null){
@@ -52,7 +54,11 @@ class AdminController {
             $tipo = $this->modelarmas->getTipo();
             $users = $this->modeluser->GetAll();
             $adminlog = 1;
-            $this->view->showAdmin($tipo, $armas, $skins , $adminlog, $users);
+            if($skins){
+                $this->view->showAdmin($tipo, $armas, $skins , $adminlog, $users,$page);
+            }else{
+                header("Location: " . BASE_URL ."admin");
+            }
         }
         else{
             $this->showError('No tienes acceso a esta seccion');

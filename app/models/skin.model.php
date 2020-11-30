@@ -15,26 +15,22 @@ class SkinModel {
         $db = new PDO('mysql:host=localhost;'.'dbname=db_phantom;charset=utf8', 'root', '');
         return $db;
     }
-    //$gsent->bindParam(':calories', $calorías, PDO::PARAM_INT);
-    function getAllSkins($inicio) {
-
-        // 2. Enviar la consulta (2 sub-pasos: prepare y execute)
-        $query = $this->db->prepare('SELECT * FROM skin LIMIT '.$inicio.','.cantpag.'');
+    //obtiene todas las skins con un limite para el paginado
+    function getAllSkins($inicio) {   
+        $query = $this->db->prepare('SELECT * FROM skin LIMIT :inicio , '.cantpag.'');
+        $query->bindParam(':inicio', $inicio, PDO::PARAM_INT);
         $query->execute();
-
-        // 3. Obtengo la respuesta con un fetchAll (porque son muchos)
         $skins = $query->fetchAll(PDO::FETCH_OBJ); // arreglo de tareas
-        // devuelvo el arreglo obtenido de la respuesta
         return $skins;
     }
 
     function getskinsarma($idarma,$inicio){
         // funcion para obtener una skin por ID de arma
-        $query = $this->db->prepare('SELECT * FROM skin WHERE id_arma = ? LIMIT '.$inicio.','.cantpag.'');
-        $query->execute([$idarma]);
-
+        $query = $this->db->prepare('SELECT * FROM skin WHERE id_arma = :idarma LIMIT :inicio ,'.cantpag.'');
+        $query->bindParam(':idarma',$idarma, PDO::PARAM_INT);
+        $query->bindParam(':inicio', $inicio, PDO::PARAM_INT);
+        $query->execute();
         $skinarmas = $query->fetchAll(PDO::FETCH_OBJ);
-
         return $skinarmas;
     }
 
@@ -42,9 +38,7 @@ class SkinModel {
         //funcion para obtener una skin por ID de skin
         $query = $this->db->prepare("SELECT * FROM skin WHERE id = ?");
         $query->execute([$idskin]);
-
         $skin = $query->fetch(PDO::FETCH_OBJ);
-
         return $skin;
     }
 
@@ -82,7 +76,7 @@ class SkinModel {
         $query = $this->db->prepare($sql);
         $query->execute($params);
     }
-
+    //funcion para remover la imagen de una skin
     function removeimg($id,$nombre, $idarma, $tipo,$estado,$stattrak,$precio,$coleccion){
         $sql="UPDATE skin SET nombre= ?, id_arma= ?, tipo= ?, estado=?, stattrak= ?, precio=? , coleccion=?, imagen=? WHERE id = ?";
         $query = $this->db->prepare($sql);

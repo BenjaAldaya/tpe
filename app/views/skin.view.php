@@ -3,7 +3,7 @@ require_once('libs/smarty/libs/Smarty.class.php');
 
 class SkinView{
     // Pagina principal muestra las skins filtradas o no
-    function showSkins($tipo,$armas,$skins,$adminlog,$filtrer,$actarma=null,$acttipo=null){
+    function showSkins($tipo,$armas,$skins,$adminlog,$filtrer,$page,$actarma=null,$acttipo=null){
         $smarty = new Smarty();
         $smarty->assign('armas', $armas);
         $smarty->assign('skins', $skins);
@@ -12,6 +12,7 @@ class SkinView{
         $smarty->assign('actid', $actarma);
         $smarty->assign('acttipo', $acttipo);
         $smarty->assign('filtrer', $filtrer);
+        $smarty->assign('page', $page);
         $smarty->display('templates/home.tpl');
     }
     // Pagina de detalle de skins
@@ -32,22 +33,21 @@ class SkinView{
 
     //pagina de admin
 
-    function showAdmin($tipo,$armas,$skins,$adminlog,$users){
+    function showAdmin($tipo,$armas,$skins,$adminlog,$users,$page){
         $smarty = new Smarty();
         $smarty->assign('armas', $armas);
         $smarty->assign('skins', $skins);
         $smarty->assign('tipo', $tipo);
         $smarty->assign('admin', $adminlog);
         $smarty->assign('users', $users);
+        $smarty->assign('page', $page);
         $smarty->display('templates/admin.tpl');
     } 
 
     //Pagina de error
-    function showError($msg=null, $tipo, $armas){
+    function showError($msg){
         $smarty = new Smarty();
         $smarty->assign('msg', $msg);
-        $smarty->assign('tipo', $tipo);
-        $smarty->assign('armas', $armas);
         $smarty->display('templates/error.tpl');
     }
     

@@ -20,8 +20,10 @@ class SkinController {
     function showTArma($params=null){
         if ($params != null) {
         $base=$params[':PAGE'];
+        $page=$params[':PAGE'];
         }else{
         $base=null;
+        $page=1;
         }
         $baseint=intval($base);
         if($base==null){
@@ -35,7 +37,14 @@ class SkinController {
         $tipo = $this->modelarmas->getTipo();
         $adminlog = 0;
         $filtrer=0;
-        $this->view->showSkins($tipo,$armas, $skins,$adminlog,$filtrer);
+        // if($page<1 || $page==0){
+        //     $page=1;
+        // }
+        if($skins){
+            $this->view->showSkins($tipo,$armas, $skins,$adminlog,$filtrer,$page);
+        }else{
+            $this->view->showError('No se encontraron mas skins');
+        }
     }
 
     function showError($msg=null){
@@ -58,8 +67,10 @@ class SkinController {
         $acttipo=$params[':TIPO'];
         if ($params[':PAGE'] != null) {
             $base=$params[':PAGE'];
+            $page=$params[':PAGE'];
             }else{
             $base=null;
+            $page=1;
             }
             $baseint=intval($base);
             if($base==null){
@@ -77,7 +88,14 @@ class SkinController {
             $this->showError('No se encontraron skins');
         }
         else {
-            $this->view->showSkins($tipo,$armas,$skinsarma,$adminlog,$filtrer,$idarma,$acttipo);
+            // if($page<1){
+            //     $page=1;
+            // }
+            if($skinsarma){
+                $this->view->showSkins($tipo,$armas,$skinsarma,$adminlog,$filtrer,$page,$idarma,$acttipo);
+            }else{
+                $this->showError('No se encontraron skins');
+            }
         }
     }
 

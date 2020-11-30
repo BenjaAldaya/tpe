@@ -5,25 +5,24 @@
   <div class='mx-auto'>
     <nav aria-label="Page navigation example">
       <ul class="pagination">
-        {* <li class="page-item">
-          <a class="page-link" href="#" aria-label="Previous">
-            <span aria-hidden="true">&laquo;</span>
-          </a>
-        </li> *}
+        
         {if $filtrer==0}
-          <li class="page-item"><a class="page-link" href="home/1">1</a></li>
-          <li class="page-item"><a class="page-link" href="home/2">2</a></li>
-          <li class="page-item"><a class="page-link" href="home/3">3</a></li>
+          {if $page > 1}
+            <li class="page-item"><a class="page-link" href="home/{$page-1}"><span>&laquo;</span></a></li>
           {else}
-          <li class="page-item"><a class="page-link" href="armas/{$acttipo}/{$actid}/1">1</a></li>
-          <li class="page-item"><a class="page-link" href="armas/{$acttipo}/{$actid}/2">2</a></li>
-          <li class="page-item"><a class="page-link" href="armas/{$acttipo}/{$actid}/3">3</a></li>
+            <li class="page-item disabled"><a class="page-link" href="home/{$page-1}" ><span>&laquo;</span></a></li>
           {/if}
-        {* <li class="page-item">
-          <a class="page-link" href="#" aria-label="Next">
-            <span aria-hidden="true">&raquo;</span>
-          </a>
-        </li> *}
+          <li class="page-item">
+            <a class="page-link" href="home/{$page+1}"><span>&raquo;</span></a>
+          </li>
+        {else}
+          {if $page > 1}
+            <li class="page-item"><a class="page-link" href="armas/{$acttipo}/{$actid}/{$page-1}"><span>&laquo;</span></a></li>
+          {else}
+            <li class="page-item disabled"><a class="page-link" href="home/{$page-1}" ><span>&laquo;</span></a></li>
+          {/if}
+            <li class="page-item"><a class="page-link" href="armas/{$acttipo}/{$actid}/{$page+1}"><span>&raquo;</span></a></li>
+        {/if}
       </ul>
     </nav>
   </div>
