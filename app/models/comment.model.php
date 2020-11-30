@@ -16,18 +16,6 @@ class commentModel {
         return $db;
     }
 
-    function getAllcomments() {
-
-        // 2. Enviar la consulta (2 sub-pasos: prepare y execute)
-        $query = $this->db->prepare('SELECT * FROM comentarios');
-        $query->execute();
-
-        // 3. Obtengo la respuesta con un fetchAll (porque son muchos)
-        $comments = $query->fetchAll(PDO::FETCH_OBJ); // arreglo de tareas
-        // devuelvo el arreglo obtenido de la respuesta
-        return $comments;
-    }
-
     function getcommentSkin($idSkin){
         // funcion para obtener una skin por ID de arma
         $query = $this->db->prepare("SELECT * FROM comentarios WHERE id_skin = ?");
@@ -78,5 +66,19 @@ class commentModel {
         $query = $this->db->prepare('INSERT INTO comentarios (id_user,usuario,id_skin,comentario,valoracion) VALUES (?,?,?,?,?)');
         $query->execute([$iduser,$username,$idskin,$comentario,$valoracion]);
         return $this->db->lastInsertId();
+    }
+
+    function deletebySkin($id){
+        // funcion para borrar una skin en la base de datos
+        $query = $this->db->prepare('DELETE FROM comentarios WHERE id_skin = ?');
+        $succes=$query->execute([$id]);
+        return $succes;
+    }
+
+    function deletebyUser($id){
+        // funcion para borrar una skin en la base de datos
+        $query = $this->db->prepare('DELETE FROM comentarios WHERE id_user = ?');
+        $succes=$query->execute([$id]);
+        return $succes;
     }
 }

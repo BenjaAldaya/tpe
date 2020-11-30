@@ -4,9 +4,11 @@ include_once 'app/models/skin.model.php';
 include_once 'app/models/armas.model.php';
 include_once 'app/views/skin.view.php';
 include_once 'app/models/user.model.php';
+include_once 'app/models/comment.model.php';
 
 class AdminController {
 
+    private $modelcomment;
     private $userhelper;
     private $modelskins;
     private $modelarmas;
@@ -14,6 +16,7 @@ class AdminController {
     private $view;
 
     function __construct() {
+        $this->modelcomment = new commentModel();
         $this->modelskins = new SkinModel();
         $this->modelarmas = new ArmasModel();
         $this->userhelper = new UserHelper();
@@ -136,7 +139,12 @@ class AdminController {
     function deleteSkin($params=null){
         if (isset($_SESSION['PERMISOS']) && ($_SESSION['PERMISOS'] == 1)){
         $id = $params[':ID'];
+        $success=$this->modelcomment->deletebyskin($id);
+        if($success){
         $this->modelskins->delete($id);
+        }else{
+            $this->view->showError('No se pudieron borrar los comentarios de esta skin');
+        }
         header("Location: " . BASE_URL ."admin");}
         else{
             $this->showError('No tienes acceso a esta seccion');
@@ -239,10 +247,14 @@ class AdminController {
                 $this->showError('Faltan datos obligatorios');
                 die();
             }
-            $this->modelcomentarios->deletecoments($id);
-            $this->modeluser->deleteuser($id);
-    
+            $success=$this->modelcomment->deletebyUser($id);
+            if($success){
+                $this->modeluser->deleteUser($id);
+            }else{
+                $this->showError('No se pudieron borrar los comentarios de este usuario');
+            }
             header("Location: " . BASE_URL ."admin");}
+            
             else{
                 $this->showError('No tienes acceso a esta seccion');
             }

@@ -30,7 +30,26 @@
                             <div class="row p-3">
                                 <a href="comprar/{$skin->id}" class="btn btn-primary w-100 ">Mas información</a>
                                 <a href="editar/{$skin->id}" class="btn btn-warning w-50 mt-1 border">Editar</a>
-                                <a href="deleteskin/{$skin->id}" class="btn btn-danger w-50 mt-1 border">Eliminar</a>
+                                <a  class="btn btn-danger w-50 mt-1 border" data-toggle="modal" data-target="#Modaldeleteskin">Eliminar</a>
+                            </div>
+                            <div class="modal fade" id="Modaldeleteskin" tabindex="-1">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Esta seguro que quiere eliminar esta arma?</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Si elimina esta Skin se borraran todos los comentarios que pertenezcan a ella.
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary col-5 m-1" data-dismiss="modal">Cerrar</button>
+                                            <a href="deleteskin/{$skin->id}" class="btn btn-danger w-50 m-1 col-5">Eliminar</a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         {else}
                             <div class="card-body text-center">

@@ -55,4 +55,10 @@ class UserModel {
         $query->execute([$permiso,$id]);
     }
 
+    function deleteUser($id){
+        // funcion para borrar una Usuario en la base de datos
+        $query = $this->db->prepare('DELETE FROM usuarios WHERE id = ?');
+        $succes=$query->execute([$id]);
+        return $succes;
+    }
 }
