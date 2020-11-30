@@ -6,7 +6,7 @@ include_once 'app/controllers/user.controller.php';
 
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
-
+define("cantpag",4);
 
 $router = new Router();
 // Secciones de la pagina
@@ -14,6 +14,7 @@ $router->setDefaultRoute('SkinController','showTArma');
 $router->addRoute('home','GET','SkinController','showTArma');
 $router->addRoute('home/:PAGE','GET','SkinController','showTArma');
 $router->addRoute('armas/:TIPO/:ID','GET','SkinController','showarma');
+$router->addRoute('armas/:TIPO/:ID/:PAGE','GET','SkinController','showarma');
 $router->addRoute('about','GET','SkinController','showAbout');
 $router->addRoute('registro','GET','UserController','showRegistro');
 $router->addRoute('comprar/:ID','GET','SkinController','showSkin');

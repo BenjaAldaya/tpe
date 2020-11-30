@@ -20,24 +20,22 @@ class SkinController {
     function showTArma($params=null){
         if ($params != null) {
         $base=$params[':PAGE'];
-    }else{
+        }else{
         $base=null;
-    }
+        }
         $baseint=intval($base);
         if($base==null){
             $inicio=0;
-            $cant=4;
         }else{
-        $cant=$baseint*4;
-        $inicio=$cant-4;
-    }
-
+            $inicio=($baseint*cantpag)-cantpag;
+        }
         //Controlador llama al modelo para obtener las armas y skins, ademas llama a view para visualizarse.
         $armas = $this->modelarmas->getAllArmas();
-        $skins = $this->modelskins->getAllSkins($inicio,$cant);
+        $skins = $this->modelskins->getAllSkins($inicio);
         $tipo = $this->modelarmas->getTipo();
         $adminlog = 0;
-        $this->view->showSkins($tipo,$armas, $skins,$adminlog);
+        $filtrer=0;
+        $this->view->showSkins($tipo,$armas, $skins,$adminlog,$filtrer);
     }
 
     function showError($msg=null){
@@ -55,18 +53,31 @@ class SkinController {
         $this->view->showAbout();
     }
     
-    function showarma($params = null){
+    function showarma($params){
         //Funcion para listar las skins por categoria.
+        $acttipo=$params[':TIPO'];
+        if ($params[':PAGE'] != null) {
+            $base=$params[':PAGE'];
+            }else{
+            $base=null;
+            }
+            $baseint=intval($base);
+            if($base==null){
+                $inicio=0;
+            }else{
+                $inicio=($baseint*cantpag)-cantpag;
+            }
         $idarma = $params[':ID'];
         $armas = $this->modelarmas->getAllArmas();
         $tipo = $this->modelarmas->getTipo();
-        $skinsarma = $this->modelskins->getskinsarma($idarma);
+        $skinsarma = $this->modelskins->getskinsarma($idarma,$inicio);
         $adminlog = 0;
+        $filtrer=1;
         if(!($skinsarma)) {
             $this->showError('No se encontraron skins');
         }
         else {
-            $this->view->showSkins($tipo,$armas,$skinsarma,$adminlog);
+            $this->view->showSkins($tipo,$armas,$skinsarma,$adminlog,$filtrer,$idarma,$acttipo);
         }
     }
 

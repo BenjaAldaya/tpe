@@ -8,7 +8,7 @@
             <div class="dropdown-menu">
                 {foreach from=$armas item=arma}
                     {if $arma->tipo == $tipos ->tipo }
-                        <a class="dropdown-item" href="armas/{$arma->tipo}/{$arma->id_arma}">{$arma->nombre}</a>
+                        <a class="dropdown-item" href="armas/{$arma->tipo}/{$arma->id_arma}/1">{$arma->nombre}</a>
                     {/if}   
                 {/foreach} 
             </div>

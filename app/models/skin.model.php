@@ -16,10 +16,10 @@ class SkinModel {
         return $db;
     }
     //$gsent->bindParam(':calories', $calorías, PDO::PARAM_INT);
-    function getAllSkins($inicio,$cant) {
+    function getAllSkins($inicio) {
 
         // 2. Enviar la consulta (2 sub-pasos: prepare y execute)
-        $query = $this->db->prepare('SELECT * FROM skin LIMIT '.$inicio.','.$cant.'');
+        $query = $this->db->prepare('SELECT * FROM skin LIMIT '.$inicio.','.cantpag.'');
         $query->execute();
 
         // 3. Obtengo la respuesta con un fetchAll (porque son muchos)
@@ -28,9 +28,9 @@ class SkinModel {
         return $skins;
     }
 
-    function getskinsarma($idarma){
+    function getskinsarma($idarma,$inicio){
         // funcion para obtener una skin por ID de arma
-        $query = $this->db->prepare("SELECT * FROM skin WHERE id_arma = ?");
+        $query = $this->db->prepare('SELECT * FROM skin WHERE id_arma = ? LIMIT '.$inicio.','.cantpag.'');
         $query->execute([$idarma]);
 
         $skinarmas = $query->fetchAll(PDO::FETCH_OBJ);

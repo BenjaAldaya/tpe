@@ -45,7 +45,7 @@ class AdminController {
                 $inicio=$cant-4;
             }
             $armas = $this->modelarmas->getAllArmas();
-            $skins = $this->modelskins->getAllSkins($inicio,$cant   );
+            $skins = $this->modelskins->getAllSkins($inicio);
             $tipo = $this->modelarmas->getTipo();
             $users = $this->modeluser->GetAll();
             $adminlog = 1;

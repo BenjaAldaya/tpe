@@ -3,12 +3,15 @@ require_once('libs/smarty/libs/Smarty.class.php');
 
 class SkinView{
     // Pagina principal muestra las skins filtradas o no
-    function showSkins($tipo,$armas,$skins,$adminlog){
+    function showSkins($tipo,$armas,$skins,$adminlog,$filtrer,$actarma=null,$acttipo=null){
         $smarty = new Smarty();
         $smarty->assign('armas', $armas);
         $smarty->assign('skins', $skins);
         $smarty->assign('tipo', $tipo);
         $smarty->assign('admin', $adminlog);
+        $smarty->assign('actid', $actarma);
+        $smarty->assign('acttipo', $acttipo);
+        $smarty->assign('filtrer', $filtrer);
         $smarty->display('templates/home.tpl');
     }
     // Pagina de detalle de skins
