@@ -6,7 +6,7 @@ include_once 'app/controllers/user.controller.php';
 
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
-define("cantpag",4);
+define("CANT_PAG",4);
 
 $router = new Router();
 // Secciones de la pagina

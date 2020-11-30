@@ -17,7 +17,7 @@ class SkinModel {
     }
     //obtiene todas las skins con un limite para el paginado
     function getAllSkins($inicio) {   
-        $query = $this->db->prepare('SELECT * FROM skin LIMIT :inicio , '.cantpag.'');
+        $query = $this->db->prepare('SELECT * FROM skin LIMIT :inicio , '.CANT_PAG.'');
         $query->bindParam(':inicio', $inicio, PDO::PARAM_INT);
         $query->execute();
         $skins = $query->fetchAll(PDO::FETCH_OBJ); // arreglo de tareas
@@ -26,7 +26,7 @@ class SkinModel {
 
     function getskinsarma($idarma,$inicio){
         // funcion para obtener una skin por ID de arma
-        $query = $this->db->prepare('SELECT * FROM skin WHERE id_arma = :idarma LIMIT :inicio ,'.cantpag.'');
+        $query = $this->db->prepare('SELECT * FROM skin WHERE id_arma = :idarma LIMIT :inicio ,'.CANT_PAG.'');
         $query->bindParam(':idarma',$idarma, PDO::PARAM_INT);
         $query->bindParam(':inicio', $inicio, PDO::PARAM_INT);
         $query->execute();
