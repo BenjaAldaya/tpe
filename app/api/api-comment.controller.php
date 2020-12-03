@@ -42,7 +42,7 @@ class ApiCommentController{
     public function getCommentsbySkin($params = null){
         $idSkin = $params[':ID'];
         $comments = $this->modelcomment->getcommentSkin($idSkin);
-         $this->view->response($comments, 200);
+        $this->view->response($comments, 200);
     }
 
     //util para hacer un filtro

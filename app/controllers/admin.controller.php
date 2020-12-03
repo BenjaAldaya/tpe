@@ -35,19 +35,20 @@ class AdminController {
     function showAdmin($params=null){
         if (isset($_SESSION['PERMISOS']) && ($_SESSION['PERMISOS'] == 1)){
             if ($params != null) {
-                $base=$params[':PAGE'];
-                $page=$params[':PAGE'];
+                $base= $params[':PAGE'];
+                $page= $params[':PAGE'];
             }else{
-                $base=null;
-                $page=1;
+                $base = null;
+                $page = 1;
             }
-                $baseint=intval($base);
+                $baseint = intval($base);
+                // SI el home no esta definido, el predeterminado sera:
                 if($base==null){
-                    $inicio=0;
-                    $cant=4;
+                    $inicio = 0;
+                    $cant = 4;
                 }else{
-                $cant=$baseint*4;
-                $inicio=$cant-4;
+                $cant = $baseint * 4;
+                $inicio = $cant - 4;
             }
             $armas = $this->modelarmas->getAllArmas();
             $skins = $this->modelskins->getAllSkins($inicio);
@@ -87,6 +88,7 @@ class AdminController {
             $this->showError('No tienes acceso a esta seccion');
         }
     }
+
     function uniqueSaveName($realName, $tempName) {
         
         $filePath = "images/" . uniqid("", true) . "." 
@@ -245,6 +247,7 @@ class AdminController {
         header("Location: " . BASE_URL ."admin");
         }
     }
+    
     function deleteuser(){
         if (isset($_SESSION['PERMISOS']) && ($_SESSION['PERMISOS'] == 1)){
             $id = $_POST['iduser'];

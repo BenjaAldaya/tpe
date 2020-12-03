@@ -20,10 +20,10 @@
                 <div class="form-group col-8 text-info text-center">
                     {if $userlogin == 1}
                         <label>Comentario:</label>
-                        <textarea name="comment" class="form-control" rows="3" maxlength="144"></textarea>
+                        <textarea id="commenttext" name="comment" class="form-control" rows="3" maxlength="144"></textarea>
                     {else}
                         <label>Comentario:</label>
-                        <textarea name="comment" class="form-control" rows="3" disabled></textarea>
+                        <textarea id="commenttext" name="comment" class="form-control" rows="3" disabled></textarea>
                     {/if}
                 </div>
                 <div class="col-4">

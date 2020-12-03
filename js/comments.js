@@ -5,7 +5,11 @@ document.addEventListener('DOMContentLoaded', e => {
     getComments(idSkin);
     document.querySelector('#comment-form').addEventListener('submit', e => {
         e.preventDefault();
-        addComment(idSkin);
+        if(document.querySelector('textarea[name=comment]').value == ''){
+            alert("Escribe un comentario");
+        }else{
+            addComment(idSkin);
+        };
     });
     // document.querySelector('#Iremove').addEventListener('remove', e => {
     //     e.preventDefault();
@@ -14,6 +18,7 @@ document.addEventListener('DOMContentLoaded', e => {
 });
 
 async function getComments(idSkin) {
+    let valoracionpromedio = 0;
     try {
         // limpio la caja de comentarios : 
         document.querySelector('#commentbox').innerHTML = '';
@@ -27,10 +32,10 @@ async function getComments(idSkin) {
         const comments = await response.json();
         comentarios = comments;
         for (let index = 0; index < comentarios.length; index++) {
-            if (comentarios[index].usuario != undefined) { // Si existen comentarios
+            //if (comentarios[index].usuario != undefined) { // Si existen comentarios
                 // calculo la valoracion total
                 valoraciontotal = valoraciontotal + Number(comentarios[index].valoracion);
-                let valoracionpromedio = valoraciontotal / comentarios.length;
+                valoracionpromedio = (valoraciontotal / comentarios.length);
                 document.querySelector("#valtotal").innerHTML = "Valoración promedio: " + valoracionpromedio;
                 // escribo cantidad total de comentarios
                 if (comentarios.length == 1) { document.querySelector("#comTotal").innerHTML = comentarios.length + " comentario "; } else { document.querySelector("#comTotal").innerHTML = comentarios.length + " comentarios "; };
@@ -73,10 +78,12 @@ async function getComments(idSkin) {
                 } else if (comentarios[index].valoracion == 5) {
                     document.getElementById("" + comentarios[index].id + "").innerHTML = `${star}${star}${star}${star}${star}`;
                 };
-            }
+            //}
         }
     } catch (e) {
         console.log(e);
+        valoracionpromedio = 0;
+        document.querySelector("#valtotal").innerHTML = "Valoración promedio: " + valoracionpromedio;
     }
 
 };

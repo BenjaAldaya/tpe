@@ -29,7 +29,7 @@ class SkinController {
         if($base==null){
             $inicio=0;
         }else{
-            $inicio=($baseint*cantpag)-cantpag;
+            $inicio=($baseint*CANT_PAG)-CANT_PAG;
         }
         //Controlador llama al modelo para obtener las armas y skins, ademas llama a view para visualizarse.
         $armas = $this->modelarmas->getAllArmas();

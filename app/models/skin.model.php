@@ -24,7 +24,7 @@ class SkinModel {
         return $skins;
     }
 
-    function getskinsarma($idarma,$inicio){
+    function getskinsarma($idarma, $inicio){
         // funcion para obtener una skin por ID de arma
         $query = $this->db->prepare('SELECT * FROM skin WHERE id_arma = :idarma LIMIT :inicio ,'.CANT_PAG.'');
         $query->bindParam(':idarma',$idarma, PDO::PARAM_INT);
